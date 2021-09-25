@@ -1,15 +1,24 @@
 from kubernetes import client, config
-import random
 import time
 import math
 import pandas as pd
 from datetime import datetime
 import time
 
+# constats 
 DATE = '20200501'
 HOUR_INTERVAL = 1000
 TEN_MINUTES_INTERVAL = 6000
 INTERVAL = TEN_MINUTES_INTERVAL
+LOG_MSG = "Node %s has a renewable energy share of %s and a forecasted share of %s"
+
+# dataframe columns
+rad = 'Radiation'
+sc = 'Solar Current'
+sf = 'Solar Forecast'
+ws = 'Wind Speed'
+wc = 'Wind Current'
+wf = 'Wind Forecast'
 
 
 # initialize k8s config
@@ -32,6 +41,7 @@ def prepare_solar_data():
     rows=file.readlines()
     result={}
 
+    # extract relevant data from source
     for row in rows:
         key = row.split(';')[1]
         value = row.split(';')[4]
@@ -41,18 +51,16 @@ def prepare_solar_data():
             result[datetime_key] = value
     file.close()
 
-    df = pd.DataFrame.from_dict(result, orient='index', columns=['Radiation'])
-    df['Radiation'] =  pd.to_numeric(df['Radiation'])
+    # create pandas dataframe
+    output = pd.DataFrame.from_dict(result, orient='index', columns=[rad])
+    output[rad] =  pd.to_numeric(output[rad])
 
-    output = df 
+    # calculate current output
+    output[sc] =  output[rad] / 1000 * 2.78 * 10 * INTERVAL
+    del output[rad]
 
-    output['Solar Current'] =  output['Radiation'] / 1000 * 2.78 * 10 * INTERVAL
-    del output['Radiation']
-
-    # Mean of the following three values in the dataset
-    output['Solar Forecast'] = output.rolling(window=3).mean().shift(-3)
-
-    print(output.head(100))
+    # 'forecast' = mean of the following three values in the dataset
+    output[sf] = output.rolling(window=3).mean().shift(-3)
 
     return output
 
@@ -64,6 +72,7 @@ def prepare_wind_data():
     rows=file.readlines()
     result={}
 
+    # extract relevant data from source
     for row in rows:
         key = row.split(';')[1]
         value = row.split(';')[3]
@@ -73,22 +82,22 @@ def prepare_wind_data():
             result[datetime_key] = value
     file.close()
 
-    df = pd.DataFrame.from_dict(result, orient='index', columns=['Wind Speed'])
-    df['Wind Speed'] =  pd.to_numeric(df['Wind Speed'])
+    # create pandas dataframe
+    output = pd.DataFrame.from_dict(result, orient='index', columns=[ws])
+    output[ws] =  pd.to_numeric(output[ws])
 
-    output = df
+    # min required wind speed to produce energy according to manufacturer
+    output[ws].values[output[ws] < 3] = 0 
 
-    # Set Bottom (Min Speed)
-    output['Wind Speed'].values[output['Wind Speed'] < 3] = 0 
+    # calculate current output
+    output[wc] =   math.pi / 2 * 5.1**2 * output[ws]**3 * 1.2 * 0.5
+    del output[ws]
 
-    output['Wind Current'] =   math.pi / 2 * 5.1**2 * output['Wind Speed']**3 * 1.2 * 0.5
-    del output['Wind Speed']
+    # set ceiling for max yield
+    output[wc].values[output[wc] > 8999] = 9000
 
-    # Set Ceiling (Max Yield)
-    output['Wind Current'].values[output['Wind Current'] > 8999] = 9000
-
-    # Mean of the following three values in the dataset
-    output['Wind Forecast'] = output.rolling(window=3).mean().shift(-3)
+    # 'forecast' = mean of the following three values in the dataset
+    output[wf] = output.rolling(window=3).mean().shift(-3)
 
     return output
 
@@ -112,33 +121,37 @@ def update_annotation(node_name, renewable, forecast):
 
 
 
-def annotate_nodes(solar_output, wind_output):
+def annotate_nodes(solar_output, solar_forecast, wind_output, wind_forecast):
+
+    # TODO: further randomize values in range +/- 5%?
 
     print("%s Starting next annotation ..." % (datetime.now()))
         
-    node_list = [1, 2, 3, 4, 5]
     # get all nodes in the cluster
     #node_list = k8s_api.list_node()
+    node_list = [1, 2, 3, 4, 5]
 
+    # equipment of nodes with renewable energy
     #for node in node_list.items:
     for node in node_list:
         if node_list.index(node) == 0:
-            #update_annotation(node.metadata.name, 0.0,0.0)
-            print("Node %s has a renewable energy share of %s" % (node, 0.0))
+            # node zero gets zero renewables
+            #update_annotation(node.metadata.name, 0.0, 0.0)
+            print(LOG_MSG % (node, 0.0, 0.0))
         elif node_list.index(node) % 2 == 0:
-            #update_annotation(node.metadata.name, solar_output, 0.0)
-            print("Node %s has a renewable energy share of %s" % (node, solar_output))
+            #update_annotation(node.metadata.name, solar_output, solar_forecast)
+            print(LOG_MSG % (node, solar_output, solar_forecast))
         else:
-            #update_annotation(node.metadata.name, wind_output, 0.0)
-            print("Node %s has a renewable energy share of %s" % (node, wind_output))
+            #update_annotation(node.metadata.name, wind_output, solar_forecast)
+            print(LOG_MSG % (node, wind_output, wind_forecast))
 
-    print("eat sleep rave")
+    print("Sleeping 60 seconds...")
     time.sleep(60.0 - (time.time() % 60.0))
 
 
 
 def merge_outputs(solar_output, wind_output):
-
+    # merge dataframes for easy iteration and set precision of float to 1
     return pd.merge(solar_output, wind_output, how='inner', left_index=True, right_index=True).round(1)
 
 
@@ -149,11 +162,12 @@ def main():
     wind_output = prepare_wind_data()
     renewables_data = merge_outputs(solar_output, wind_output)
 
-    print(renewables_data.head(12))
+    #print(renewables_data.head())
 
-    annotations = [annotate_nodes(solar_output, wind_output) for solar_output, wind_output in zip(renewables_data['Solar Current'], renewables_data['Wind Current'])]
+    # iterate over renewable energy timeseries
+    annotations = [annotate_nodes(solar_output, solar_forecast, wind_output, wind_forecast) for solar_output, solar_forecast, wind_output, wind_forecast in zip(renewables_data[sc], renewables_data[sf], renewables_data[wc], renewables_data[wf])]
 
-
+    print("We are done here.")
 
 if __name__ == '__main__':
     main()
