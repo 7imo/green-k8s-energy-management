@@ -21,17 +21,16 @@ wc = 'Wind Current'
 wf = 'Wind Forecast'
 
 
-# initialize k8s config
-def dont_do_that_without_k8s():
-    try:
-        config.load_incluster_config()
-    except config.ConfigException:
-        try:
-            config.load_kube_config()
-        except config.ConfigException:
-            raise Exception("Could not configure kubernetes python client")
 
-    k8s_api = client.CoreV1Api()
+try:
+    config.load_incluster_config()
+except config.ConfigException:
+    try:
+        config.load_kube_config()
+    except config.ConfigException:
+        raise Exception("Could not configure kubernetes python client")
+
+k8s_api = client.CoreV1Api()    
 
 
 
@@ -109,8 +108,8 @@ def update_annotation(node_name, renewable, forecast):
     annotations = {
                 "metadata": {
                     "annotations": {
-                        "renewable": renewable, 
-                        "forecast": forecast 
+                        "renewable": str(renewable), 
+                        "forecast": str(forecast) 
                     }
                 }
             }
@@ -128,21 +127,27 @@ def annotate_nodes(solar_output, solar_forecast, wind_output, wind_forecast):
     print("%s Starting next annotation ..." % (datetime.now()))
         
     # get all nodes in the cluster
-    #node_list = k8s_api.list_node()
-    node_list = [1, 2, 3, 4, 5]
+    #node_list = [1, 2, 3, 4, 5]
+    nodes = k8s_api.list_node()
+    nodes_list = []
+
+    # get list of node names in cluster
+    for node in nodes.items:
+        nodes_list.append(node.metadata.name)
+
 
     # equipment of nodes with renewable energy
-    #for node in node_list.items:
-    for node in node_list:
-        if node_list.index(node) == 0:
+    #for node in node_list:
+    for node in nodes_list:
+        if nodes_list.index(node) == 0:
             # node zero gets zero renewables
-            #update_annotation(node.metadata.name, 0.0, 0.0)
+            update_annotation(node, 0.0, 0.0)
             print(LOG_MSG % (node, 0.0, 0.0))
-        elif node_list.index(node) % 2 == 0:
-            #update_annotation(node.metadata.name, solar_output, solar_forecast)
+        elif nodes_list.index(node) % 2 == 0:
+            update_annotation(node, solar_output, solar_forecast)
             print(LOG_MSG % (node, solar_output, solar_forecast))
         else:
-            #update_annotation(node.metadata.name, wind_output, solar_forecast)
+            update_annotation(node, wind_output, solar_forecast)
             print(LOG_MSG % (node, wind_output, wind_forecast))
 
     print("Sleeping 60 seconds...")
@@ -168,6 +173,7 @@ def main():
     annotations = [annotate_nodes(solar_output, solar_forecast, wind_output, wind_forecast) for solar_output, solar_forecast, wind_output, wind_forecast in zip(renewables_data[sc], renewables_data[sf], renewables_data[wc], renewables_data[wf])]
 
     print("We are done here.")
+
 
 if __name__ == '__main__':
     main()
