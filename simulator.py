@@ -1,6 +1,7 @@
 from kubernetes import client, config
 import time
 import math
+import random
 import pandas as pd
 from datetime import datetime
 import time
@@ -101,8 +102,15 @@ def prepare_wind_data():
     return output
 
 
+def apply_random_losses(renewable):
+    # randomizes renewable values with different efficiency factors
+    return round(renewable * random.uniform(0.85, 1.0), 1)
+
 
 def update_annotation(node_name, renewable, forecast):
+
+    renewable = apply_random_losses(renewable)
+    print(LOG_MSG % (node_name, renewable, forecast))
 
     # annotation body
     annotations = {
@@ -122,12 +130,9 @@ def update_annotation(node_name, renewable, forecast):
 
 def annotate_nodes(solar_output, solar_forecast, wind_output, wind_forecast):
 
-    # TODO: further randomize values in range +/- 5%?
-
     print("%s Starting next annotation ..." % (datetime.now()))
         
     # get all nodes in the cluster
-    #node_list = [1, 2, 3, 4, 5]
     nodes = k8s_api.list_node()
     nodes_list = []
 
@@ -137,18 +142,18 @@ def annotate_nodes(solar_output, solar_forecast, wind_output, wind_forecast):
 
 
     # equipment of nodes with renewable energy
-    #for node in node_list:
     for node in nodes_list:
         if nodes_list.index(node) == 0:
-            # node zero gets zero renewables
-            update_annotation(node, 0.0, 0.0)
-            print(LOG_MSG % (node, 0.0, 0.0))
+            # mixed equipment
+            combined_output = round(0.4 * wind_output + 0.7 * solar_output, 1)
+            combined_forecast = round(0.4 * wind_forecast + 0.7 * solar_forecast, 1)
+            update_annotation(node,  combined_output, combined_forecast)
         elif nodes_list.index(node) % 2 == 0:
+            # solar equipment
             update_annotation(node, solar_output, solar_forecast)
-            print(LOG_MSG % (node, solar_output, solar_forecast))
         else:
-            update_annotation(node, wind_output, solar_forecast)
-            print(LOG_MSG % (node, wind_output, wind_forecast))
+            # wind equipment
+            update_annotation(node, wind_output, wind_forecast)
 
     print("Sleeping 60 seconds...")
     time.sleep(60.0 - (time.time() % 60.0))
@@ -166,8 +171,6 @@ def main():
     solar_output = prepare_solar_data()
     wind_output = prepare_wind_data()
     renewables_data = merge_outputs(solar_output, wind_output)
-
-    #print(renewables_data.head())
 
     # iterate over renewable energy timeseries
     annotations = [annotate_nodes(solar_output, solar_forecast, wind_output, wind_forecast) for solar_output, solar_forecast, wind_output, wind_forecast in zip(renewables_data[sc], renewables_data[sf], renewables_data[wc], renewables_data[wf])]
