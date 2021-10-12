@@ -155,9 +155,8 @@ def annotate_nodes(solar_output, solar_forecast, wind_output, wind_forecast):
             # wind equipment
             update_annotation(node, wind_output, wind_forecast)
 
-    print("Sleeping 60 seconds...")
-    time.sleep(60.0 - (time.time() % 60.0))
-
+    print("Sleeping 180 seconds...")
+    time.sleep(180.0 - (time.time() % 180.0))
 
 
 def merge_outputs(solar_output, wind_output):
