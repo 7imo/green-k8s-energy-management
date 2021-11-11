@@ -15,17 +15,16 @@ MIXED_SHARE_WIND = 0.6
 LOG_MSG = "Updating %s with %s data: %s"
 
 
-def donoithing():
 
+try:
+    config.load_incluster_config()
+except config.ConfigException:
     try:
-        config.load_incluster_config()
+        config.load_kube_config()
     except config.ConfigException:
-        try:
-            config.load_kube_config()
-        except config.ConfigException:
-            raise Exception("Could not configure kubernetes python client")
+        raise Exception("Could not configure kubernetes python client")
 
-    k8s_api = client.CoreV1Api()    
+k8s_api = client.CoreV1Api()    
 
 
 def create_forecasts(df):
