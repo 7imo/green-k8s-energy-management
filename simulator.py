@@ -1,123 +1,122 @@
 from kubernetes import client, config
 import time
 import math
-import random
+from numpy.lib.function_base import select
 import pandas as pd
 from datetime import datetime
 import time
 
-# constats 
-DATE = '20200501'
-HOUR_INTERVAL = 1000
-TEN_MINUTES_INTERVAL = 6000
-INTERVAL = TEN_MINUTES_INTERVAL
-LOG_MSG = "Node %s has a renewable energy share of %s and a forecasted share of %s"
-
-# dataframe columns
-rad = 'Radiation'
-sc = 'Solar Current'
-sf = 'Solar Forecast'
-ws = 'Wind Speed'
-wc = 'Wind Current'
-wf = 'Wind Forecast'
+# constants 
+START_DATE = '2020-06-01 00:00:00'
+END_DATE = '2020-06-02 00:00:00'
+INTERVAL_SECONDS = 60
+MIXED_SHARE_SOLAR = 0.6
+MIXED_SHARE_WIND = 0.6
+LOG_MSG = "Updating %s with %s data: %s"
 
 
+def donoithing():
 
-try:
-    config.load_incluster_config()
-except config.ConfigException:
     try:
-        config.load_kube_config()
+        config.load_incluster_config()
     except config.ConfigException:
-        raise Exception("Could not configure kubernetes python client")
+        try:
+            config.load_kube_config()
+        except config.ConfigException:
+            raise Exception("Could not configure kubernetes python client")
 
-k8s_api = client.CoreV1Api()    
+    k8s_api = client.CoreV1Api()    
 
+
+def create_forecasts(df):
+
+    # Forecast
+    df['Watt_1h_ahead'] = df['Watt_10min'].rolling(6).sum().shift(-6).fillna(0).astype(int)
+    df['Watt_4h_ahead'] = df['Watt_10min'].rolling(24).sum().shift(-24).fillna(0).astype(int)
+    df['Watt_12h_ahead'] = df['Watt_10min'].rolling(72).sum().shift(-72).fillna(0).astype(int)
+    df['Watt_24h_ahead'] = df['Watt_10min'].rolling(144).sum().shift(-144).fillna(0).astype(int)
+
+    return df
+
+
+def filter_dates(df):
+
+    df['MESS_DATUM'] = pd.to_datetime(df['MESS_DATUM'], format='%Y%m%d%H%M')
+
+    # Filter
+    mask = (df['MESS_DATUM'] >= START_DATE) & (df['MESS_DATUM'] < END_DATE)
+    selected_dates = df.loc[mask]
+
+    selected_dates.set_index('MESS_DATUM', inplace=True)
+
+    return selected_dates
+
+
+def create_renewables_string(selected_dates):
+
+    return selected_dates.apply(lambda x :';'.join(x.astype(str)),1)
 
 
 def prepare_solar_data():
 
-    file=open('data/produkt_zehn_min_sd_20200101_20201231_05705.txt',"r")
-    rows=file.readlines()
-    result={}
+   # Extract & Transform
+    df = pd.read_csv('data/produkt_zehn_min_sd_20200101_20201231_05705.txt', delimiter = ";")
 
-    # extract relevant data from source
-    for row in rows:
-        key = row.split(';')[1]
-        value = row.split(';')[4]
+    # Remove unneccesary columns
+    df.drop(['STATIONS_ID', '  QN', 'DS_10', 'SD_10', 'LS_10', 'eor'], axis = 1, inplace = True)
 
-        if key.startswith(DATE):
-            datetime_key = datetime.strptime(key, '%Y%m%d%H%M')
-            result[datetime_key] = value
-    file.close()
+    # Current 10min Output
+    df['Watt_10min'] =  round((df['GS_10'] / 1000 * 2.78 * 50 * 6000 * 0.2)).astype(int)
 
-    # create pandas dataframe
-    output = pd.DataFrame.from_dict(result, orient='index', columns=[rad])
-    output[rad] =  pd.to_numeric(output[rad])
+    df = create_forecasts(df)
 
-    # calculate current output
-    output[sc] =  output[rad] / 1000 * 2.78 * 10 * INTERVAL
-    del output[rad]
+    selected_dates = filter_dates(df)
+    selected_dates.drop('GS_10', axis=1, inplace=True)
+    selected_dates['renewables_solar'] = create_renewables_string(selected_dates)
 
-    # 'forecast' = mean of the following three values in the dataset
-    output[sf] = output.rolling(window=3).mean().shift(-3)
-
-    return output
-
+    return selected_dates
 
 
 def prepare_wind_data():
 
-    file=open('data/produkt_zehn_min_ff_20200101_20201231_05705.txt',"r")
-    rows=file.readlines()
-    result={}
+    df = pd.read_csv('data/produkt_zehn_min_ff_20200101_20201231_05705.txt', delimiter = ";")
 
-    # extract relevant data from source
-    for row in rows:
-        key = row.split(';')[1]
-        value = row.split(';')[3]
+    # Remove unneccesary columns
+    df.drop(['STATIONS_ID', '  QN', 'DD_10', 'eor'], axis = 1, inplace = True)
 
-        if key.startswith(DATE):
-            datetime_key = datetime.strptime(key, '%Y%m%d%H%M')
-            result[datetime_key] = value
-    file.close()
+    # Current 10min Output
+    df['Watt_10min'] =  round((math.pi / 2 * 5.1**2 * df['FF_10']**3 * 1.2 * 0.5).astype(int))
 
-    # create pandas dataframe
-    output = pd.DataFrame.from_dict(result, orient='index', columns=[ws])
-    output[ws] =  pd.to_numeric(output[ws])
+    df = create_forecasts(df)
 
-    # min required wind speed to produce energy according to manufacturer
-    output[ws].values[output[ws] < 3] = 0 
+    selected_dates = filter_dates(df)
+    selected_dates.drop('FF_10', axis=1, inplace=True)
+    selected_dates['renewables_wind'] = create_renewables_string(selected_dates)
 
-    # calculate current output
-    output[wc] =   math.pi / 2 * 5.1**2 * output[ws]**3 * 1.2 * 0.5
-    del output[ws]
-
-    # set ceiling for max yield
-    output[wc].values[output[wc] > 8999] = 9000
-
-    # 'forecast' = mean of the following three values in the dataset
-    output[wf] = output.rolling(window=3).mean().shift(-3)
-
-    return output
+    return selected_dates
 
 
-def apply_random_losses(renewable):
-    # randomizes renewable values with different efficiency factors
-    return round(renewable * random.uniform(0.85, 1.0), 1)
+def prepare_mixed_data(solar_data, wind_data):
+
+    solar_share = solar_data.drop('renewables_solar', axis=1)
+    wind_share = wind_data.drop('renewables_wind', axis=1)
+
+    solar_share = solar_share.mul(MIXED_SHARE_SOLAR, fill_value=0)
+    wind_share = wind_share.mul(MIXED_SHARE_WIND, fill_value=0)
+
+    mixed_data = round(pd.concat([solar_data, wind_data]).groupby(['MESS_DATUM']).sum()).astype(int)
+    mixed_data['renewables_mixed'] = create_renewables_string(mixed_data) 
+
+    return mixed_data
 
 
-def update_annotation(node_name, renewable, forecast):
-
-    renewable = apply_random_losses(renewable)
-    print(LOG_MSG % (node_name, renewable, forecast))
+def update_annotation(node_name, renewables):
 
     # annotation body
     annotations = {
                 "metadata": {
                     "annotations": {
-                        "renewable": str(renewable), 
-                        "forecast": str(forecast) 
+                        "renewable": renewables, 
                     }
                 }
             }
@@ -127,52 +126,75 @@ def update_annotation(node_name, renewable, forecast):
     # print(response)
 
 
-
-def annotate_nodes(solar_output, solar_forecast, wind_output, wind_forecast):
+def annotate_nodes(equipped_nodes, data):
 
     print("%s Starting next annotation ..." % (datetime.now()))
-        
+
+    # equipment of nodes with renewable energy
+    for key, value in equipped_nodes:
+        if value == 'solar':
+            update_annotation(key, data['renewables_solar'])
+            print(LOG_MSG % (key, value, data['renewables_solar']))
+        elif value == 'wind':
+            update_annotation(key, data['renewables_wind'])
+            print(LOG_MSG % (key, value, data['renewables_wind']))
+        else:
+            update_annotation(key, data['renewables_mixed'])
+            print(LOG_MSG % (key, value, data['renewables_mixed']))
+
+
+def merge_outputs(solar_output, wind_output, mixed_output):
+    # merge dataframes for easy iteration
+    return pd.concat([solar_output['renewables_solar'], wind_output['renewables_wind'], mixed_output['renewables_mixed']], axis=1, keys=['renewables_solar', 'renewables_wind', 'renewables_mixed'])
+
+
+def assign_equipment():
+
     # get all nodes in the cluster
     nodes = k8s_api.list_node()
     nodes_list = []
+    equipment = {}
 
     # get list of node names in cluster
     for node in nodes.items:
         nodes_list.append(node.metadata.name)
 
-
     # equipment of nodes with renewable energy
     for node in nodes_list:
-        if nodes_list.index(node) == 0:
+        if nodes_list.index(node) == 0 or nodes_list.index(node) % 3 == 0:
             # mixed equipment
-            combined_output = round(0.4 * wind_output + 0.7 * solar_output, 1)
-            combined_forecast = round(0.4 * wind_forecast + 0.7 * solar_forecast, 1)
-            update_annotation(node,  combined_output, combined_forecast)
+            equipment.add(node, 'mixed')
+            print("Node %s has a mixed equipment" % node)
         elif nodes_list.index(node) % 2 == 0:
             # solar equipment
-            update_annotation(node, solar_output, solar_forecast)
+            equipment.add(node, 'solar')
+            print("Node %s has a solar equipment" % node)
         else:
             # wind equipment
-            update_annotation(node, wind_output, wind_forecast)
+            equipment.add(node, 'wind')
+            print("Node %s has a wind equipment" % node)
 
-    print("Sleeping 180 seconds...")
-    time.sleep(180.0 - (time.time() % 180.0))
-
-
-def merge_outputs(solar_output, wind_output):
-    # merge dataframes for easy iteration and set precision of float to 1
-    return pd.merge(solar_output, wind_output, how='inner', left_index=True, right_index=True).round(1)
-
+    return equipment
 
 
 def main():
-    
-    solar_output = prepare_solar_data()
-    wind_output = prepare_wind_data()
-    renewables_data = merge_outputs(solar_output, wind_output)
+    # assign renewables equipment to each node
+    equipped_nodes = assign_equipment()
+
+    # generate electricity production and forecast data from weather data
+    solar_data = prepare_solar_data()
+    wind_data = prepare_wind_data()
+    mixed_data = prepare_mixed_data(solar_data, wind_data)
+
+    # prepare for iteration
+    renewables_data = merge_outputs(solar_data, wind_data, mixed_data)
 
     # iterate over renewable energy timeseries
-    annotations = [annotate_nodes(solar_output, solar_forecast, wind_output, wind_forecast) for solar_output, solar_forecast, wind_output, wind_forecast in zip(renewables_data[sc], renewables_data[sf], renewables_data[wc], renewables_data[wf])]
+    for index, data in renewables_data.iterrows():
+        print('Next annotation for timestamp %s: %s, %s, %s' % (index, data['renewables_solar'], data['renewables_wind'], data['renewables_mixed']))
+        annotate_nodes(equipped_nodes, data)
+        # wait for next interval
+        time.sleep(INTERVAL_SECONDS - (time.time() % INTERVAL_SECONDS))
 
     print("We are done here.")
 
