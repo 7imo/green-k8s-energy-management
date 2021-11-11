@@ -1,10 +1,10 @@
-from kubernetes import client, config
-import time
 import math
-from numpy.lib.function_base import select
-import pandas as pd
-from datetime import datetime
 import time
+from datetime import datetime
+
+import pandas as pd
+from kubernetes import client, config
+from numpy.lib.function_base import select
 
 # constants 
 START_DATE = '2020-06-01 00:00:00'
@@ -127,10 +127,8 @@ def update_annotation(node_name, renewables):
 
 def annotate_nodes(equipped_nodes, data):
 
-    print("%s Starting next annotation ..." % (datetime.now()))
-
     # equipment of nodes with renewable energy
-    for key, value in equipped_nodes:
+    for key, value in equipped_nodes.items():
         if value == 'solar':
             update_annotation(key, data['renewables_solar'])
             print(LOG_MSG % (key, value, data['renewables_solar']))
@@ -162,15 +160,15 @@ def assign_equipment():
     for node in nodes_list:
         if nodes_list.index(node) == 0 or nodes_list.index(node) % 3 == 0:
             # mixed equipment
-            equipment.add(node, 'mixed')
+            equipment[node] = 'mixed'
             print("Node %s has a mixed equipment" % node)
         elif nodes_list.index(node) % 2 == 0:
             # solar equipment
-            equipment.add(node, 'solar')
+            equipment[node] = 'solar'
             print("Node %s has a solar equipment" % node)
         else:
             # wind equipment
-            equipment.add(node, 'wind')
+            equipment[node] = 'wind'
             print("Node %s has a wind equipment" % node)
 
     return equipment
@@ -190,9 +188,10 @@ def main():
 
     # iterate over renewable energy timeseries
     for index, data in renewables_data.iterrows():
-        print('Next annotation for timestamp %s: %s, %s, %s' % (index, data['renewables_solar'], data['renewables_wind'], data['renewables_mixed']))
+        print("Next annotation for timestamp %s: %s, %s, %s" % (index, data['renewables_solar'], data['renewables_wind'], data['renewables_mixed']))
         annotate_nodes(equipped_nodes, data)
         # wait for next interval
+        print("Sleeping %s seconds..." % INTERVAL_SECONDS)
         time.sleep(INTERVAL_SECONDS - (time.time() % INTERVAL_SECONDS))
 
     print("We are done here.")
