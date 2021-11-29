@@ -9,10 +9,10 @@ from numpy.lib.function_base import select
 # constants 
 START_DATE = '2020-06-01 00:00:00'
 END_DATE = '2020-06-02 00:00:00'
-INTERVAL_SECONDS = 60
+INTERVAL_SECONDS = 15
 MIXED_SHARE_SOLAR = 0.6
 MIXED_SHARE_WIND = 0.6
-LOG_MSG = "Updating %s with %s data: %s"
+LOG_MSG = "%s Updating %s with %s data: %s"
 
 
 
@@ -105,18 +105,20 @@ def prepare_mixed_data(solar_data, wind_data):
     solar_share = solar_share.mul(MIXED_SHARE_SOLAR, fill_value=0)
     wind_share = wind_share.mul(MIXED_SHARE_WIND, fill_value=0)
 
-    mixed_data = round(pd.concat([solar_data, wind_data]).groupby(['MESS_DATUM']).sum()).astype(int)
+    mixed_data = round(pd.concat([solar_share, wind_share]).groupby(['MESS_DATUM']).sum(), 1)
     mixed_data['renewables_mixed'] = create_renewables_string(mixed_data) 
 
     return mixed_data
 
 
-def update_annotation(node_name, renewables):
+def update_annotation(node_name, ts, equipment, renewables):
 
     # annotation body
     annotations = {
                 "metadata": {
                     "annotations": {
+                        "timestamp": ts,
+                        "equipment": equipment,
                         "renewable": renewables, 
                     }
                 }
@@ -124,22 +126,22 @@ def update_annotation(node_name, renewables):
 
     # send to k8s
     response = k8s_api.patch_node(node_name, annotations)
-    # print(response)
+    #print(response)
 
 
-def annotate_nodes(equipped_nodes, data):
+def annotate_nodes(ts, equipped_nodes, data):
 
     # equipment of nodes with renewable energy
     for key, value in equipped_nodes.items():
         if value == 'solar':
-            update_annotation(key, data['renewables_solar'])
-            print(LOG_MSG % (key, value, data['renewables_solar']))
+            update_annotation(key, ts, value, data['renewables_solar'])
+            print(LOG_MSG % (ts, key, value, data['renewables_solar']))
         elif value == 'wind':
-            update_annotation(key, data['renewables_wind'])
-            print(LOG_MSG % (key, value, data['renewables_wind']))
+            update_annotation(key, ts, value, data['renewables_wind'])
+            print(LOG_MSG % (ts, key, value, data['renewables_wind']))
         else:
-            update_annotation(key, data['renewables_mixed'])
-            print(LOG_MSG % (key, value, data['renewables_mixed']))
+            update_annotation(key, ts, value, data['renewables_mixed'])
+            print(LOG_MSG % (ts, key, value, data['renewables_mixed']))
 
 
 def merge_outputs(solar_output, wind_output, mixed_output):
@@ -150,13 +152,18 @@ def merge_outputs(solar_output, wind_output, mixed_output):
 def assign_equipment():
 
     # get all nodes in the cluster
-    nodes = k8s_api.list_node()
+    master_nodes = k8s_api.list_node(label_selector='kubernetes.io/role=master')
+    worker_nodes = k8s_api.list_node(label_selector='kubernetes.io/role=node')
     nodes_list = []
     equipment = {}
 
-    # get list of node names in cluster
-    for node in nodes.items:
+    for node in master_nodes.items:
         nodes_list.append(node.metadata.name)
+
+    for node in worker_nodes.items:
+        nodes_list.append(node.metadata.name)
+        print("__________________________________")
+        print(str(node))
 
     # equipment of nodes with renewable energy
     for node in nodes_list:
@@ -191,7 +198,7 @@ def main():
     # iterate over renewable energy timeseries
     for index, data in renewables_data.iterrows():
         print("Next annotation for timestamp %s: %s, %s, %s" % (index, data['renewables_solar'], data['renewables_wind'], data['renewables_mixed']))
-        annotate_nodes(equipped_nodes, data)
+        annotate_nodes(str(index), equipped_nodes, data)
         # wait for next interval
         print("Sleeping %s seconds..." % INTERVAL_SECONDS)
         time.sleep(INTERVAL_SECONDS - (time.time() % INTERVAL_SECONDS))
