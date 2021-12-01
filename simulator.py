@@ -119,7 +119,8 @@ def update_annotation(node_name, ts, equipment, renewables):
                     "annotations": {
                         "timestamp": ts,
                         "equipment": equipment,
-                        "renewable": renewables, 
+                        "renewable": renewables,
+                        "nominal_power": "10000" 
                     }
                 }
             }
@@ -158,12 +159,11 @@ def assign_equipment():
     equipment = {}
 
     for node in master_nodes.items:
+        print(node)
         nodes_list.append(node.metadata.name)
 
     for node in worker_nodes.items:
         nodes_list.append(node.metadata.name)
-        print("__________________________________")
-        print(str(node))
 
     # equipment of nodes with renewable energy
     for node in nodes_list:
