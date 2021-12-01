@@ -30,10 +30,10 @@ k8s_api = client.CoreV1Api()
 def create_forecasts(df):
 
     # Forecast
-    df['Watt_1h_ahead'] = df['Watt_10min'].rolling(6).sum().shift(-6).fillna(0)
-    df['Watt_4h_ahead'] = df['Watt_10min'].rolling(24).sum().shift(-24).fillna(0)
-    df['Watt_12h_ahead'] = df['Watt_10min'].rolling(72).sum().shift(-72).fillna(0)
-    df['Watt_24h_ahead'] = df['Watt_10min'].rolling(144).sum().shift(-144).fillna(0)
+    df['Watt_1h_ahead'] = df['Watt_10min'].rolling(6).mean().shift(-6).fillna(0)
+    df['Watt_4h_ahead'] = df['Watt_10min'].rolling(24).mean().shift(-24).fillna(0)
+    df['Watt_12h_ahead'] = df['Watt_10min'].rolling(72).mean().shift(-72).fillna(0)
+    df['Watt_24h_ahead'] = df['Watt_10min'].rolling(144).mean().shift(-144).fillna(0)
     cols = ['Watt_10min', 'Watt_1h_ahead','Watt_4h_ahead', 'Watt_12h_ahead', 'Watt_24h_ahead']
     df[cols] = df[cols].apply(lambda x: pd.Series.round(x, 1))
 
