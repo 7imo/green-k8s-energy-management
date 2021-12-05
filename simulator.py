@@ -7,11 +7,12 @@ from kubernetes import client, config
 from numpy.lib.function_base import select
 
 # constants 
-START_DATE = '2020-06-01 00:00:00'
-END_DATE = '2020-06-02 00:00:00'
-INTERVAL_SECONDS = 15
+START_DATE = '2020-10-01 17:50:00'
+END_DATE = '2020-10-02 00:00:00'
+INTERVAL_SECONDS = 120
 MIXED_SHARE_SOLAR = 0.6
 MIXED_SHARE_WIND = 0.6
+NOMINAL_POWER = "10000"
 LOG_MSG = "%s Updating %s with %s data: %s"
 
 
@@ -88,6 +89,9 @@ def prepare_wind_data():
     # Current 10min Output
     df['Watt_10min'] =  math.pi / 2 * 5.1**2 * df['FF_10']**3 * 1.2 * 0.5
 
+    # set ceiling
+    df['Watt_10min'].values[df['Watt_10min'] > 9999] = 10000
+
     df = create_forecasts(df)
 
     selected_dates = filter_dates(df)
@@ -120,7 +124,7 @@ def update_annotation(node_name, ts, equipment, renewables):
                         "timestamp": ts,
                         "equipment": equipment,
                         "renewable": renewables,
-                        "nominal_power": "10000" 
+                        "nominal_power": NOMINAL_POWER 
                     }
                 }
             }
@@ -159,7 +163,6 @@ def assign_equipment():
     equipment = {}
 
     for node in master_nodes.items:
-        print(node)
         nodes_list.append(node.metadata.name)
 
     for node in worker_nodes.items:
@@ -200,7 +203,6 @@ def main():
         print("Next annotation for timestamp %s: %s, %s, %s" % (index, data['renewables_solar'], data['renewables_wind'], data['renewables_mixed']))
         annotate_nodes(str(index), equipped_nodes, data)
         # wait for next interval
-        print("Sleeping %s seconds..." % INTERVAL_SECONDS)
         time.sleep(INTERVAL_SECONDS - (time.time() % INTERVAL_SECONDS))
 
     print("We are done here.")

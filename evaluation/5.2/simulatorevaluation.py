@@ -7,7 +7,7 @@ from kubernetes import client, config
 from numpy.lib.function_base import select
 
 
-INTERVAL_SECONDS = 15
+INTERVAL_SECONDS = 10
 LOG_MSG = "%s Node %s has a %s share of: %s"
 
 
