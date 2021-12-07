@@ -7,9 +7,9 @@ from kubernetes import client, config
 from numpy.lib.function_base import select
 
 # constants 
-START_DATE = '2020-10-01 17:50:00'
-END_DATE = '2020-10-02 00:00:00'
-INTERVAL_SECONDS = 120
+START_DATE = '2020-06-01 17:00:00'
+END_DATE = '2020-06-02 00:00:00'
+INTERVAL_SECONDS = 600
 MIXED_SHARE_SOLAR = 0.6
 MIXED_SHARE_WIND = 0.6
 NOMINAL_POWER = "10000"
