@@ -7,13 +7,13 @@ from kubernetes import client, config
 from numpy.lib.function_base import select
 
 # constants 
-START_DATE = '2020-06-01 17:00:00'
-END_DATE = '2020-06-02 00:00:00'
-INTERVAL_SECONDS = 600
+START_DATE = '2020-04-04 15:50:00'
+END_DATE = '2020-04-04 20:10:00'
+INTERVAL_SECONDS = 90
 MIXED_SHARE_SOLAR = 0.6
 MIXED_SHARE_WIND = 0.6
-NOMINAL_POWER = "10000"
-LOG_MSG = "%s Updating %s with %s data: %s"
+LOG_MSG = "%s - %s Updating %s with a consumption of %s and %s renewable data: %s"
+NOMINAL_POWER = 10000
 
 
 
@@ -29,13 +29,14 @@ k8s_api = client.CoreV1Api()
 
 
 def create_forecasts(df):
+    cols = ['Watt_10min']
 
     # Forecast
-    df['Watt_1h_ahead'] = df['Watt_10min'].rolling(6).mean().shift(-6).fillna(0)
-    df['Watt_4h_ahead'] = df['Watt_10min'].rolling(24).mean().shift(-24).fillna(0)
-    df['Watt_12h_ahead'] = df['Watt_10min'].rolling(72).mean().shift(-72).fillna(0)
-    df['Watt_24h_ahead'] = df['Watt_10min'].rolling(144).mean().shift(-144).fillna(0)
-    cols = ['Watt_10min', 'Watt_1h_ahead','Watt_4h_ahead', 'Watt_12h_ahead', 'Watt_24h_ahead']
+    for i in range(1, 25):
+        col = 'Watt_' + str(i) + 'h_ahead'
+        df[col] = df['Watt_10min'].rolling(6*i).mean().shift(-6*i).fillna(0)
+        cols.append(col)
+
     df[cols] = df[cols].apply(lambda x: pd.Series.round(x, 1))
 
     return df
@@ -90,7 +91,7 @@ def prepare_wind_data():
     df['Watt_10min'] =  math.pi / 2 * 5.1**2 * df['FF_10']**3 * 1.2 * 0.5
 
     # set ceiling
-    df['Watt_10min'].values[df['Watt_10min'] > 9999] = 10000
+    df['Watt_10min'].values[df['Watt_10min'] > 9999] = NOMINAL_POWER
 
     df = create_forecasts(df)
 
@@ -115,7 +116,7 @@ def prepare_mixed_data(solar_data, wind_data):
     return mixed_data
 
 
-def update_annotation(node_name, ts, equipment, renewables):
+def update_annotation(node_name, ts, consumption, equipment, renewables):
 
     # annotation body
     annotations = {
@@ -123,8 +124,8 @@ def update_annotation(node_name, ts, equipment, renewables):
                     "annotations": {
                         "timestamp": ts,
                         "equipment": equipment,
-                        "renewable": renewables,
-                        "nominal_power": NOMINAL_POWER 
+                        "consumption": consumption,
+                        "renewables": renewables
                     }
                 }
             }
@@ -134,19 +135,42 @@ def update_annotation(node_name, ts, equipment, renewables):
     #print(response)
 
 
+def calculate_consumption():
+    api = client.CustomObjectsApi()
+    k8s_nodes = api.list_cluster_custom_object("metrics.k8s.io", "v1beta1", "nodes")
+    consumption = {}
+
+    for stats in k8s_nodes['items']:
+
+        cpu = float(stats['usage']['cpu'][:-1])
+        allocatable = float(10**9) # 1 Core
+        current_consumption = (cpu / allocatable) * NOMINAL_POWER
+
+        consumption[stats['metadata']['name']] = str(round(current_consumption))
+    
+    return consumption
+
+
 def annotate_nodes(ts, equipped_nodes, data):
 
+    currentConsumption = calculate_consumption()
+    now = datetime.now().strftime("%m/%d/%Y %H:%M:%S")
+
     # equipment of nodes with renewable energy
-    for key, value in equipped_nodes.items():
-        if value == 'solar':
-            update_annotation(key, ts, value, data['renewables_solar'])
-            print(LOG_MSG % (ts, key, value, data['renewables_solar']))
-        elif value == 'wind':
-            update_annotation(key, ts, value, data['renewables_wind'])
-            print(LOG_MSG % (ts, key, value, data['renewables_wind']))
+    for node, eq in equipped_nodes.items():
+        cons = currentConsumption[node]
+        if eq == 'solar':
+            update_annotation(node, ts, cons, eq, data['renewables_solar'])
+            print(LOG_MSG % (now, ts, node, cons, eq, data['renewables_solar']))
+        elif eq == 'wind':
+            update_annotation(node, ts, cons, eq, data['renewables_wind'])
+            print(LOG_MSG % (now, ts, node, cons, eq, data['renewables_wind']))
+        elif eq == 'mixed':
+            update_annotation(node, ts, cons, eq, data['renewables_mixed'])
+            print(LOG_MSG % (now, ts, node, cons, eq, data['renewables_mixed']))
         else:
-            update_annotation(key, ts, value, data['renewables_mixed'])
-            print(LOG_MSG % (ts, key, value, data['renewables_mixed']))
+            update_annotation(node, ts, cons, eq, "")
+            print(LOG_MSG % (now, ts, node, cons, eq, "0"))
 
 
 def merge_outputs(solar_output, wind_output, mixed_output):
@@ -157,36 +181,38 @@ def merge_outputs(solar_output, wind_output, mixed_output):
 def assign_equipment():
 
     # get all nodes in the cluster
-    master_nodes = k8s_api.list_node(label_selector='kubernetes.io/role=master')
     worker_nodes = k8s_api.list_node(label_selector='kubernetes.io/role=node')
     nodes_list = []
     equipment = {}
-
-    for node in master_nodes.items:
-        nodes_list.append(node.metadata.name)
 
     for node in worker_nodes.items:
         nodes_list.append(node.metadata.name)
 
     # equipment of nodes with renewable energy
     for node in nodes_list:
-        if nodes_list.index(node) == 0 or nodes_list.index(node) % 3 == 0:
-            # mixed equipment
-            equipment[node] = 'mixed'
-            print("Node %s has a mixed equipment" % node)
+        if nodes_list.index(node) == 0:
+            # no equipment
+            equipment[node] = 'none'
+            print("Node %s has no renewable equipment" % node)
+        elif nodes_list.index(node) % 3 == 0:
+            # wind equipment
+            equipment[node] = 'wind'
+            print("Node %s has a wind equipment" % node)
         elif nodes_list.index(node) % 2 == 0:
             # solar equipment
             equipment[node] = 'solar'
             print("Node %s has a solar equipment" % node)
         else:
-            # wind equipment
-            equipment[node] = 'wind'
-            print("Node %s has a wind equipment" % node)
+            # mixed equipment
+            equipment[node] = 'mixed'
+            print("Node %s has a mixed equipment" % node)
+            
 
     return equipment
 
 
 def main():
+
     # assign renewables equipment to each node
     equipped_nodes = assign_equipment()
 
@@ -200,7 +226,8 @@ def main():
 
     # iterate over renewable energy timeseries
     for index, data in renewables_data.iterrows():
-        print("Next annotation for timestamp %s: %s, %s, %s" % (index, data['renewables_solar'], data['renewables_wind'], data['renewables_mixed']))
+        # print("Next annotation for timestamp %s: %s, %s, %s" % (index, data['renewables_solar'], data['renewables_wind'], data['renewables_mixed']))
+        print("Next annotation for timestamp %s:" % (index))
         annotate_nodes(str(index), equipped_nodes, data)
         # wait for next interval
         time.sleep(INTERVAL_SECONDS - (time.time() % INTERVAL_SECONDS))
