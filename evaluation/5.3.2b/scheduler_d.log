@@ -1,0 +1,1417 @@
+I1220 19:36:17.419640       1 leaderelection.go:282] successfully renewed lease kube-system/green-k8s-scheduler
+I1220 19:36:18.843634       1 scheduling_queue.go:830] About to try and schedule pod default/green-k8s-test-65bb774986-twnml
+I1220 19:36:18.843819       1 scheduler.go:530] Attempting to schedule pod: default/green-k8s-test-65bb774986-twnml
+I1220 19:36:18.844205       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-twnml on Node ip-172-20-40-148.ec2.internal is allowed, Node is running only 9 out of 110 Pods.
+I1220 19:36:18.844442       1 generic_scheduler.go:667] since alwaysCheckAllPredicates has not been set, the predicate evaluation is short circuited and there are chances of other predicates failing as well.
+I1220 19:36:18.844363       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-twnml on Node ip-172-20-58-134.ec2.internal is allowed, Node is running only 2 out of 110 Pods.
+I1220 19:36:18.844382       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-twnml on Node ip-172-20-45-201.ec2.internal is allowed, Node is running only 2 out of 110 Pods.
+I1220 19:36:18.844398       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-twnml on Node ip-172-20-49-41.ec2.internal is allowed, Node is running only 1 out of 110 Pods.
+I1220 19:36:18.844415       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-twnml on Node ip-172-20-61-178.ec2.internal is allowed, Node is running only 3 out of 110 Pods.
+I1220 19:36:18.866145       1 resource_allocation.go:84] green-k8s-test-65bb774986-twnml -> ip-172-20-58-134.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:350 memory:492830720] ,score 9,
+I1220 19:36:18.879025       1 resource_allocation.go:84] green-k8s-test-65bb774986-twnml -> ip-172-20-58-134.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:350 memory:492830720] ,score 6,
+I1220 19:36:18.868381       1 resource_allocation.go:84] green-k8s-test-65bb774986-twnml -> ip-172-20-45-201.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:350 memory:492830720] ,score 9,
+I1220 19:36:18.880699       1 resource_allocation.go:84] green-k8s-test-65bb774986-twnml -> ip-172-20-45-201.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:350 memory:492830720] ,score 6,
+I1220 19:36:18.868413       1 resource_allocation.go:84] green-k8s-test-65bb774986-twnml -> ip-172-20-49-41.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:250 memory:419430400] ,score 9,
+I1220 19:36:18.881107       1 resource_allocation.go:84] green-k8s-test-65bb774986-twnml -> ip-172-20-49-41.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:250 memory:419430400] ,score 7,
+I1220 19:36:18.868432       1 resource_allocation.go:84] green-k8s-test-65bb774986-twnml -> ip-172-20-61-178.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:370 memory:639631360] ,score 9,
+I1220 19:36:18.884825       1 resource_allocation.go:84] green-k8s-test-65bb774986-twnml -> ip-172-20-61-178.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:370 memory:639631360] ,score 6,
+I1220 19:36:18.884999       1 selector_spreading.go:146] green-k8s-test-65bb774986-twnml -> ip-172-20-58-134.ec2.internal: SelectorSpreadPriority, Score: (10)
+I1220 19:36:18.887906       1 selector_spreading.go:146] green-k8s-test-65bb774986-twnml -> ip-172-20-45-201.ec2.internal: SelectorSpreadPriority, Score: (10)
+I1220 19:36:18.888022       1 selector_spreading.go:146] green-k8s-test-65bb774986-twnml -> ip-172-20-49-41.ec2.internal: SelectorSpreadPriority, Score: (10)
+I1220 19:36:18.888999       1 selector_spreading.go:146] green-k8s-test-65bb774986-twnml -> ip-172-20-61-178.ec2.internal: SelectorSpreadPriority, Score: (10)
+I1220 19:36:18.889147       1 generic_scheduler.go:773] green-k8s-test-65bb774986-twnml_default -> ip-172-20-58-134.ec2.internal: ServiceSpreadingPriority, Score: (10)
+I1220 19:36:18.889248       1 generic_scheduler.go:773] green-k8s-test-65bb774986-twnml_default -> ip-172-20-45-201.ec2.internal: ServiceSpreadingPriority, Score: (10)
+I1220 19:36:18.889373       1 generic_scheduler.go:773] green-k8s-test-65bb774986-twnml_default -> ip-172-20-49-41.ec2.internal: ServiceSpreadingPriority, Score: (10)
+I1220 19:36:18.889592       1 generic_scheduler.go:773] green-k8s-test-65bb774986-twnml_default -> ip-172-20-61-178.ec2.internal: ServiceSpreadingPriority, Score: (10)
+I1220 19:36:18.889725       1 generic_scheduler.go:838] Host ip-172-20-58-134.ec2.internal => Score 26
+I1220 19:36:18.889886       1 generic_scheduler.go:838] Host ip-172-20-45-201.ec2.internal => Score 26
+I1220 19:36:18.890012       1 generic_scheduler.go:838] Host ip-172-20-49-41.ec2.internal => Score 27
+I1220 19:36:18.890084       1 generic_scheduler.go:838] Host ip-172-20-61-178.ec2.internal => Score 26
+I1220 19:36:18.890223       1 scheduler_binder.go:256] AssumePodVolumes for pod "default/green-k8s-test-65bb774986-twnml", node "ip-172-20-49-41.ec2.internal"
+I1220 19:36:18.890251       1 scheduler_binder.go:266] AssumePodVolumes for pod "default/green-k8s-test-65bb774986-twnml", node "ip-172-20-49-41.ec2.internal": all PVCs bound and nothing to do
+I1220 19:36:18.890338       1 factory.go:610] Attempting to bind green-k8s-test-65bb774986-twnml to ip-172-20-49-41.ec2.internal
+I1220 19:36:18.890410       1 request.go:966] Request Body:
+00000000  6b 38 73 00 0a 0d 0a 02  76 31 12 07 42 69 6e 64  |k8s.....v1..Bind|
+00000010  69 6e 67 12 8e 01 0a 5c  0a 1f 67 72 65 65 6e 2d  |ing....\..green-|
+00000020  6b 38 73 2d 74 65 73 74  2d 36 35 62 62 37 37 34  |k8s-test-65bb774|
+00000030  39 38 36 2d 74 77 6e 6d  6c 12 00 1a 07 64 65 66  |986-twnml....def|
+00000040  61 75 6c 74 22 00 2a 24  66 61 33 63 33 64 66 64  |ault".*$fa3c3dfd|
+00000050  2d 33 61 34 62 2d 34 63  37 33 2d 62 37 32 65 2d  |-3a4b-4c73-b72e-|
+00000060  35 38 34 61 39 38 35 61  63 36 37 34 32 00 38 00  |584a985ac6742.8.|
+00000070  42 00 7a 00 12 2e 0a 04  4e 6f 64 65 12 00 1a 1c  |B.z.....Node....|
+00000080  69 70 2d 31 37 32 2d 32  30 2d 34 39 2d 34 31 2e  |ip-172-20-49-41.|
+00000090  65 63 32 2e 69 6e 74 65  72 6e 61 6c 22 00 2a 00  |ec2.internal".*.|
+000000a0  32 00 3a 00 1a 00 22 00                           |2.:...".|
+I1220 19:36:18.890561       1 round_trippers.go:423] curl -k -v -XPOST  -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkI2d0Zpc0Q2S2pFdmhUX3hsRG5GZFdLemMtRkhWWmxiQmszcGVmc3RsdjQifQ.eyJhdWQiOlsia3ViZXJuZXRlcy5zdmMuZGVmYXVsdCJdLCJleHAiOjE2NzE1NjM0ODksImlhdCI6MTY0MDAyNzQ4OSwiaXNzIjoiaHR0cHM6Ly9hcGkuaW50ZXJuYWwuaGEuZ3JlZW5rOHMuY29tIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInBvZCI6eyJuYW1lIjoiZ3JlZW4tazhzLXNjaGVkdWxlci04Y2I3Zjc3Nzktdmg5bHciLCJ1aWQiOiJkZTEyN2Q0Yy1iYjY0LTQxMDktOWQ3ZC1mNWJjN2RkOWRlM2UifSwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImdyZWVuLWs4cy1zY2hlZHVsZXIiLCJ1aWQiOiI2NzgyMTEwNC01NGFiLTQ2YzctYTQ3NC00YjhlODI3M2UyZWYifSwid2FybmFmdGVyIjoxNjQwMDMxMDk2fSwibmJmIjoxNjQwMDI3NDg5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06Z3JlZW4tazhzLXNjaGVkdWxlciJ9.PCHj0VsyJ_6F1kiw2KtMJhp43t05m6phkjymLWPohHbxVSKc48rnPoNVik3odvK28ts9f3WKq0JlzZQPg_xq9ot31ffQqlBvKgBvCFonPN_TWNiCgoP_PZEsbj3L0IWFKAPQd-18KSx2-_rdm621jRpOKICVz9cj7KlnAQfkdOeHG5dnRA1ci2vMgN4wZaVDwrhjq0WMBgLRjr_pTr-j0QBrNVt8FYBh4KQDhyBjKyoLizg_MltKxwIlWiyHFH5kEJxeOvE4tnWtT9eTGa4qPTbTqjTSq1fF_6ukQpEpRmYnqYywvGAJ2vgSn4AvXxtVgnoZq2tpUm6_XnUFXclHqg" -H "Accept: application/vnd.kubernetes.protobuf, */*" -H "Content-Type: application/vnd.kubernetes.protobuf" -H "User-Agent: kube-scheduler/v1.16.3 (linux/amd64) kubernetes/b3cbbae/scheduler" 'https://100.64.0.1:443/api/v1/namespaces/default/pods/green-k8s-test-65bb774986-twnml/binding'
+I1220 19:36:18.891605       1 scheduling_queue.go:830] About to try and schedule pod default/green-k8s-test-65bb774986-dl42d
+I1220 19:36:18.891630       1 scheduler.go:530] Attempting to schedule pod: default/green-k8s-test-65bb774986-dl42d
+I1220 19:36:18.891732       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-dl42d on Node ip-172-20-40-148.ec2.internal is allowed, Node is running only 9 out of 110 Pods.
+I1220 19:36:18.891754       1 generic_scheduler.go:667] since alwaysCheckAllPredicates has not been set, the predicate evaluation is short circuited and there are chances of other predicates failing as well.
+I1220 19:36:18.891768       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-dl42d on Node ip-172-20-58-134.ec2.internal is allowed, Node is running only 2 out of 110 Pods.
+I1220 19:36:18.891786       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-dl42d on Node ip-172-20-45-201.ec2.internal is allowed, Node is running only 2 out of 110 Pods.
+I1220 19:36:18.891798       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-dl42d on Node ip-172-20-49-41.ec2.internal is allowed, Node is running only 2 out of 110 Pods.
+I1220 19:36:18.891857       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-dl42d on Node ip-172-20-61-178.ec2.internal is allowed, Node is running only 3 out of 110 Pods.
+I1220 19:36:18.891974       1 resource_allocation.go:84] green-k8s-test-65bb774986-dl42d -> ip-172-20-58-134.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:350 memory:492830720] ,score 9,
+I1220 19:36:18.892039       1 resource_allocation.go:84] green-k8s-test-65bb774986-dl42d -> ip-172-20-58-134.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:350 memory:492830720] ,score 6,
+I1220 19:36:18.892060       1 resource_allocation.go:84] green-k8s-test-65bb774986-dl42d -> ip-172-20-45-201.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:350 memory:492830720] ,score 9,
+I1220 19:36:18.892081       1 resource_allocation.go:84] green-k8s-test-65bb774986-dl42d -> ip-172-20-45-201.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:350 memory:492830720] ,score 6,
+I1220 19:36:18.892094       1 resource_allocation.go:84] green-k8s-test-65bb774986-dl42d -> ip-172-20-49-41.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:400 memory:629145600] ,score 9,
+I1220 19:36:18.892109       1 resource_allocation.go:84] green-k8s-test-65bb774986-dl42d -> ip-172-20-49-41.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:400 memory:629145600] ,score 6,
+I1220 19:36:18.892129       1 resource_allocation.go:84] green-k8s-test-65bb774986-dl42d -> ip-172-20-61-178.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:370 memory:639631360] ,score 9,
+I1220 19:36:18.892150       1 resource_allocation.go:84] green-k8s-test-65bb774986-dl42d -> ip-172-20-61-178.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:370 memory:639631360] ,score 6,
+I1220 19:36:18.892299       1 selector_spreading.go:146] green-k8s-test-65bb774986-dl42d -> ip-172-20-58-134.ec2.internal: SelectorSpreadPriority, Score: (3)
+I1220 19:36:18.892320       1 selector_spreading.go:146] green-k8s-test-65bb774986-dl42d -> ip-172-20-45-201.ec2.internal: SelectorSpreadPriority, Score: (3)
+I1220 19:36:18.892327       1 selector_spreading.go:146] green-k8s-test-65bb774986-dl42d -> ip-172-20-49-41.ec2.internal: SelectorSpreadPriority, Score: (0)
+I1220 19:36:18.892333       1 selector_spreading.go:146] green-k8s-test-65bb774986-dl42d -> ip-172-20-61-178.ec2.internal: SelectorSpreadPriority, Score: (3)
+I1220 19:36:18.892339       1 generic_scheduler.go:773] green-k8s-test-65bb774986-dl42d_default -> ip-172-20-58-134.ec2.internal: ServiceSpreadingPriority, Score: (3)
+I1220 19:36:18.892345       1 generic_scheduler.go:773] green-k8s-test-65bb774986-dl42d_default -> ip-172-20-45-201.ec2.internal: ServiceSpreadingPriority, Score: (3)
+I1220 19:36:18.892350       1 generic_scheduler.go:773] green-k8s-test-65bb774986-dl42d_default -> ip-172-20-49-41.ec2.internal: ServiceSpreadingPriority, Score: (0)
+I1220 19:36:18.892356       1 generic_scheduler.go:773] green-k8s-test-65bb774986-dl42d_default -> ip-172-20-61-178.ec2.internal: ServiceSpreadingPriority, Score: (3)
+I1220 19:36:18.892373       1 generic_scheduler.go:838] Host ip-172-20-58-134.ec2.internal => Score 19
+I1220 19:36:18.892444       1 generic_scheduler.go:838] Host ip-172-20-45-201.ec2.internal => Score 19
+I1220 19:36:18.892461       1 generic_scheduler.go:838] Host ip-172-20-49-41.ec2.internal => Score 16
+I1220 19:36:18.892467       1 generic_scheduler.go:838] Host ip-172-20-61-178.ec2.internal => Score 19
+I1220 19:36:18.892554       1 scheduler_binder.go:256] AssumePodVolumes for pod "default/green-k8s-test-65bb774986-dl42d", node "ip-172-20-61-178.ec2.internal"
+I1220 19:36:18.892590       1 scheduler_binder.go:266] AssumePodVolumes for pod "default/green-k8s-test-65bb774986-dl42d", node "ip-172-20-61-178.ec2.internal": all PVCs bound and nothing to do
+I1220 19:36:18.892691       1 factory.go:610] Attempting to bind green-k8s-test-65bb774986-dl42d to ip-172-20-61-178.ec2.internal
+I1220 19:36:18.892814       1 request.go:966] Request Body:
+00000000  6b 38 73 00 0a 0d 0a 02  76 31 12 07 42 69 6e 64  |k8s.....v1..Bind|
+00000010  69 6e 67 12 8f 01 0a 5c  0a 1f 67 72 65 65 6e 2d  |ing....\..green-|
+00000020  6b 38 73 2d 74 65 73 74  2d 36 35 62 62 37 37 34  |k8s-test-65bb774|
+00000030  39 38 36 2d 64 6c 34 32  64 12 00 1a 07 64 65 66  |986-dl42d....def|
+00000040  61 75 6c 74 22 00 2a 24  33 35 30 32 65 33 61 63  |ault".*$3502e3ac|
+00000050  2d 63 65 31 34 2d 34 38  30 62 2d 38 64 36 62 2d  |-ce14-480b-8d6b-|
+00000060  37 66 32 36 32 39 65 38  36 33 34 35 32 00 38 00  |7f2629e863452.8.|
+00000070  42 00 7a 00 12 2f 0a 04  4e 6f 64 65 12 00 1a 1d  |B.z../..Node....|
+00000080  69 70 2d 31 37 32 2d 32  30 2d 36 31 2d 31 37 38  |ip-172-20-61-178|
+00000090  2e 65 63 32 2e 69 6e 74  65 72 6e 61 6c 22 00 2a  |.ec2.internal".*|
+000000a0  00 32 00 3a 00 1a 00 22  00                       |.2.:...".|
+I1220 19:36:18.893115       1 round_trippers.go:423] curl -k -v -XPOST  -H "Accept: application/vnd.kubernetes.protobuf, */*" -H "Content-Type: application/vnd.kubernetes.protobuf" -H "User-Agent: kube-scheduler/v1.16.3 (linux/amd64) kubernetes/b3cbbae/scheduler" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkI2d0Zpc0Q2S2pFdmhUX3hsRG5GZFdLemMtRkhWWmxiQmszcGVmc3RsdjQifQ.eyJhdWQiOlsia3ViZXJuZXRlcy5zdmMuZGVmYXVsdCJdLCJleHAiOjE2NzE1NjM0ODksImlhdCI6MTY0MDAyNzQ4OSwiaXNzIjoiaHR0cHM6Ly9hcGkuaW50ZXJuYWwuaGEuZ3JlZW5rOHMuY29tIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInBvZCI6eyJuYW1lIjoiZ3JlZW4tazhzLXNjaGVkdWxlci04Y2I3Zjc3Nzktdmg5bHciLCJ1aWQiOiJkZTEyN2Q0Yy1iYjY0LTQxMDktOWQ3ZC1mNWJjN2RkOWRlM2UifSwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImdyZWVuLWs4cy1zY2hlZHVsZXIiLCJ1aWQiOiI2NzgyMTEwNC01NGFiLTQ2YzctYTQ3NC00YjhlODI3M2UyZWYifSwid2FybmFmdGVyIjoxNjQwMDMxMDk2fSwibmJmIjoxNjQwMDI3NDg5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06Z3JlZW4tazhzLXNjaGVkdWxlciJ9.PCHj0VsyJ_6F1kiw2KtMJhp43t05m6phkjymLWPohHbxVSKc48rnPoNVik3odvK28ts9f3WKq0JlzZQPg_xq9ot31ffQqlBvKgBvCFonPN_TWNiCgoP_PZEsbj3L0IWFKAPQd-18KSx2-_rdm621jRpOKICVz9cj7KlnAQfkdOeHG5dnRA1ci2vMgN4wZaVDwrhjq0WMBgLRjr_pTr-j0QBrNVt8FYBh4KQDhyBjKyoLizg_MltKxwIlWiyHFH5kEJxeOvE4tnWtT9eTGa4qPTbTqjTSq1fF_6ukQpEpRmYnqYywvGAJ2vgSn4AvXxtVgnoZq2tpUm6_XnUFXclHqg" 'https://100.64.0.1:443/api/v1/namespaces/default/pods/green-k8s-test-65bb774986-dl42d/binding'
+I1220 19:36:18.895274       1 round_trippers.go:443] POST https://100.64.0.1:443/api/v1/namespaces/default/pods/green-k8s-test-65bb774986-twnml/binding 201 Created in 4 milliseconds
+I1220 19:36:18.895298       1 round_trippers.go:449] Response Headers:
+I1220 19:36:18.895304       1 round_trippers.go:452]     Date: Mon, 20 Dec 2021 19:36:18 GMT
+I1220 19:36:18.895309       1 round_trippers.go:452]     Cache-Control: no-cache, private
+I1220 19:36:18.895314       1 round_trippers.go:452]     Content-Type: application/vnd.kubernetes.protobuf
+I1220 19:36:18.895585       1 round_trippers.go:452]     X-Kubernetes-Pf-Flowschema-Uid: 9fb2dc3c-3c29-42f2-bb88-3d0896e45310
+I1220 19:36:18.895604       1 round_trippers.go:452]     X-Kubernetes-Pf-Prioritylevel-Uid: 0d11ff8b-ca59-4914-b971-4d6f623f711b
+I1220 19:36:18.895609       1 round_trippers.go:452]     Content-Length: 48
+I1220 19:36:18.895728       1 request.go:966] Response Body:
+00000000  6b 38 73 00 0a 0c 0a 02  76 31 12 06 53 74 61 74  |k8s.....v1..Stat|
+00000010  75 73 12 18 0a 06 0a 00  12 00 1a 00 12 07 53 75  |us............Su|
+00000020  63 63 65 73 73 1a 00 22  00 30 c9 01 1a 00 22 00  |ccess..".0....".|
+I1220 19:36:18.895889       1 cache.go:305] Finished binding for pod fa3c3dfd-3a4b-4c73-b72e-584a985ac674. Can be expired.
+I1220 19:36:18.895928       1 event_recorder.go:54] Could not construct reference to: '<nil>' due to: 'can't reference a nil object'.
+I1220 19:36:18.896046       1 scheduler.go:667] pod default/green-k8s-test-65bb774986-twnml is bound successfully on node "ip-172-20-49-41.ec2.internal", 5 nodes evaluated, 4 nodes were found feasible. Bound node resource: "Capacity: CPU<1>|Memory<2022868Ki>|Pods<110>|StorageEphemeral<130045936Ki>; Allocatable: CPU<1>|Memory<1920468Ki>|Pods<110>|StorageEphemeral<119850334420>.".
+I1220 19:36:18.896232       1 request.go:966] Request Body:
+00000000  6b 38 73 00 0a 1e 0a 15  65 76 65 6e 74 73 2e 6b  |k8s.....events.k|
+00000010  38 73 2e 69 6f 2f 76 31  62 65 74 61 31 12 05 45  |8s.io/v1beta1..E|
+00000020  76 65 6e 74 12 a7 03 0a  49 0a 30 67 72 65 65 6e  |vent....I.0green|
+00000030  2d 6b 38 73 2d 74 65 73  74 2d 36 35 62 62 37 37  |-k8s-test-65bb77|
+00000040  34 39 38 36 2d 74 77 6e  6d 6c 2e 31 36 63 32 38  |4986-twnml.16c28|
+00000050  64 61 61 63 34 37 30 35  35 34 36 12 00 1a 07 64  |daac4705546....d|
+00000060  65 66 61 75 6c 74 22 00  2a 00 32 00 38 00 42 00  |efault".*.2.8.B.|
+00000070  7a 00 12 0c 08 b2 b6 83  8e 06 10 d2 c0 9a ab 03  |z...............|
+00000080  22 13 67 72 65 65 6e 2d  6b 38 73 2d 73 63 68 65  |".green-k8s-sche|
+00000090  64 75 6c 65 72 2a 37 67  72 65 65 6e 2d 6b 38 73  |duler*7green-k8s|
+000000a0  2d 73 63 68 65 64 75 6c  65 72 2d 67 72 65 65 6e  |-scheduler-green|
+000000b0  2d 6b 38 73 2d 73 63 68  65 64 75 6c 65 72 2d 38  |-k8s-scheduler-8|
+000000c0  63 62 37 66 37 37 37 39  2d 76 68 39 6c 77 32 07  |cb7f7779-vh9lw2.|
+000000d0  42 69 6e 64 69 6e 67 3a  09 53 63 68 65 64 75 6c  |Binding:.Schedul|
+000000e0  65 64 42 64 0a 03 50 6f  64 12 07 64 65 66 61 75  |edBd..Pod..defau|
+000000f0  6c 74 1a 1f 67 72 65 65  6e 2d 6b 38 73 2d 74 65  |lt..green-k8s-te|
+00000100  73 74 2d 36 35 62 62 37  37 34 39 38 36 2d 74 77  |st-65bb774986-tw|
+00000110  6e 6d 6c 22 24 66 61 33  63 33 64 66 64 2d 33 61  |nml"$fa3c3dfd-3a|
+00000120  34 62 2d 34 63 37 33 2d  62 37 32 65 2d 35 38 34  |4b-4c73-b72e-584|
+00000130  61 39 38 35 61 63 36 37  34 2a 02 76 31 32 07 31  |a985ac674*.v12.1|
+00000140  33 39 34 33 35 33 3a 00  52 5d 53 75 63 63 65 73  |394353:.R]Succes|
+00000150  73 66 75 6c 6c 79 20 61  73 73 69 67 6e 65 64 20  |sfully assigned |
+00000160  64 65 66 61 75 6c 74 2f  67 72 65 65 6e 2d 6b 38  |default/green-k8|
+00000170  73 2d 74 65 73 74 2d 36  35 62 62 37 37 34 39 38  |s-test-65bb77498|
+00000180  36 2d 74 77 6e 6d 6c 20  74 6f 20 69 70 2d 31 37  |6-twnml to ip-17|
+00000190  32 2d 32 30 2d 34 39 2d  34 31 2e 65 63 32 2e 69  |2-20-49-41.ec2.i|
+000001a0  6e 74 65 72 6e 61 6c 5a  06 4e 6f 72 6d 61 6c 62  |nternalZ.Normalb|
+000001b0  17 0a 13 67 72 65 65 6e  2d 6b 38 73 2d 73 63 68  |...green-k8s-sch|
+000001c0  65 64 75 6c 65 72 12 00  6a 00 72 00 78 00 1a 00  |eduler..j.r.x...|
+000001d0  22 00                                             |".|
+I1220 19:36:18.896737       1 round_trippers.go:423] curl -k -v -XPOST  -H "User-Agent: kube-scheduler/v1.16.3 (linux/amd64) kubernetes/b3cbbae/scheduler" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkI2d0Zpc0Q2S2pFdmhUX3hsRG5GZFdLemMtRkhWWmxiQmszcGVmc3RsdjQifQ.eyJhdWQiOlsia3ViZXJuZXRlcy5zdmMuZGVmYXVsdCJdLCJleHAiOjE2NzE1NjM0ODksImlhdCI6MTY0MDAyNzQ4OSwiaXNzIjoiaHR0cHM6Ly9hcGkuaW50ZXJuYWwuaGEuZ3JlZW5rOHMuY29tIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInBvZCI6eyJuYW1lIjoiZ3JlZW4tazhzLXNjaGVkdWxlci04Y2I3Zjc3Nzktdmg5bHciLCJ1aWQiOiJkZTEyN2Q0Yy1iYjY0LTQxMDktOWQ3ZC1mNWJjN2RkOWRlM2UifSwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImdyZWVuLWs4cy1zY2hlZHVsZXIiLCJ1aWQiOiI2NzgyMTEwNC01NGFiLTQ2YzctYTQ3NC00YjhlODI3M2UyZWYifSwid2FybmFmdGVyIjoxNjQwMDMxMDk2fSwibmJmIjoxNjQwMDI3NDg5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06Z3JlZW4tazhzLXNjaGVkdWxlciJ9.PCHj0VsyJ_6F1kiw2KtMJhp43t05m6phkjymLWPohHbxVSKc48rnPoNVik3odvK28ts9f3WKq0JlzZQPg_xq9ot31ffQqlBvKgBvCFonPN_TWNiCgoP_PZEsbj3L0IWFKAPQd-18KSx2-_rdm621jRpOKICVz9cj7KlnAQfkdOeHG5dnRA1ci2vMgN4wZaVDwrhjq0WMBgLRjr_pTr-j0QBrNVt8FYBh4KQDhyBjKyoLizg_MltKxwIlWiyHFH5kEJxeOvE4tnWtT9eTGa4qPTbTqjTSq1fF_6ukQpEpRmYnqYywvGAJ2vgSn4AvXxtVgnoZq2tpUm6_XnUFXclHqg" -H "Accept: application/vnd.kubernetes.protobuf, */*" -H "Content-Type: application/vnd.kubernetes.protobuf" 'https://100.64.0.1:443/apis/events.k8s.io/v1beta1/namespaces/default/events'
+I1220 19:36:18.898193       1 scheduling_queue.go:830] About to try and schedule pod default/green-k8s-test-65bb774986-cpgh5
+I1220 19:36:18.898216       1 scheduler.go:530] Attempting to schedule pod: default/green-k8s-test-65bb774986-cpgh5
+I1220 19:36:18.898414       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-cpgh5 on Node ip-172-20-40-148.ec2.internal is allowed, Node is running only 9 out of 110 Pods.
+I1220 19:36:18.898438       1 generic_scheduler.go:667] since alwaysCheckAllPredicates has not been set, the predicate evaluation is short circuited and there are chances of other predicates failing as well.
+I1220 19:36:18.898451       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-cpgh5 on Node ip-172-20-58-134.ec2.internal is allowed, Node is running only 2 out of 110 Pods.
+I1220 19:36:18.898511       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-cpgh5 on Node ip-172-20-49-41.ec2.internal is allowed, Node is running only 2 out of 110 Pods.
+I1220 19:36:18.898564       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-cpgh5 on Node ip-172-20-45-201.ec2.internal is allowed, Node is running only 2 out of 110 Pods.
+I1220 19:36:18.898687       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-cpgh5 on Node ip-172-20-61-178.ec2.internal is allowed, Node is running only 4 out of 110 Pods.
+I1220 19:36:18.913006       1 round_trippers.go:443] POST https://100.64.0.1:443/apis/events.k8s.io/v1beta1/namespaces/default/events 201 Created in 16 milliseconds
+I1220 19:36:18.915979       1 round_trippers.go:449] Response Headers:
+I1220 19:36:18.916231       1 round_trippers.go:452]     Date: Mon, 20 Dec 2021 19:36:18 GMT
+I1220 19:36:18.916252       1 round_trippers.go:452]     Cache-Control: no-cache, private
+I1220 19:36:18.916258       1 round_trippers.go:452]     Content-Type: application/vnd.kubernetes.protobuf
+I1220 19:36:18.916263       1 round_trippers.go:452]     X-Kubernetes-Pf-Flowschema-Uid: 9fb2dc3c-3c29-42f2-bb88-3d0896e45310
+I1220 19:36:18.916268       1 round_trippers.go:452]     X-Kubernetes-Pf-Prioritylevel-Uid: 0d11ff8b-ca59-4914-b971-4d6f623f711b
+I1220 19:36:18.916274       1 round_trippers.go:452]     Content-Length: 863
+I1220 19:36:18.917422       1 resource_allocation.go:84] green-k8s-test-65bb774986-cpgh5 -> ip-172-20-58-134.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:350 memory:492830720] ,score 9,
+I1220 19:36:18.917625       1 request.go:966] Response Body:
+00000000  6b 38 73 00 0a 1e 0a 15  65 76 65 6e 74 73 2e 6b  |k8s.....events.k|
+00000010  38 73 2e 69 6f 2f 76 31  62 65 74 61 31 12 05 45  |8s.io/v1beta1..E|
+00000020  76 65 6e 74 12 b4 06 0a  d5 03 0a 30 67 72 65 65  |vent.......0gree|
+00000030  6e 2d 6b 38 73 2d 74 65  73 74 2d 36 35 62 62 37  |n-k8s-test-65bb7|
+00000040  37 34 39 38 36 2d 74 77  6e 6d 6c 2e 31 36 63 32  |74986-twnml.16c2|
+00000050  38 64 61 61 63 34 37 30  35 35 34 36 12 00 1a 07  |8daac4705546....|
+00000060  64 65 66 61 75 6c 74 22  00 2a 24 37 33 66 36 64  |default".*$73f6d|
+00000070  66 65 35 2d 63 35 34 65  2d 34 35 38 34 2d 61 34  |fe5-c54e-4584-a4|
+00000080  38 64 2d 64 64 65 30 38  62 30 30 37 65 31 62 32  |8d-dde08b007e1b2|
+00000090  04 32 35 33 35 38 00 42  08 08 b2 b6 83 8e 06 10  |.25358.B........|
+000000a0  00 7a 00 8a 01 d8 02 0a  0e 6b 75 62 65 2d 73 63  |.z.......kube-sc|
+000000b0  68 65 64 75 6c 65 72 12  06 55 70 64 61 74 65 1a  |heduler..Update.|
+000000c0  15 65 76 65 6e 74 73 2e  6b 38 73 2e 69 6f 2f 76  |.events.k8s.io/v|
+000000d0  31 62 65 74 61 31 22 08  08 b2 b6 83 8e 06 10 00  |1beta1".........|
+000000e0  32 08 46 69 65 6c 64 73  56 31 3a 92 02 0a 8f 02  |2.FieldsV1:.....|
+000000f0  7b 22 66 3a 61 63 74 69  6f 6e 22 3a 7b 7d 2c 22  |{"f:action":{},"|
+00000100  66 3a 64 65 70 72 65 63  61 74 65 64 53 6f 75 72  |f:deprecatedSour|
+00000110  63 65 22 3a 7b 22 66 3a  63 6f 6d 70 6f 6e 65 6e  |ce":{"f:componen|
+00000120  74 22 3a 7b 7d 7d 2c 22  66 3a 65 76 65 6e 74 54  |t":{}},"f:eventT|
+00000130  69 6d 65 22 3a 7b 7d 2c  22 66 3a 6e 6f 74 65 22  |ime":{},"f:note"|
+00000140  3a 7b 7d 2c 22 66 3a 72  65 61 73 6f 6e 22 3a 7b  |:{},"f:reason":{|
+00000150  7d 2c 22 66 3a 72 65 67  61 72 64 69 6e 67 22 3a  |},"f:regarding":|
+00000160  7b 22 66 3a 61 70 69 56  65 72 73 69 6f 6e 22 3a  |{"f:apiVersion":|
+00000170  7b 7d 2c 22 66 3a 6b 69  6e 64 22 3a 7b 7d 2c 22  |{},"f:kind":{},"|
+00000180  66 3a 6e 61 6d 65 22 3a  7b 7d 2c 22 66 3a 6e 61  |f:name":{},"f:na|
+00000190  6d 65 73 70 61 63 65 22  3a 7b 7d 2c 22 66 3a 72  |mespace":{},"f:r|
+000001a0  65 73 6f 75 72 63 65 56  65 72 73 69 6f 6e 22 3a  |esourceVersion":|
+000001b0  7b 7d 2c 22 66 3a 75 69  64 22 3a 7b 7d 7d 2c 22  |{},"f:uid":{}},"|
+000001c0  66 3a 72 65 70 6f 72 74  69 6e 67 43 6f 6e 74 72  |f:reportingContr|
+000001d0  6f 6c 6c 65 72 22 3a 7b  7d 2c 22 66 3a 72 65 70  |oller":{},"f:rep|
+000001e0  6f 72 74 69 6e 67 49 6e  73 74 61 6e 63 65 22 3a  |ortingInstance":|
+000001f0  7b 7d 2c 22 66 3a 74 79  70 65 22 3a 7b 7d 7d 12  |{},"f:type":{}}.|
+00000200  0c 08 b2 b6 83 8e 06 10  d2 c0 9a ab 03 22 13 67  |.............".g|
+00000210  72 65 65 6e 2d 6b 38 73  2d 73 63 68 65 64 75 6c  |reen-k8s-schedul|
+00000220  65 72 2a 37 67 72 65 65  6e 2d 6b 38 73 2d 73 63  |er*7green-k8s-sc|
+00000230  68 65 64 75 6c 65 72 2d  67 72 65 65 6e 2d 6b 38  |heduler-green-k8|
+00000240  73 2d 73 63 68 65 64 75  6c 65 72 2d 38 63 62 37  |s-scheduler-8cb7|
+00000250  66 37 37 37 39 2d 76 68  39 6c 77 32 07 42 69 6e  |f7779-vh9lw2.Bin|
+00000260  64 69 6e 67 3a 09 53 63  68 65 64 75 6c 65 64 42  |ding:.ScheduledB|
+00000270  64 0a 03 50 6f 64 12 07  64 65 66 61 75 6c 74 1a  |d..Pod..default.|
+00000280  1f 67 72 65 65 6e 2d 6b  38 73 2d 74 65 73 74 2d  |.green-k8s-test-|
+00000290  36 35 62 62 37 37 34 39  38 36 2d 74 77 6e 6d 6c  |65bb774986-twnml|
+000002a0  22 24 66 61 33 63 33 64  66 64 2d 33 61 34 62 2d  |"$fa3c3dfd-3a4b-|
+000002b0  34 63 37 33 2d 62 37 32  65 2d 35 38 34 61 39 38  |4c73-b72e-584a98|
+000002c0  35 61 63 36 37 34 2a 02  76 31 32 07 31 33 39 34  |5ac674*.v12.1394|
+000002d0  33 35 33 3a 00 52 5d 53  75 63 63 65 73 73 66 75  |353:.R]Successfu|
+000002e0  6c 6c 79 20 61 73 73 69  67 6e 65 64 20 64 65 66  |lly assigned def|
+000002f0  61 75 6c 74 2f 67 72 65  65 6e 2d 6b 38 73 2d 74  |ault/green-k8s-t|
+00000300  65 73 74 2d 36 35 62 62  37 37 34 39 38 36 2d 74  |est-65bb774986-t|
+00000310  77 6e 6d 6c 20 74 6f 20  69 70 2d 31 37 32 2d 32  |wnml to ip-172-2|
+00000320  30 2d 34 39 2d 34 31 2e  65 63 32 2e 69 6e 74 65  |0-49-41.ec2.inte|
+00000330  72 6e 61 6c 5a 06 4e 6f  72 6d 61 6c 62 17 0a 13  |rnalZ.Normalb...|
+00000340  67 72 65 65 6e 2d 6b 38  73 2d 73 63 68 65 64 75  |green-k8s-schedu|
+00000350  6c 65 72 12 00 6a 00 72  00 78 00 1a 00 22 00     |ler..j.r.x...".|
+I1220 19:36:18.913027       1 round_trippers.go:443] POST https://100.64.0.1:443/api/v1/namespaces/default/pods/green-k8s-test-65bb774986-dl42d/binding 201 Created in 19 milliseconds
+I1220 19:36:18.918256       1 round_trippers.go:449] Response Headers:
+I1220 19:36:18.917471       1 resource_allocation.go:84] green-k8s-test-65bb774986-cpgh5 -> ip-172-20-58-134.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:350 memory:492830720] ,score 6,
+I1220 19:36:18.918430       1 resource_allocation.go:84] green-k8s-test-65bb774986-cpgh5 -> ip-172-20-49-41.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:400 memory:629145600] ,score 9,
+I1220 19:36:18.918629       1 resource_allocation.go:84] green-k8s-test-65bb774986-cpgh5 -> ip-172-20-49-41.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:400 memory:629145600] ,score 6,
+I1220 19:36:18.918264       1 round_trippers.go:452]     Cache-Control: no-cache, private
+I1220 19:36:18.919017       1 round_trippers.go:452]     Content-Type: application/vnd.kubernetes.protobuf
+I1220 19:36:18.919023       1 round_trippers.go:452]     X-Kubernetes-Pf-Flowschema-Uid: 9fb2dc3c-3c29-42f2-bb88-3d0896e45310
+I1220 19:36:18.919029       1 round_trippers.go:452]     X-Kubernetes-Pf-Prioritylevel-Uid: 0d11ff8b-ca59-4914-b971-4d6f623f711b
+I1220 19:36:18.919179       1 round_trippers.go:452]     Content-Length: 48
+I1220 19:36:18.919184       1 round_trippers.go:452]     Date: Mon, 20 Dec 2021 19:36:18 GMT
+I1220 19:36:18.919339       1 request.go:966] Response Body:
+00000000  6b 38 73 00 0a 0c 0a 02  76 31 12 06 53 74 61 74  |k8s.....v1..Stat|
+00000010  75 73 12 18 0a 06 0a 00  12 00 1a 00 12 07 53 75  |us............Su|
+00000020  63 63 65 73 73 1a 00 22  00 30 c9 01 1a 00 22 00  |ccess..".0....".|
+I1220 19:36:18.919475       1 cache.go:305] Finished binding for pod 3502e3ac-ce14-480b-8d6b-7f2629e86345. Can be expired.
+I1220 19:36:18.919649       1 event_recorder.go:54] Could not construct reference to: '<nil>' due to: 'can't reference a nil object'.
+I1220 19:36:18.919782       1 scheduler.go:667] pod default/green-k8s-test-65bb774986-dl42d is bound successfully on node "ip-172-20-61-178.ec2.internal", 5 nodes evaluated, 4 nodes were found feasible. Bound node resource: "Capacity: CPU<1>|Memory<2022868Ki>|Pods<110>|StorageEphemeral<130045936Ki>; Allocatable: CPU<1>|Memory<1920468Ki>|Pods<110>|StorageEphemeral<119850334420>.".
+I1220 19:36:18.918910       1 resource_allocation.go:84] green-k8s-test-65bb774986-cpgh5 -> ip-172-20-45-201.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:350 memory:492830720] ,score 9,
+I1220 19:36:18.919962       1 resource_allocation.go:84] green-k8s-test-65bb774986-cpgh5 -> ip-172-20-45-201.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:350 memory:492830720] ,score 6,
+I1220 19:36:18.918972       1 resource_allocation.go:84] green-k8s-test-65bb774986-cpgh5 -> ip-172-20-61-178.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:520 memory:849346560] ,score 9,
+I1220 19:36:18.920055       1 resource_allocation.go:84] green-k8s-test-65bb774986-cpgh5 -> ip-172-20-61-178.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:520 memory:849346560] ,score 4,
+I1220 19:36:18.920165       1 selector_spreading.go:146] green-k8s-test-65bb774986-cpgh5 -> ip-172-20-58-134.ec2.internal: SelectorSpreadPriority, Score: (3)
+I1220 19:36:18.920326       1 selector_spreading.go:146] green-k8s-test-65bb774986-cpgh5 -> ip-172-20-49-41.ec2.internal: SelectorSpreadPriority, Score: (0)
+I1220 19:36:18.920350       1 selector_spreading.go:146] green-k8s-test-65bb774986-cpgh5 -> ip-172-20-45-201.ec2.internal: SelectorSpreadPriority, Score: (3)
+I1220 19:36:18.920357       1 selector_spreading.go:146] green-k8s-test-65bb774986-cpgh5 -> ip-172-20-61-178.ec2.internal: SelectorSpreadPriority, Score: (0)
+I1220 19:36:18.920363       1 generic_scheduler.go:773] green-k8s-test-65bb774986-cpgh5_default -> ip-172-20-58-134.ec2.internal: ServiceSpreadingPriority, Score: (3)
+I1220 19:36:18.920369       1 generic_scheduler.go:773] green-k8s-test-65bb774986-cpgh5_default -> ip-172-20-49-41.ec2.internal: ServiceSpreadingPriority, Score: (0)
+I1220 19:36:18.920375       1 generic_scheduler.go:773] green-k8s-test-65bb774986-cpgh5_default -> ip-172-20-45-201.ec2.internal: ServiceSpreadingPriority, Score: (3)
+I1220 19:36:18.920380       1 generic_scheduler.go:773] green-k8s-test-65bb774986-cpgh5_default -> ip-172-20-61-178.ec2.internal: ServiceSpreadingPriority, Score: (0)
+I1220 19:36:18.920291       1 request.go:966] Request Body:
+00000000  6b 38 73 00 0a 1e 0a 15  65 76 65 6e 74 73 2e 6b  |k8s.....events.k|
+00000010  38 73 2e 69 6f 2f 76 31  62 65 74 61 31 12 05 45  |8s.io/v1beta1..E|
+00000020  76 65 6e 74 12 a8 03 0a  49 0a 30 67 72 65 65 6e  |vent....I.0green|
+00000030  2d 6b 38 73 2d 74 65 73  74 2d 36 35 62 62 37 37  |-k8s-test-65bb77|
+00000040  34 39 38 36 2d 64 6c 34  32 64 2e 31 36 63 32 38  |4986-dl42d.16c28|
+00000050  64 61 61 63 35 64 61 37  32 66 38 12 00 1a 07 64  |daac5da72f8....d|
+00000060  65 66 61 75 6c 74 22 00  2a 00 32 00 38 00 42 00  |efault".*.2.8.B.|
+00000070  7a 00 12 0c 08 b2 b6 83  8e 06 10 a1 a2 c2 b6 03  |z...............|
+00000080  22 13 67 72 65 65 6e 2d  6b 38 73 2d 73 63 68 65  |".green-k8s-sche|
+00000090  64 75 6c 65 72 2a 37 67  72 65 65 6e 2d 6b 38 73  |duler*7green-k8s|
+000000a0  2d 73 63 68 65 64 75 6c  65 72 2d 67 72 65 65 6e  |-scheduler-green|
+000000b0  2d 6b 38 73 2d 73 63 68  65 64 75 6c 65 72 2d 38  |-k8s-scheduler-8|
+000000c0  63 62 37 66 37 37 37 39  2d 76 68 39 6c 77 32 07  |cb7f7779-vh9lw2.|
+000000d0  42 69 6e 64 69 6e 67 3a  09 53 63 68 65 64 75 6c  |Binding:.Schedul|
+000000e0  65 64 42 64 0a 03 50 6f  64 12 07 64 65 66 61 75  |edBd..Pod..defau|
+000000f0  6c 74 1a 1f 67 72 65 65  6e 2d 6b 38 73 2d 74 65  |lt..green-k8s-te|
+00000100  73 74 2d 36 35 62 62 37  37 34 39 38 36 2d 64 6c  |st-65bb774986-dl|
+00000110  34 32 64 22 24 33 35 30  32 65 33 61 63 2d 63 65  |42d"$3502e3ac-ce|
+00000120  31 34 2d 34 38 30 62 2d  38 64 36 62 2d 37 66 32  |14-480b-8d6b-7f2|
+00000130  36 32 39 65 38 36 33 34  35 2a 02 76 31 32 07 31  |629e86345*.v12.1|
+00000140  33 39 34 33 35 34 3a 00  52 5e 53 75 63 63 65 73  |394354:.R^Succes|
+00000150  73 66 75 6c 6c 79 20 61  73 73 69 67 6e 65 64 20  |sfully assigned |
+00000160  64 65 66 61 75 6c 74 2f  67 72 65 65 6e 2d 6b 38  |default/green-k8|
+00000170  73 2d 74 65 73 74 2d 36  35 62 62 37 37 34 39 38  |s-test-65bb77498|
+00000180  36 2d 64 6c 34 32 64 20  74 6f 20 69 70 2d 31 37  |6-dl42d to ip-17|
+00000190  32 2d 32 30 2d 36 31 2d  31 37 38 2e 65 63 32 2e  |2-20-61-178.ec2.|
+000001a0  69 6e 74 65 72 6e 61 6c  5a 06 4e 6f 72 6d 61 6c  |internalZ.Normal|
+000001b0  62 17 0a 13 67 72 65 65  6e 2d 6b 38 73 2d 73 63  |b...green-k8s-sc|
+000001c0  68 65 64 75 6c 65 72 12  00 6a 00 72 00 78 00 1a  |heduler..j.r.x..|
+000001d0  00 22 00                                          |.".|
+I1220 19:36:18.920509       1 round_trippers.go:423] curl -k -v -XPOST  -H "Content-Type: application/vnd.kubernetes.protobuf" -H "User-Agent: kube-scheduler/v1.16.3 (linux/amd64) kubernetes/b3cbbae/scheduler" -H "Accept: application/vnd.kubernetes.protobuf, */*" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkI2d0Zpc0Q2S2pFdmhUX3hsRG5GZFdLemMtRkhWWmxiQmszcGVmc3RsdjQifQ.eyJhdWQiOlsia3ViZXJuZXRlcy5zdmMuZGVmYXVsdCJdLCJleHAiOjE2NzE1NjM0ODksImlhdCI6MTY0MDAyNzQ4OSwiaXNzIjoiaHR0cHM6Ly9hcGkuaW50ZXJuYWwuaGEuZ3JlZW5rOHMuY29tIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInBvZCI6eyJuYW1lIjoiZ3JlZW4tazhzLXNjaGVkdWxlci04Y2I3Zjc3Nzktdmg5bHciLCJ1aWQiOiJkZTEyN2Q0Yy1iYjY0LTQxMDktOWQ3ZC1mNWJjN2RkOWRlM2UifSwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImdyZWVuLWs4cy1zY2hlZHVsZXIiLCJ1aWQiOiI2NzgyMTEwNC01NGFiLTQ2YzctYTQ3NC00YjhlODI3M2UyZWYifSwid2FybmFmdGVyIjoxNjQwMDMxMDk2fSwibmJmIjoxNjQwMDI3NDg5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06Z3JlZW4tazhzLXNjaGVkdWxlciJ9.PCHj0VsyJ_6F1kiw2KtMJhp43t05m6phkjymLWPohHbxVSKc48rnPoNVik3odvK28ts9f3WKq0JlzZQPg_xq9ot31ffQqlBvKgBvCFonPN_TWNiCgoP_PZEsbj3L0IWFKAPQd-18KSx2-_rdm621jRpOKICVz9cj7KlnAQfkdOeHG5dnRA1ci2vMgN4wZaVDwrhjq0WMBgLRjr_pTr-j0QBrNVt8FYBh4KQDhyBjKyoLizg_MltKxwIlWiyHFH5kEJxeOvE4tnWtT9eTGa4qPTbTqjTSq1fF_6ukQpEpRmYnqYywvGAJ2vgSn4AvXxtVgnoZq2tpUm6_XnUFXclHqg" 'https://100.64.0.1:443/apis/events.k8s.io/v1beta1/namespaces/default/events'
+I1220 19:36:18.920733       1 generic_scheduler.go:838] Host ip-172-20-58-134.ec2.internal => Score 19
+I1220 19:36:18.920753       1 generic_scheduler.go:838] Host ip-172-20-49-41.ec2.internal => Score 16
+I1220 19:36:18.920759       1 generic_scheduler.go:838] Host ip-172-20-45-201.ec2.internal => Score 19
+I1220 19:36:18.920764       1 generic_scheduler.go:838] Host ip-172-20-61-178.ec2.internal => Score 14
+I1220 19:36:18.920834       1 scheduler_binder.go:256] AssumePodVolumes for pod "default/green-k8s-test-65bb774986-cpgh5", node "ip-172-20-45-201.ec2.internal"
+I1220 19:36:18.920856       1 scheduler_binder.go:266] AssumePodVolumes for pod "default/green-k8s-test-65bb774986-cpgh5", node "ip-172-20-45-201.ec2.internal": all PVCs bound and nothing to do
+I1220 19:36:18.920922       1 factory.go:610] Attempting to bind green-k8s-test-65bb774986-cpgh5 to ip-172-20-45-201.ec2.internal
+I1220 19:36:18.920966       1 request.go:966] Request Body:
+00000000  6b 38 73 00 0a 0d 0a 02  76 31 12 07 42 69 6e 64  |k8s.....v1..Bind|
+00000010  69 6e 67 12 8f 01 0a 5c  0a 1f 67 72 65 65 6e 2d  |ing....\..green-|
+00000020  6b 38 73 2d 74 65 73 74  2d 36 35 62 62 37 37 34  |k8s-test-65bb774|
+00000030  39 38 36 2d 63 70 67 68  35 12 00 1a 07 64 65 66  |986-cpgh5....def|
+00000040  61 75 6c 74 22 00 2a 24  35 36 63 64 33 31 32 66  |ault".*$56cd312f|
+00000050  2d 30 33 37 64 2d 34 64  33 32 2d 39 66 65 61 2d  |-037d-4d32-9fea-|
+00000060  64 32 32 36 39 62 66 37  37 66 31 35 32 00 38 00  |d2269bf77f152.8.|
+00000070  42 00 7a 00 12 2f 0a 04  4e 6f 64 65 12 00 1a 1d  |B.z../..Node....|
+00000080  69 70 2d 31 37 32 2d 32  30 2d 34 35 2d 32 30 31  |ip-172-20-45-201|
+00000090  2e 65 63 32 2e 69 6e 74  65 72 6e 61 6c 22 00 2a  |.ec2.internal".*|
+000000a0  00 32 00 3a 00 1a 00 22  00                       |.2.:...".|
+I1220 19:36:18.921105       1 round_trippers.go:423] curl -k -v -XPOST  -H "Accept: application/vnd.kubernetes.protobuf, */*" -H "Content-Type: application/vnd.kubernetes.protobuf" -H "User-Agent: kube-scheduler/v1.16.3 (linux/amd64) kubernetes/b3cbbae/scheduler" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkI2d0Zpc0Q2S2pFdmhUX3hsRG5GZFdLemMtRkhWWmxiQmszcGVmc3RsdjQifQ.eyJhdWQiOlsia3ViZXJuZXRlcy5zdmMuZGVmYXVsdCJdLCJleHAiOjE2NzE1NjM0ODksImlhdCI6MTY0MDAyNzQ4OSwiaXNzIjoiaHR0cHM6Ly9hcGkuaW50ZXJuYWwuaGEuZ3JlZW5rOHMuY29tIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInBvZCI6eyJuYW1lIjoiZ3JlZW4tazhzLXNjaGVkdWxlci04Y2I3Zjc3Nzktdmg5bHciLCJ1aWQiOiJkZTEyN2Q0Yy1iYjY0LTQxMDktOWQ3ZC1mNWJjN2RkOWRlM2UifSwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImdyZWVuLWs4cy1zY2hlZHVsZXIiLCJ1aWQiOiI2NzgyMTEwNC01NGFiLTQ2YzctYTQ3NC00YjhlODI3M2UyZWYifSwid2FybmFmdGVyIjoxNjQwMDMxMDk2fSwibmJmIjoxNjQwMDI3NDg5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06Z3JlZW4tazhzLXNjaGVkdWxlciJ9.PCHj0VsyJ_6F1kiw2KtMJhp43t05m6phkjymLWPohHbxVSKc48rnPoNVik3odvK28ts9f3WKq0JlzZQPg_xq9ot31ffQqlBvKgBvCFonPN_TWNiCgoP_PZEsbj3L0IWFKAPQd-18KSx2-_rdm621jRpOKICVz9cj7KlnAQfkdOeHG5dnRA1ci2vMgN4wZaVDwrhjq0WMBgLRjr_pTr-j0QBrNVt8FYBh4KQDhyBjKyoLizg_MltKxwIlWiyHFH5kEJxeOvE4tnWtT9eTGa4qPTbTqjTSq1fF_6ukQpEpRmYnqYywvGAJ2vgSn4AvXxtVgnoZq2tpUm6_XnUFXclHqg" 'https://100.64.0.1:443/api/v1/namespaces/default/pods/green-k8s-test-65bb774986-cpgh5/binding'
+I1220 19:36:18.921274       1 scheduling_queue.go:830] About to try and schedule pod default/green-k8s-test-65bb774986-6kg6v
+I1220 19:36:18.921306       1 scheduler.go:530] Attempting to schedule pod: default/green-k8s-test-65bb774986-6kg6v
+I1220 19:36:18.921379       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-6kg6v on Node ip-172-20-40-148.ec2.internal is allowed, Node is running only 9 out of 110 Pods.
+I1220 19:36:18.921390       1 generic_scheduler.go:667] since alwaysCheckAllPredicates has not been set, the predicate evaluation is short circuited and there are chances of other predicates failing as well.
+I1220 19:36:18.921406       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-6kg6v on Node ip-172-20-58-134.ec2.internal is allowed, Node is running only 2 out of 110 Pods.
+I1220 19:36:18.921417       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-6kg6v on Node ip-172-20-45-201.ec2.internal is allowed, Node is running only 3 out of 110 Pods.
+I1220 19:36:18.921427       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-6kg6v on Node ip-172-20-49-41.ec2.internal is allowed, Node is running only 2 out of 110 Pods.
+I1220 19:36:18.921437       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-6kg6v on Node ip-172-20-61-178.ec2.internal is allowed, Node is running only 4 out of 110 Pods.
+I1220 19:36:18.921526       1 resource_allocation.go:84] green-k8s-test-65bb774986-6kg6v -> ip-172-20-58-134.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:350 memory:492830720] ,score 9,
+I1220 19:36:18.921548       1 resource_allocation.go:84] green-k8s-test-65bb774986-6kg6v -> ip-172-20-58-134.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:350 memory:492830720] ,score 6,
+I1220 19:36:18.921562       1 resource_allocation.go:84] green-k8s-test-65bb774986-6kg6v -> ip-172-20-45-201.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:500 memory:702545920] ,score 8,
+I1220 19:36:18.921574       1 resource_allocation.go:84] green-k8s-test-65bb774986-6kg6v -> ip-172-20-45-201.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:500 memory:702545920] ,score 5,
+I1220 19:36:18.921587       1 resource_allocation.go:84] green-k8s-test-65bb774986-6kg6v -> ip-172-20-49-41.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:400 memory:629145600] ,score 9,
+I1220 19:36:18.921600       1 resource_allocation.go:84] green-k8s-test-65bb774986-6kg6v -> ip-172-20-49-41.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:400 memory:629145600] ,score 6,
+I1220 19:36:18.921616       1 resource_allocation.go:84] green-k8s-test-65bb774986-6kg6v -> ip-172-20-61-178.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:520 memory:849346560] ,score 9,
+I1220 19:36:18.921628       1 resource_allocation.go:84] green-k8s-test-65bb774986-6kg6v -> ip-172-20-61-178.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:520 memory:849346560] ,score 4,
+I1220 19:36:18.921656       1 selector_spreading.go:146] green-k8s-test-65bb774986-6kg6v -> ip-172-20-58-134.ec2.internal: SelectorSpreadPriority, Score: (3)
+I1220 19:36:18.921698       1 selector_spreading.go:146] green-k8s-test-65bb774986-6kg6v -> ip-172-20-45-201.ec2.internal: SelectorSpreadPriority, Score: (0)
+I1220 19:36:18.921706       1 selector_spreading.go:146] green-k8s-test-65bb774986-6kg6v -> ip-172-20-49-41.ec2.internal: SelectorSpreadPriority, Score: (0)
+I1220 19:36:18.921711       1 selector_spreading.go:146] green-k8s-test-65bb774986-6kg6v -> ip-172-20-61-178.ec2.internal: SelectorSpreadPriority, Score: (0)
+I1220 19:36:18.921717       1 generic_scheduler.go:773] green-k8s-test-65bb774986-6kg6v_default -> ip-172-20-58-134.ec2.internal: ServiceSpreadingPriority, Score: (3)
+I1220 19:36:18.921723       1 generic_scheduler.go:773] green-k8s-test-65bb774986-6kg6v_default -> ip-172-20-45-201.ec2.internal: ServiceSpreadingPriority, Score: (0)
+I1220 19:36:18.921728       1 generic_scheduler.go:773] green-k8s-test-65bb774986-6kg6v_default -> ip-172-20-49-41.ec2.internal: ServiceSpreadingPriority, Score: (0)
+I1220 19:36:18.921733       1 generic_scheduler.go:773] green-k8s-test-65bb774986-6kg6v_default -> ip-172-20-61-178.ec2.internal: ServiceSpreadingPriority, Score: (0)
+I1220 19:36:18.921750       1 generic_scheduler.go:838] Host ip-172-20-58-134.ec2.internal => Score 19
+I1220 19:36:18.921756       1 generic_scheduler.go:838] Host ip-172-20-45-201.ec2.internal => Score 14
+I1220 19:36:18.921761       1 generic_scheduler.go:838] Host ip-172-20-49-41.ec2.internal => Score 16
+I1220 19:36:18.921767       1 generic_scheduler.go:838] Host ip-172-20-61-178.ec2.internal => Score 14
+I1220 19:36:18.921799       1 scheduler_binder.go:256] AssumePodVolumes for pod "default/green-k8s-test-65bb774986-6kg6v", node "ip-172-20-58-134.ec2.internal"
+I1220 19:36:18.921814       1 scheduler_binder.go:266] AssumePodVolumes for pod "default/green-k8s-test-65bb774986-6kg6v", node "ip-172-20-58-134.ec2.internal": all PVCs bound and nothing to do
+I1220 19:36:18.921874       1 factory.go:610] Attempting to bind green-k8s-test-65bb774986-6kg6v to ip-172-20-58-134.ec2.internal
+I1220 19:36:18.921998       1 request.go:966] Request Body:
+00000000  6b 38 73 00 0a 0d 0a 02  76 31 12 07 42 69 6e 64  |k8s.....v1..Bind|
+00000010  69 6e 67 12 8f 01 0a 5c  0a 1f 67 72 65 65 6e 2d  |ing....\..green-|
+00000020  6b 38 73 2d 74 65 73 74  2d 36 35 62 62 37 37 34  |k8s-test-65bb774|
+00000030  39 38 36 2d 36 6b 67 36  76 12 00 1a 07 64 65 66  |986-6kg6v....def|
+00000040  61 75 6c 74 22 00 2a 24  61 30 36 31 66 36 30 30  |ault".*$a061f600|
+00000050  2d 64 35 37 33 2d 34 62  37 31 2d 61 39 30 64 2d  |-d573-4b71-a90d-|
+00000060  39 61 38 66 38 31 38 30  65 33 61 61 32 00 38 00  |9a8f8180e3aa2.8.|
+00000070  42 00 7a 00 12 2f 0a 04  4e 6f 64 65 12 00 1a 1d  |B.z../..Node....|
+00000080  69 70 2d 31 37 32 2d 32  30 2d 35 38 2d 31 33 34  |ip-172-20-58-134|
+00000090  2e 65 63 32 2e 69 6e 74  65 72 6e 61 6c 22 00 2a  |.ec2.internal".*|
+000000a0  00 32 00 3a 00 1a 00 22  00                       |.2.:...".|
+I1220 19:36:18.922291       1 round_trippers.go:423] curl -k -v -XPOST  -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkI2d0Zpc0Q2S2pFdmhUX3hsRG5GZFdLemMtRkhWWmxiQmszcGVmc3RsdjQifQ.eyJhdWQiOlsia3ViZXJuZXRlcy5zdmMuZGVmYXVsdCJdLCJleHAiOjE2NzE1NjM0ODksImlhdCI6MTY0MDAyNzQ4OSwiaXNzIjoiaHR0cHM6Ly9hcGkuaW50ZXJuYWwuaGEuZ3JlZW5rOHMuY29tIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInBvZCI6eyJuYW1lIjoiZ3JlZW4tazhzLXNjaGVkdWxlci04Y2I3Zjc3Nzktdmg5bHciLCJ1aWQiOiJkZTEyN2Q0Yy1iYjY0LTQxMDktOWQ3ZC1mNWJjN2RkOWRlM2UifSwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImdyZWVuLWs4cy1zY2hlZHVsZXIiLCJ1aWQiOiI2NzgyMTEwNC01NGFiLTQ2YzctYTQ3NC00YjhlODI3M2UyZWYifSwid2FybmFmdGVyIjoxNjQwMDMxMDk2fSwibmJmIjoxNjQwMDI3NDg5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06Z3JlZW4tazhzLXNjaGVkdWxlciJ9.PCHj0VsyJ_6F1kiw2KtMJhp43t05m6phkjymLWPohHbxVSKc48rnPoNVik3odvK28ts9f3WKq0JlzZQPg_xq9ot31ffQqlBvKgBvCFonPN_TWNiCgoP_PZEsbj3L0IWFKAPQd-18KSx2-_rdm621jRpOKICVz9cj7KlnAQfkdOeHG5dnRA1ci2vMgN4wZaVDwrhjq0WMBgLRjr_pTr-j0QBrNVt8FYBh4KQDhyBjKyoLizg_MltKxwIlWiyHFH5kEJxeOvE4tnWtT9eTGa4qPTbTqjTSq1fF_6ukQpEpRmYnqYywvGAJ2vgSn4AvXxtVgnoZq2tpUm6_XnUFXclHqg" -H "Accept: application/vnd.kubernetes.protobuf, */*" -H "Content-Type: application/vnd.kubernetes.protobuf" -H "User-Agent: kube-scheduler/v1.16.3 (linux/amd64) kubernetes/b3cbbae/scheduler" 'https://100.64.0.1:443/api/v1/namespaces/default/pods/green-k8s-test-65bb774986-6kg6v/binding'
+I1220 19:36:18.922560       1 scheduling_queue.go:830] About to try and schedule pod default/green-k8s-test-65bb774986-fnn8q
+I1220 19:36:18.922575       1 scheduler.go:530] Attempting to schedule pod: default/green-k8s-test-65bb774986-fnn8q
+I1220 19:36:18.922723       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-fnn8q on Node ip-172-20-40-148.ec2.internal is allowed, Node is running only 9 out of 110 Pods.
+I1220 19:36:18.922747       1 generic_scheduler.go:667] since alwaysCheckAllPredicates has not been set, the predicate evaluation is short circuited and there are chances of other predicates failing as well.
+I1220 19:36:18.922817       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-fnn8q on Node ip-172-20-58-134.ec2.internal is allowed, Node is running only 3 out of 110 Pods.
+I1220 19:36:18.922877       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-fnn8q on Node ip-172-20-45-201.ec2.internal is allowed, Node is running only 3 out of 110 Pods.
+I1220 19:36:18.922888       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-fnn8q on Node ip-172-20-49-41.ec2.internal is allowed, Node is running only 2 out of 110 Pods.
+I1220 19:36:18.922899       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-fnn8q on Node ip-172-20-61-178.ec2.internal is allowed, Node is running only 4 out of 110 Pods.
+I1220 19:36:18.923141       1 resource_allocation.go:84] green-k8s-test-65bb774986-fnn8q -> ip-172-20-58-134.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:500 memory:702545920] ,score 8,
+I1220 19:36:18.923165       1 resource_allocation.go:84] green-k8s-test-65bb774986-fnn8q -> ip-172-20-58-134.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:500 memory:702545920] ,score 5,
+I1220 19:36:18.923180       1 resource_allocation.go:84] green-k8s-test-65bb774986-fnn8q -> ip-172-20-45-201.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:500 memory:702545920] ,score 8,
+I1220 19:36:18.923301       1 resource_allocation.go:84] green-k8s-test-65bb774986-fnn8q -> ip-172-20-45-201.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:500 memory:702545920] ,score 5,
+I1220 19:36:18.923428       1 resource_allocation.go:84] green-k8s-test-65bb774986-fnn8q -> ip-172-20-49-41.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:400 memory:629145600] ,score 9,
+I1220 19:36:18.923457       1 resource_allocation.go:84] green-k8s-test-65bb774986-fnn8q -> ip-172-20-49-41.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:400 memory:629145600] ,score 6,
+I1220 19:36:18.923543       1 resource_allocation.go:84] green-k8s-test-65bb774986-fnn8q -> ip-172-20-61-178.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:520 memory:849346560] ,score 9,
+I1220 19:36:18.923653       1 resource_allocation.go:84] green-k8s-test-65bb774986-fnn8q -> ip-172-20-61-178.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:520 memory:849346560] ,score 4,
+I1220 19:36:18.923692       1 selector_spreading.go:146] green-k8s-test-65bb774986-fnn8q -> ip-172-20-58-134.ec2.internal: SelectorSpreadPriority, Score: (0)
+I1220 19:36:18.923701       1 selector_spreading.go:146] green-k8s-test-65bb774986-fnn8q -> ip-172-20-45-201.ec2.internal: SelectorSpreadPriority, Score: (0)
+I1220 19:36:18.923801       1 selector_spreading.go:146] green-k8s-test-65bb774986-fnn8q -> ip-172-20-49-41.ec2.internal: SelectorSpreadPriority, Score: (0)
+I1220 19:36:18.923820       1 selector_spreading.go:146] green-k8s-test-65bb774986-fnn8q -> ip-172-20-61-178.ec2.internal: SelectorSpreadPriority, Score: (0)
+I1220 19:36:18.923827       1 generic_scheduler.go:773] green-k8s-test-65bb774986-fnn8q_default -> ip-172-20-58-134.ec2.internal: ServiceSpreadingPriority, Score: (0)
+I1220 19:36:18.923833       1 generic_scheduler.go:773] green-k8s-test-65bb774986-fnn8q_default -> ip-172-20-45-201.ec2.internal: ServiceSpreadingPriority, Score: (0)
+I1220 19:36:18.923838       1 generic_scheduler.go:773] green-k8s-test-65bb774986-fnn8q_default -> ip-172-20-49-41.ec2.internal: ServiceSpreadingPriority, Score: (0)
+I1220 19:36:18.923954       1 generic_scheduler.go:773] green-k8s-test-65bb774986-fnn8q_default -> ip-172-20-61-178.ec2.internal: ServiceSpreadingPriority, Score: (0)
+I1220 19:36:18.924040       1 generic_scheduler.go:838] Host ip-172-20-58-134.ec2.internal => Score 14
+I1220 19:36:18.924058       1 generic_scheduler.go:838] Host ip-172-20-45-201.ec2.internal => Score 14
+I1220 19:36:18.924064       1 generic_scheduler.go:838] Host ip-172-20-49-41.ec2.internal => Score 16
+I1220 19:36:18.924069       1 generic_scheduler.go:838] Host ip-172-20-61-178.ec2.internal => Score 14
+I1220 19:36:18.924206       1 scheduler_binder.go:256] AssumePodVolumes for pod "default/green-k8s-test-65bb774986-fnn8q", node "ip-172-20-49-41.ec2.internal"
+I1220 19:36:18.924229       1 scheduler_binder.go:266] AssumePodVolumes for pod "default/green-k8s-test-65bb774986-fnn8q", node "ip-172-20-49-41.ec2.internal": all PVCs bound and nothing to do
+I1220 19:36:18.924259       1 factory.go:610] Attempting to bind green-k8s-test-65bb774986-fnn8q to ip-172-20-49-41.ec2.internal
+I1220 19:36:18.924453       1 request.go:966] Request Body:
+00000000  6b 38 73 00 0a 0d 0a 02  76 31 12 07 42 69 6e 64  |k8s.....v1..Bind|
+00000010  69 6e 67 12 8e 01 0a 5c  0a 1f 67 72 65 65 6e 2d  |ing....\..green-|
+00000020  6b 38 73 2d 74 65 73 74  2d 36 35 62 62 37 37 34  |k8s-test-65bb774|
+00000030  39 38 36 2d 66 6e 6e 38  71 12 00 1a 07 64 65 66  |986-fnn8q....def|
+00000040  61 75 6c 74 22 00 2a 24  35 33 31 32 64 38 62 65  |ault".*$5312d8be|
+00000050  2d 38 64 63 32 2d 34 34  37 34 2d 39 35 65 61 2d  |-8dc2-4474-95ea-|
+00000060  39 39 37 65 62 66 62 63  38 39 39 35 32 00 38 00  |997ebfbc89952.8.|
+00000070  42 00 7a 00 12 2e 0a 04  4e 6f 64 65 12 00 1a 1c  |B.z.....Node....|
+00000080  69 70 2d 31 37 32 2d 32  30 2d 34 39 2d 34 31 2e  |ip-172-20-49-41.|
+00000090  65 63 32 2e 69 6e 74 65  72 6e 61 6c 22 00 2a 00  |ec2.internal".*.|
+000000a0  32 00 3a 00 1a 00 22 00                           |2.:...".|
+I1220 19:36:18.924700       1 round_trippers.go:423] curl -k -v -XPOST  -H "Accept: application/vnd.kubernetes.protobuf, */*" -H "Content-Type: application/vnd.kubernetes.protobuf" -H "User-Agent: kube-scheduler/v1.16.3 (linux/amd64) kubernetes/b3cbbae/scheduler" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkI2d0Zpc0Q2S2pFdmhUX3hsRG5GZFdLemMtRkhWWmxiQmszcGVmc3RsdjQifQ.eyJhdWQiOlsia3ViZXJuZXRlcy5zdmMuZGVmYXVsdCJdLCJleHAiOjE2NzE1NjM0ODksImlhdCI6MTY0MDAyNzQ4OSwiaXNzIjoiaHR0cHM6Ly9hcGkuaW50ZXJuYWwuaGEuZ3JlZW5rOHMuY29tIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInBvZCI6eyJuYW1lIjoiZ3JlZW4tazhzLXNjaGVkdWxlci04Y2I3Zjc3Nzktdmg5bHciLCJ1aWQiOiJkZTEyN2Q0Yy1iYjY0LTQxMDktOWQ3ZC1mNWJjN2RkOWRlM2UifSwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImdyZWVuLWs4cy1zY2hlZHVsZXIiLCJ1aWQiOiI2NzgyMTEwNC01NGFiLTQ2YzctYTQ3NC00YjhlODI3M2UyZWYifSwid2FybmFmdGVyIjoxNjQwMDMxMDk2fSwibmJmIjoxNjQwMDI3NDg5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06Z3JlZW4tazhzLXNjaGVkdWxlciJ9.PCHj0VsyJ_6F1kiw2KtMJhp43t05m6phkjymLWPohHbxVSKc48rnPoNVik3odvK28ts9f3WKq0JlzZQPg_xq9ot31ffQqlBvKgBvCFonPN_TWNiCgoP_PZEsbj3L0IWFKAPQd-18KSx2-_rdm621jRpOKICVz9cj7KlnAQfkdOeHG5dnRA1ci2vMgN4wZaVDwrhjq0WMBgLRjr_pTr-j0QBrNVt8FYBh4KQDhyBjKyoLizg_MltKxwIlWiyHFH5kEJxeOvE4tnWtT9eTGa4qPTbTqjTSq1fF_6ukQpEpRmYnqYywvGAJ2vgSn4AvXxtVgnoZq2tpUm6_XnUFXclHqg" 'https://100.64.0.1:443/api/v1/namespaces/default/pods/green-k8s-test-65bb774986-fnn8q/binding'
+I1220 19:36:18.924953       1 scheduling_queue.go:830] About to try and schedule pod default/green-k8s-test-65bb774986-nbqv2
+I1220 19:36:18.924974       1 scheduler.go:530] Attempting to schedule pod: default/green-k8s-test-65bb774986-nbqv2
+I1220 19:36:18.925130       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-nbqv2 on Node ip-172-20-40-148.ec2.internal is allowed, Node is running only 9 out of 110 Pods.
+I1220 19:36:18.925151       1 generic_scheduler.go:667] since alwaysCheckAllPredicates has not been set, the predicate evaluation is short circuited and there are chances of other predicates failing as well.
+I1220 19:36:18.925163       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-nbqv2 on Node ip-172-20-58-134.ec2.internal is allowed, Node is running only 3 out of 110 Pods.
+I1220 19:36:18.925174       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-nbqv2 on Node ip-172-20-45-201.ec2.internal is allowed, Node is running only 3 out of 110 Pods.
+I1220 19:36:18.925185       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-nbqv2 on Node ip-172-20-49-41.ec2.internal is allowed, Node is running only 3 out of 110 Pods.
+I1220 19:36:18.925196       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-nbqv2 on Node ip-172-20-61-178.ec2.internal is allowed, Node is running only 4 out of 110 Pods.
+I1220 19:36:18.925401       1 resource_allocation.go:84] green-k8s-test-65bb774986-nbqv2 -> ip-172-20-58-134.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:500 memory:702545920] ,score 8,
+I1220 19:36:18.925430       1 resource_allocation.go:84] green-k8s-test-65bb774986-nbqv2 -> ip-172-20-58-134.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:500 memory:702545920] ,score 5,
+I1220 19:36:18.925444       1 resource_allocation.go:84] green-k8s-test-65bb774986-nbqv2 -> ip-172-20-45-201.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:500 memory:702545920] ,score 8,
+I1220 19:36:18.925456       1 resource_allocation.go:84] green-k8s-test-65bb774986-nbqv2 -> ip-172-20-45-201.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:500 memory:702545920] ,score 5,
+I1220 19:36:18.926297       1 resource_allocation.go:84] green-k8s-test-65bb774986-nbqv2 -> ip-172-20-49-41.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:550 memory:838860800] ,score 8,
+I1220 19:36:18.926332       1 resource_allocation.go:84] green-k8s-test-65bb774986-nbqv2 -> ip-172-20-49-41.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:550 memory:838860800] ,score 4,
+I1220 19:36:18.926346       1 resource_allocation.go:84] green-k8s-test-65bb774986-nbqv2 -> ip-172-20-61-178.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:520 memory:849346560] ,score 9,
+I1220 19:36:18.926358       1 resource_allocation.go:84] green-k8s-test-65bb774986-nbqv2 -> ip-172-20-61-178.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:520 memory:849346560] ,score 4,
+I1220 19:36:18.926568       1 selector_spreading.go:146] green-k8s-test-65bb774986-nbqv2 -> ip-172-20-58-134.ec2.internal: SelectorSpreadPriority, Score: (1)
+I1220 19:36:18.926622       1 selector_spreading.go:146] green-k8s-test-65bb774986-nbqv2 -> ip-172-20-45-201.ec2.internal: SelectorSpreadPriority, Score: (1)
+I1220 19:36:18.926652       1 selector_spreading.go:146] green-k8s-test-65bb774986-nbqv2 -> ip-172-20-49-41.ec2.internal: SelectorSpreadPriority, Score: (0)
+I1220 19:36:18.926658       1 selector_spreading.go:146] green-k8s-test-65bb774986-nbqv2 -> ip-172-20-61-178.ec2.internal: SelectorSpreadPriority, Score: (1)
+I1220 19:36:18.926663       1 generic_scheduler.go:773] green-k8s-test-65bb774986-nbqv2_default -> ip-172-20-58-134.ec2.internal: ServiceSpreadingPriority, Score: (1)
+I1220 19:36:18.926669       1 generic_scheduler.go:773] green-k8s-test-65bb774986-nbqv2_default -> ip-172-20-45-201.ec2.internal: ServiceSpreadingPriority, Score: (1)
+I1220 19:36:18.926673       1 generic_scheduler.go:773] green-k8s-test-65bb774986-nbqv2_default -> ip-172-20-49-41.ec2.internal: ServiceSpreadingPriority, Score: (0)
+I1220 19:36:18.926678       1 generic_scheduler.go:773] green-k8s-test-65bb774986-nbqv2_default -> ip-172-20-61-178.ec2.internal: ServiceSpreadingPriority, Score: (1)
+I1220 19:36:18.926831       1 generic_scheduler.go:838] Host ip-172-20-58-134.ec2.internal => Score 15
+I1220 19:36:18.926848       1 generic_scheduler.go:838] Host ip-172-20-45-201.ec2.internal => Score 15
+I1220 19:36:18.926858       1 generic_scheduler.go:838] Host ip-172-20-49-41.ec2.internal => Score 13
+I1220 19:36:18.926863       1 generic_scheduler.go:838] Host ip-172-20-61-178.ec2.internal => Score 15
+I1220 19:36:18.927021       1 scheduler_binder.go:256] AssumePodVolumes for pod "default/green-k8s-test-65bb774986-nbqv2", node "ip-172-20-45-201.ec2.internal"
+I1220 19:36:18.927043       1 scheduler_binder.go:266] AssumePodVolumes for pod "default/green-k8s-test-65bb774986-nbqv2", node "ip-172-20-45-201.ec2.internal": all PVCs bound and nothing to do
+I1220 19:36:18.927139       1 factory.go:610] Attempting to bind green-k8s-test-65bb774986-nbqv2 to ip-172-20-45-201.ec2.internal
+I1220 19:36:18.927385       1 request.go:966] Request Body:
+00000000  6b 38 73 00 0a 0d 0a 02  76 31 12 07 42 69 6e 64  |k8s.....v1..Bind|
+00000010  69 6e 67 12 8f 01 0a 5c  0a 1f 67 72 65 65 6e 2d  |ing....\..green-|
+00000020  6b 38 73 2d 74 65 73 74  2d 36 35 62 62 37 37 34  |k8s-test-65bb774|
+00000030  39 38 36 2d 6e 62 71 76  32 12 00 1a 07 64 65 66  |986-nbqv2....def|
+00000040  61 75 6c 74 22 00 2a 24  30 35 30 35 62 36 66 64  |ault".*$0505b6fd|
+00000050  2d 61 39 37 65 2d 34 64  33 34 2d 62 63 37 36 2d  |-a97e-4d34-bc76-|
+00000060  61 35 38 65 36 37 33 34  30 64 39 66 32 00 38 00  |a58e67340d9f2.8.|
+00000070  42 00 7a 00 12 2f 0a 04  4e 6f 64 65 12 00 1a 1d  |B.z../..Node....|
+00000080  69 70 2d 31 37 32 2d 32  30 2d 34 35 2d 32 30 31  |ip-172-20-45-201|
+00000090  2e 65 63 32 2e 69 6e 74  65 72 6e 61 6c 22 00 2a  |.ec2.internal".*|
+000000a0  00 32 00 3a 00 1a 00 22  00                       |.2.:...".|
+I1220 19:36:18.927652       1 round_trippers.go:423] curl -k -v -XPOST  -H "Accept: application/vnd.kubernetes.protobuf, */*" -H "Content-Type: application/vnd.kubernetes.protobuf" -H "User-Agent: kube-scheduler/v1.16.3 (linux/amd64) kubernetes/b3cbbae/scheduler" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkI2d0Zpc0Q2S2pFdmhUX3hsRG5GZFdLemMtRkhWWmxiQmszcGVmc3RsdjQifQ.eyJhdWQiOlsia3ViZXJuZXRlcy5zdmMuZGVmYXVsdCJdLCJleHAiOjE2NzE1NjM0ODksImlhdCI6MTY0MDAyNzQ4OSwiaXNzIjoiaHR0cHM6Ly9hcGkuaW50ZXJuYWwuaGEuZ3JlZW5rOHMuY29tIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInBvZCI6eyJuYW1lIjoiZ3JlZW4tazhzLXNjaGVkdWxlci04Y2I3Zjc3Nzktdmg5bHciLCJ1aWQiOiJkZTEyN2Q0Yy1iYjY0LTQxMDktOWQ3ZC1mNWJjN2RkOWRlM2UifSwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImdyZWVuLWs4cy1zY2hlZHVsZXIiLCJ1aWQiOiI2NzgyMTEwNC01NGFiLTQ2YzctYTQ3NC00YjhlODI3M2UyZWYifSwid2FybmFmdGVyIjoxNjQwMDMxMDk2fSwibmJmIjoxNjQwMDI3NDg5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06Z3JlZW4tazhzLXNjaGVkdWxlciJ9.PCHj0VsyJ_6F1kiw2KtMJhp43t05m6phkjymLWPohHbxVSKc48rnPoNVik3odvK28ts9f3WKq0JlzZQPg_xq9ot31ffQqlBvKgBvCFonPN_TWNiCgoP_PZEsbj3L0IWFKAPQd-18KSx2-_rdm621jRpOKICVz9cj7KlnAQfkdOeHG5dnRA1ci2vMgN4wZaVDwrhjq0WMBgLRjr_pTr-j0QBrNVt8FYBh4KQDhyBjKyoLizg_MltKxwIlWiyHFH5kEJxeOvE4tnWtT9eTGa4qPTbTqjTSq1fF_6ukQpEpRmYnqYywvGAJ2vgSn4AvXxtVgnoZq2tpUm6_XnUFXclHqg" 'https://100.64.0.1:443/api/v1/namespaces/default/pods/green-k8s-test-65bb774986-nbqv2/binding'
+I1220 19:36:18.928036       1 scheduling_queue.go:830] About to try and schedule pod default/green-k8s-test-65bb774986-d9rm6
+I1220 19:36:18.928070       1 scheduler.go:530] Attempting to schedule pod: default/green-k8s-test-65bb774986-d9rm6
+I1220 19:36:18.928238       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-d9rm6 on Node ip-172-20-40-148.ec2.internal is allowed, Node is running only 9 out of 110 Pods.
+I1220 19:36:18.928259       1 generic_scheduler.go:667] since alwaysCheckAllPredicates has not been set, the predicate evaluation is short circuited and there are chances of other predicates failing as well.
+I1220 19:36:18.928271       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-d9rm6 on Node ip-172-20-58-134.ec2.internal is allowed, Node is running only 3 out of 110 Pods.
+I1220 19:36:18.928282       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-d9rm6 on Node ip-172-20-45-201.ec2.internal is allowed, Node is running only 4 out of 110 Pods.
+I1220 19:36:18.928293       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-d9rm6 on Node ip-172-20-49-41.ec2.internal is allowed, Node is running only 3 out of 110 Pods.
+I1220 19:36:18.928421       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-d9rm6 on Node ip-172-20-61-178.ec2.internal is allowed, Node is running only 4 out of 110 Pods.
+I1220 19:36:18.928591       1 resource_allocation.go:84] green-k8s-test-65bb774986-d9rm6 -> ip-172-20-58-134.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:500 memory:702545920] ,score 8,
+I1220 19:36:18.928617       1 resource_allocation.go:84] green-k8s-test-65bb774986-d9rm6 -> ip-172-20-58-134.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:500 memory:702545920] ,score 5,
+I1220 19:36:18.928634       1 resource_allocation.go:84] green-k8s-test-65bb774986-d9rm6 -> ip-172-20-45-201.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:650 memory:912261120] ,score 8,
+I1220 19:36:18.929659       1 resource_allocation.go:84] green-k8s-test-65bb774986-d9rm6 -> ip-172-20-45-201.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:650 memory:912261120] ,score 4,
+I1220 19:36:18.929677       1 resource_allocation.go:84] green-k8s-test-65bb774986-d9rm6 -> ip-172-20-49-41.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:550 memory:838860800] ,score 8,
+I1220 19:36:18.929690       1 resource_allocation.go:84] green-k8s-test-65bb774986-d9rm6 -> ip-172-20-49-41.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:550 memory:838860800] ,score 4,
+I1220 19:36:18.929703       1 resource_allocation.go:84] green-k8s-test-65bb774986-d9rm6 -> ip-172-20-61-178.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:520 memory:849346560] ,score 9,
+I1220 19:36:18.938638       1 resource_allocation.go:84] green-k8s-test-65bb774986-d9rm6 -> ip-172-20-61-178.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:520 memory:849346560] ,score 4,
+I1220 19:36:18.939037       1 selector_spreading.go:146] green-k8s-test-65bb774986-d9rm6 -> ip-172-20-58-134.ec2.internal: SelectorSpreadPriority, Score: (1)
+I1220 19:36:18.939059       1 selector_spreading.go:146] green-k8s-test-65bb774986-d9rm6 -> ip-172-20-45-201.ec2.internal: SelectorSpreadPriority, Score: (0)
+I1220 19:36:18.939065       1 selector_spreading.go:146] green-k8s-test-65bb774986-d9rm6 -> ip-172-20-49-41.ec2.internal: SelectorSpreadPriority, Score: (0)
+I1220 19:36:18.939071       1 selector_spreading.go:146] green-k8s-test-65bb774986-d9rm6 -> ip-172-20-61-178.ec2.internal: SelectorSpreadPriority, Score: (1)
+I1220 19:36:18.939077       1 generic_scheduler.go:773] green-k8s-test-65bb774986-d9rm6_default -> ip-172-20-58-134.ec2.internal: ServiceSpreadingPriority, Score: (1)
+I1220 19:36:18.939083       1 generic_scheduler.go:773] green-k8s-test-65bb774986-d9rm6_default -> ip-172-20-45-201.ec2.internal: ServiceSpreadingPriority, Score: (0)
+I1220 19:36:18.939088       1 generic_scheduler.go:773] green-k8s-test-65bb774986-d9rm6_default -> ip-172-20-49-41.ec2.internal: ServiceSpreadingPriority, Score: (0)
+I1220 19:36:18.939333       1 round_trippers.go:443] POST https://100.64.0.1:443/api/v1/namespaces/default/pods/green-k8s-test-65bb774986-nbqv2/binding 201 Created in 11 milliseconds
+I1220 19:36:18.939353       1 round_trippers.go:449] Response Headers:
+I1220 19:36:18.939360       1 round_trippers.go:452]     X-Kubernetes-Pf-Prioritylevel-Uid: 0d11ff8b-ca59-4914-b971-4d6f623f711b
+I1220 19:36:18.939365       1 round_trippers.go:452]     Content-Length: 48
+I1220 19:36:18.939370       1 round_trippers.go:452]     Date: Mon, 20 Dec 2021 19:36:18 GMT
+I1220 19:36:18.939375       1 round_trippers.go:452]     Cache-Control: no-cache, private
+I1220 19:36:18.939380       1 round_trippers.go:452]     Content-Type: application/vnd.kubernetes.protobuf
+I1220 19:36:18.939742       1 round_trippers.go:452]     X-Kubernetes-Pf-Flowschema-Uid: 9fb2dc3c-3c29-42f2-bb88-3d0896e45310
+I1220 19:36:18.939781       1 request.go:966] Response Body:
+00000000  6b 38 73 00 0a 0c 0a 02  76 31 12 06 53 74 61 74  |k8s.....v1..Stat|
+00000010  75 73 12 18 0a 06 0a 00  12 00 1a 00 12 07 53 75  |us............Su|
+00000020  63 63 65 73 73 1a 00 22  00 30 c9 01 1a 00 22 00  |ccess..".0....".|
+I1220 19:36:18.945427       1 cache.go:305] Finished binding for pod 0505b6fd-a97e-4d34-bc76-a58e67340d9f. Can be expired.
+I1220 19:36:18.945481       1 event_recorder.go:54] Could not construct reference to: '<nil>' due to: 'can't reference a nil object'.
+I1220 19:36:18.945710       1 scheduler.go:667] pod default/green-k8s-test-65bb774986-nbqv2 is bound successfully on node "ip-172-20-45-201.ec2.internal", 5 nodes evaluated, 4 nodes were found feasible. Bound node resource: "Capacity: CPU<1>|Memory<2022868Ki>|Pods<110>|StorageEphemeral<130045936Ki>; Allocatable: CPU<1>|Memory<1920468Ki>|Pods<110>|StorageEphemeral<119850334420>.".
+I1220 19:36:18.939093       1 generic_scheduler.go:773] green-k8s-test-65bb774986-d9rm6_default -> ip-172-20-61-178.ec2.internal: ServiceSpreadingPriority, Score: (1)
+I1220 19:36:18.939547       1 round_trippers.go:443] POST https://100.64.0.1:443/apis/events.k8s.io/v1beta1/namespaces/default/events 201 Created in 19 milliseconds
+I1220 19:36:18.946186       1 request.go:966] Request Body:
+00000000  6b 38 73 00 0a 1e 0a 15  65 76 65 6e 74 73 2e 6b  |k8s.....events.k|
+00000010  38 73 2e 69 6f 2f 76 31  62 65 74 61 31 12 05 45  |8s.io/v1beta1..E|
+00000020  76 65 6e 74 12 a8 03 0a  49 0a 30 67 72 65 65 6e  |vent....I.0green|
+00000030  2d 6b 38 73 2d 74 65 73  74 2d 36 35 62 62 37 37  |-k8s-test-65bb77|
+00000040  34 39 38 36 2d 6e 62 71  76 32 2e 31 36 63 32 38  |4986-nbqv2.16c28|
+00000050  64 61 61 63 37 36 34 37  38 33 33 12 00 1a 07 64  |daac7647833....d|
+00000060  65 66 61 75 6c 74 22 00  2a 00 32 00 38 00 42 00  |efault".*.2.8.B.|
+00000070  7a 00 12 0c 08 b2 b6 83  8e 06 10 d7 c9 ea c2 03  |z...............|
+00000080  22 13 67 72 65 65 6e 2d  6b 38 73 2d 73 63 68 65  |".green-k8s-sche|
+00000090  64 75 6c 65 72 2a 37 67  72 65 65 6e 2d 6b 38 73  |duler*7green-k8s|
+000000a0  2d 73 63 68 65 64 75 6c  65 72 2d 67 72 65 65 6e  |-scheduler-green|
+000000b0  2d 6b 38 73 2d 73 63 68  65 64 75 6c 65 72 2d 38  |-k8s-scheduler-8|
+000000c0  63 62 37 66 37 37 37 39  2d 76 68 39 6c 77 32 07  |cb7f7779-vh9lw2.|
+000000d0  42 69 6e 64 69 6e 67 3a  09 53 63 68 65 64 75 6c  |Binding:.Schedul|
+000000e0  65 64 42 64 0a 03 50 6f  64 12 07 64 65 66 61 75  |edBd..Pod..defau|
+000000f0  6c 74 1a 1f 67 72 65 65  6e 2d 6b 38 73 2d 74 65  |lt..green-k8s-te|
+00000100  73 74 2d 36 35 62 62 37  37 34 39 38 36 2d 6e 62  |st-65bb774986-nb|
+00000110  71 76 32 22 24 30 35 30  35 62 36 66 64 2d 61 39  |qv2"$0505b6fd-a9|
+00000120  37 65 2d 34 64 33 34 2d  62 63 37 36 2d 61 35 38  |7e-4d34-bc76-a58|
+00000130  65 36 37 33 34 30 64 39  66 2a 02 76 31 32 07 31  |e67340d9f*.v12.1|
+00000140  33 39 34 33 35 38 3a 00  52 5e 53 75 63 63 65 73  |394358:.R^Succes|
+00000150  73 66 75 6c 6c 79 20 61  73 73 69 67 6e 65 64 20  |sfully assigned |
+00000160  64 65 66 61 75 6c 74 2f  67 72 65 65 6e 2d 6b 38  |default/green-k8|
+00000170  73 2d 74 65 73 74 2d 36  35 62 62 37 37 34 39 38  |s-test-65bb77498|
+00000180  36 2d 6e 62 71 76 32 20  74 6f 20 69 70 2d 31 37  |6-nbqv2 to ip-17|
+00000190  32 2d 32 30 2d 34 35 2d  32 30 31 2e 65 63 32 2e  |2-20-45-201.ec2.|
+000001a0  69 6e 74 65 72 6e 61 6c  5a 06 4e 6f 72 6d 61 6c  |internalZ.Normal|
+000001b0  62 17 0a 13 67 72 65 65  6e 2d 6b 38 73 2d 73 63  |b...green-k8s-sc|
+000001c0  68 65 64 75 6c 65 72 12  00 6a 00 72 00 78 00 1a  |heduler..j.r.x..|
+000001d0  00 22 00                                          |.".|
+I1220 19:36:18.946544       1 round_trippers.go:449] Response Headers:
+I1220 19:36:18.946562       1 round_trippers.go:452]     Cache-Control: no-cache, private
+I1220 19:36:18.946569       1 round_trippers.go:452]     Content-Type: application/vnd.kubernetes.protobuf
+I1220 19:36:18.946768       1 round_trippers.go:423] curl -k -v -XPOST  -H "User-Agent: kube-scheduler/v1.16.3 (linux/amd64) kubernetes/b3cbbae/scheduler" -H "Accept: application/vnd.kubernetes.protobuf, */*" -H "Content-Type: application/vnd.kubernetes.protobuf" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkI2d0Zpc0Q2S2pFdmhUX3hsRG5GZFdLemMtRkhWWmxiQmszcGVmc3RsdjQifQ.eyJhdWQiOlsia3ViZXJuZXRlcy5zdmMuZGVmYXVsdCJdLCJleHAiOjE2NzE1NjM0ODksImlhdCI6MTY0MDAyNzQ4OSwiaXNzIjoiaHR0cHM6Ly9hcGkuaW50ZXJuYWwuaGEuZ3JlZW5rOHMuY29tIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInBvZCI6eyJuYW1lIjoiZ3JlZW4tazhzLXNjaGVkdWxlci04Y2I3Zjc3Nzktdmg5bHciLCJ1aWQiOiJkZTEyN2Q0Yy1iYjY0LTQxMDktOWQ3ZC1mNWJjN2RkOWRlM2UifSwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImdyZWVuLWs4cy1zY2hlZHVsZXIiLCJ1aWQiOiI2NzgyMTEwNC01NGFiLTQ2YzctYTQ3NC00YjhlODI3M2UyZWYifSwid2FybmFmdGVyIjoxNjQwMDMxMDk2fSwibmJmIjoxNjQwMDI3NDg5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06Z3JlZW4tazhzLXNjaGVkdWxlciJ9.PCHj0VsyJ_6F1kiw2KtMJhp43t05m6phkjymLWPohHbxVSKc48rnPoNVik3odvK28ts9f3WKq0JlzZQPg_xq9ot31ffQqlBvKgBvCFonPN_TWNiCgoP_PZEsbj3L0IWFKAPQd-18KSx2-_rdm621jRpOKICVz9cj7KlnAQfkdOeHG5dnRA1ci2vMgN4wZaVDwrhjq0WMBgLRjr_pTr-j0QBrNVt8FYBh4KQDhyBjKyoLizg_MltKxwIlWiyHFH5kEJxeOvE4tnWtT9eTGa4qPTbTqjTSq1fF_6ukQpEpRmYnqYywvGAJ2vgSn4AvXxtVgnoZq2tpUm6_XnUFXclHqg" 'https://100.64.0.1:443/apis/events.k8s.io/v1beta1/namespaces/default/events'
+I1220 19:36:18.946979       1 round_trippers.go:452]     X-Kubernetes-Pf-Flowschema-Uid: 9fb2dc3c-3c29-42f2-bb88-3d0896e45310
+I1220 19:36:18.946998       1 round_trippers.go:452]     X-Kubernetes-Pf-Prioritylevel-Uid: 0d11ff8b-ca59-4914-b971-4d6f623f711b
+I1220 19:36:18.947004       1 round_trippers.go:452]     Content-Length: 864
+I1220 19:36:18.947009       1 round_trippers.go:452]     Date: Mon, 20 Dec 2021 19:36:18 GMT
+I1220 19:36:18.939557       1 round_trippers.go:443] POST https://100.64.0.1:443/api/v1/namespaces/default/pods/green-k8s-test-65bb774986-cpgh5/binding 201 Created in 18 milliseconds
+I1220 19:36:18.947032       1 round_trippers.go:449] Response Headers:
+I1220 19:36:18.947038       1 round_trippers.go:452]     X-Kubernetes-Pf-Flowschema-Uid: 9fb2dc3c-3c29-42f2-bb88-3d0896e45310
+I1220 19:36:18.947044       1 round_trippers.go:452]     X-Kubernetes-Pf-Prioritylevel-Uid: 0d11ff8b-ca59-4914-b971-4d6f623f711b
+I1220 19:36:18.947219       1 round_trippers.go:452]     Content-Length: 48
+I1220 19:36:18.947235       1 round_trippers.go:452]     Date: Mon, 20 Dec 2021 19:36:18 GMT
+I1220 19:36:18.947344       1 round_trippers.go:452]     Cache-Control: no-cache, private
+I1220 19:36:18.947513       1 round_trippers.go:452]     Content-Type: application/vnd.kubernetes.protobuf
+I1220 19:36:18.939713       1 round_trippers.go:443] POST https://100.64.0.1:443/api/v1/namespaces/default/pods/green-k8s-test-65bb774986-6kg6v/binding 201 Created in 17 milliseconds
+I1220 19:36:18.947668       1 round_trippers.go:449] Response Headers:
+I1220 19:36:18.947675       1 round_trippers.go:452]     Cache-Control: no-cache, private
+I1220 19:36:18.947681       1 round_trippers.go:452]     Content-Type: application/vnd.kubernetes.protobuf
+I1220 19:36:18.947686       1 round_trippers.go:452]     X-Kubernetes-Pf-Flowschema-Uid: 9fb2dc3c-3c29-42f2-bb88-3d0896e45310
+I1220 19:36:18.947691       1 round_trippers.go:452]     X-Kubernetes-Pf-Prioritylevel-Uid: 0d11ff8b-ca59-4914-b971-4d6f623f711b
+I1220 19:36:18.957925       1 round_trippers.go:452]     Content-Length: 48
+I1220 19:36:18.957942       1 round_trippers.go:452]     Date: Mon, 20 Dec 2021 19:36:18 GMT
+I1220 19:36:18.957973       1 request.go:966] Response Body:
+00000000  6b 38 73 00 0a 0c 0a 02  76 31 12 06 53 74 61 74  |k8s.....v1..Stat|
+00000010  75 73 12 18 0a 06 0a 00  12 00 1a 00 12 07 53 75  |us............Su|
+00000020  63 63 65 73 73 1a 00 22  00 30 c9 01 1a 00 22 00  |ccess..".0....".|
+I1220 19:36:18.958042       1 cache.go:305] Finished binding for pod a061f600-d573-4b71-a90d-9a8f8180e3aa. Can be expired.
+I1220 19:36:18.958079       1 event_recorder.go:54] Could not construct reference to: '<nil>' due to: 'can't reference a nil object'.
+I1220 19:36:18.958149       1 scheduler.go:667] pod default/green-k8s-test-65bb774986-6kg6v is bound successfully on node "ip-172-20-58-134.ec2.internal", 5 nodes evaluated, 4 nodes were found feasible. Bound node resource: "Capacity: CPU<1>|Memory<2022868Ki>|Pods<110>|StorageEphemeral<130045936Ki>; Allocatable: CPU<1>|Memory<1920468Ki>|Pods<110>|StorageEphemeral<119850334420>.".
+I1220 19:36:18.958318       1 request.go:966] Request Body:
+00000000  6b 38 73 00 0a 1e 0a 15  65 76 65 6e 74 73 2e 6b  |k8s.....events.k|
+00000010  38 73 2e 69 6f 2f 76 31  62 65 74 61 31 12 05 45  |8s.io/v1beta1..E|
+00000020  76 65 6e 74 12 a8 03 0a  49 0a 30 67 72 65 65 6e  |vent....I.0green|
+00000030  2d 6b 38 73 2d 74 65 73  74 2d 36 35 62 62 37 37  |-k8s-test-65bb77|
+00000040  34 39 38 36 2d 36 6b 67  36 76 2e 31 36 63 32 38  |4986-6kg6v.16c28|
+00000050  64 61 61 63 38 32 35 33  35 30 33 12 00 1a 07 64  |daac8253503....d|
+00000060  65 66 61 75 6c 74 22 00  2a 00 32 00 38 00 42 00  |efault".*.2.8.B.|
+00000070  7a 00 12 0c 08 b2 b6 83  8e 06 10 c7 f5 eb c8 03  |z...............|
+00000080  22 13 67 72 65 65 6e 2d  6b 38 73 2d 73 63 68 65  |".green-k8s-sche|
+00000090  64 75 6c 65 72 2a 37 67  72 65 65 6e 2d 6b 38 73  |duler*7green-k8s|
+000000a0  2d 73 63 68 65 64 75 6c  65 72 2d 67 72 65 65 6e  |-scheduler-green|
+000000b0  2d 6b 38 73 2d 73 63 68  65 64 75 6c 65 72 2d 38  |-k8s-scheduler-8|
+000000c0  63 62 37 66 37 37 37 39  2d 76 68 39 6c 77 32 07  |cb7f7779-vh9lw2.|
+000000d0  42 69 6e 64 69 6e 67 3a  09 53 63 68 65 64 75 6c  |Binding:.Schedul|
+000000e0  65 64 42 64 0a 03 50 6f  64 12 07 64 65 66 61 75  |edBd..Pod..defau|
+000000f0  6c 74 1a 1f 67 72 65 65  6e 2d 6b 38 73 2d 74 65  |lt..green-k8s-te|
+00000100  73 74 2d 36 35 62 62 37  37 34 39 38 36 2d 36 6b  |st-65bb774986-6k|
+00000110  67 36 76 22 24 61 30 36  31 66 36 30 30 2d 64 35  |g6v"$a061f600-d5|
+00000120  37 33 2d 34 62 37 31 2d  61 39 30 64 2d 39 61 38  |73-4b71-a90d-9a8|
+00000130  66 38 31 38 30 65 33 61  61 2a 02 76 31 32 07 31  |f8180e3aa*.v12.1|
+00000140  33 39 34 33 35 36 3a 00  52 5e 53 75 63 63 65 73  |394356:.R^Succes|
+00000150  73 66 75 6c 6c 79 20 61  73 73 69 67 6e 65 64 20  |sfully assigned |
+00000160  64 65 66 61 75 6c 74 2f  67 72 65 65 6e 2d 6b 38  |default/green-k8|
+00000170  73 2d 74 65 73 74 2d 36  35 62 62 37 37 34 39 38  |s-test-65bb77498|
+00000180  36 2d 36 6b 67 36 76 20  74 6f 20 69 70 2d 31 37  |6-6kg6v to ip-17|
+00000190  32 2d 32 30 2d 35 38 2d  31 33 34 2e 65 63 32 2e  |2-20-58-134.ec2.|
+000001a0  69 6e 74 65 72 6e 61 6c  5a 06 4e 6f 72 6d 61 6c  |internalZ.Normal|
+000001b0  62 17 0a 13 67 72 65 65  6e 2d 6b 38 73 2d 73 63  |b...green-k8s-sc|
+000001c0  68 65 64 75 6c 65 72 12  00 6a 00 72 00 78 00 1a  |heduler..j.r.x..|
+000001d0  00 22 00                                          |.".|
+I1220 19:36:18.958411       1 round_trippers.go:423] curl -k -v -XPOST  -H "Accept: application/vnd.kubernetes.protobuf, */*" -H "Content-Type: application/vnd.kubernetes.protobuf" -H "User-Agent: kube-scheduler/v1.16.3 (linux/amd64) kubernetes/b3cbbae/scheduler" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkI2d0Zpc0Q2S2pFdmhUX3hsRG5GZFdLemMtRkhWWmxiQmszcGVmc3RsdjQifQ.eyJhdWQiOlsia3ViZXJuZXRlcy5zdmMuZGVmYXVsdCJdLCJleHAiOjE2NzE1NjM0ODksImlhdCI6MTY0MDAyNzQ4OSwiaXNzIjoiaHR0cHM6Ly9hcGkuaW50ZXJuYWwuaGEuZ3JlZW5rOHMuY29tIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInBvZCI6eyJuYW1lIjoiZ3JlZW4tazhzLXNjaGVkdWxlci04Y2I3Zjc3Nzktdmg5bHciLCJ1aWQiOiJkZTEyN2Q0Yy1iYjY0LTQxMDktOWQ3ZC1mNWJjN2RkOWRlM2UifSwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImdyZWVuLWs4cy1zY2hlZHVsZXIiLCJ1aWQiOiI2NzgyMTEwNC01NGFiLTQ2YzctYTQ3NC00YjhlODI3M2UyZWYifSwid2FybmFmdGVyIjoxNjQwMDMxMDk2fSwibmJmIjoxNjQwMDI3NDg5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06Z3JlZW4tazhzLXNjaGVkdWxlciJ9.PCHj0VsyJ_6F1kiw2KtMJhp43t05m6phkjymLWPohHbxVSKc48rnPoNVik3odvK28ts9f3WKq0JlzZQPg_xq9ot31ffQqlBvKgBvCFonPN_TWNiCgoP_PZEsbj3L0IWFKAPQd-18KSx2-_rdm621jRpOKICVz9cj7KlnAQfkdOeHG5dnRA1ci2vMgN4wZaVDwrhjq0WMBgLRjr_pTr-j0QBrNVt8FYBh4KQDhyBjKyoLizg_MltKxwIlWiyHFH5kEJxeOvE4tnWtT9eTGa4qPTbTqjTSq1fF_6ukQpEpRmYnqYywvGAJ2vgSn4AvXxtVgnoZq2tpUm6_XnUFXclHqg" 'https://100.64.0.1:443/apis/events.k8s.io/v1beta1/namespaces/default/events'
+I1220 19:36:18.948004       1 generic_scheduler.go:838] Host ip-172-20-58-134.ec2.internal => Score 15
+I1220 19:36:18.962449       1 generic_scheduler.go:838] Host ip-172-20-45-201.ec2.internal => Score 13
+I1220 19:36:18.962461       1 generic_scheduler.go:838] Host ip-172-20-49-41.ec2.internal => Score 13
+I1220 19:36:18.962467       1 generic_scheduler.go:838] Host ip-172-20-61-178.ec2.internal => Score 15
+I1220 19:36:18.962622       1 scheduler_binder.go:256] AssumePodVolumes for pod "default/green-k8s-test-65bb774986-d9rm6", node "ip-172-20-61-178.ec2.internal"
+I1220 19:36:18.962647       1 scheduler_binder.go:266] AssumePodVolumes for pod "default/green-k8s-test-65bb774986-d9rm6", node "ip-172-20-61-178.ec2.internal": all PVCs bound and nothing to do
+I1220 19:36:18.962865       1 factory.go:610] Attempting to bind green-k8s-test-65bb774986-d9rm6 to ip-172-20-61-178.ec2.internal
+I1220 19:36:18.962924       1 request.go:966] Request Body:
+00000000  6b 38 73 00 0a 0d 0a 02  76 31 12 07 42 69 6e 64  |k8s.....v1..Bind|
+00000010  69 6e 67 12 8f 01 0a 5c  0a 1f 67 72 65 65 6e 2d  |ing....\..green-|
+00000020  6b 38 73 2d 74 65 73 74  2d 36 35 62 62 37 37 34  |k8s-test-65bb774|
+00000030  39 38 36 2d 64 39 72 6d  36 12 00 1a 07 64 65 66  |986-d9rm6....def|
+00000040  61 75 6c 74 22 00 2a 24  37 31 39 33 35 33 31 35  |ault".*$71935315|
+00000050  2d 37 32 39 61 2d 34 65  63 66 2d 38 65 66 64 2d  |-729a-4ecf-8efd-|
+00000060  39 61 36 39 30 37 34 61  31 39 36 33 32 00 38 00  |9a69074a19632.8.|
+00000070  42 00 7a 00 12 2f 0a 04  4e 6f 64 65 12 00 1a 1d  |B.z../..Node....|
+00000080  69 70 2d 31 37 32 2d 32  30 2d 36 31 2d 31 37 38  |ip-172-20-61-178|
+00000090  2e 65 63 32 2e 69 6e 74  65 72 6e 61 6c 22 00 2a  |.ec2.internal".*|
+000000a0  00 32 00 3a 00 1a 00 22  00                       |.2.:...".|
+I1220 19:36:18.963220       1 round_trippers.go:423] curl -k -v -XPOST  -H "Accept: application/vnd.kubernetes.protobuf, */*" -H "Content-Type: application/vnd.kubernetes.protobuf" -H "User-Agent: kube-scheduler/v1.16.3 (linux/amd64) kubernetes/b3cbbae/scheduler" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkI2d0Zpc0Q2S2pFdmhUX3hsRG5GZFdLemMtRkhWWmxiQmszcGVmc3RsdjQifQ.eyJhdWQiOlsia3ViZXJuZXRlcy5zdmMuZGVmYXVsdCJdLCJleHAiOjE2NzE1NjM0ODksImlhdCI6MTY0MDAyNzQ4OSwiaXNzIjoiaHR0cHM6Ly9hcGkuaW50ZXJuYWwuaGEuZ3JlZW5rOHMuY29tIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInBvZCI6eyJuYW1lIjoiZ3JlZW4tazhzLXNjaGVkdWxlci04Y2I3Zjc3Nzktdmg5bHciLCJ1aWQiOiJkZTEyN2Q0Yy1iYjY0LTQxMDktOWQ3ZC1mNWJjN2RkOWRlM2UifSwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImdyZWVuLWs4cy1zY2hlZHVsZXIiLCJ1aWQiOiI2NzgyMTEwNC01NGFiLTQ2YzctYTQ3NC00YjhlODI3M2UyZWYifSwid2FybmFmdGVyIjoxNjQwMDMxMDk2fSwibmJmIjoxNjQwMDI3NDg5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06Z3JlZW4tazhzLXNjaGVkdWxlciJ9.PCHj0VsyJ_6F1kiw2KtMJhp43t05m6phkjymLWPohHbxVSKc48rnPoNVik3odvK28ts9f3WKq0JlzZQPg_xq9ot31ffQqlBvKgBvCFonPN_TWNiCgoP_PZEsbj3L0IWFKAPQd-18KSx2-_rdm621jRpOKICVz9cj7KlnAQfkdOeHG5dnRA1ci2vMgN4wZaVDwrhjq0WMBgLRjr_pTr-j0QBrNVt8FYBh4KQDhyBjKyoLizg_MltKxwIlWiyHFH5kEJxeOvE4tnWtT9eTGa4qPTbTqjTSq1fF_6ukQpEpRmYnqYywvGAJ2vgSn4AvXxtVgnoZq2tpUm6_XnUFXclHqg" 'https://100.64.0.1:443/api/v1/namespaces/default/pods/green-k8s-test-65bb774986-d9rm6/binding'
+I1220 19:36:18.939726       1 round_trippers.go:443] POST https://100.64.0.1:443/api/v1/namespaces/default/pods/green-k8s-test-65bb774986-fnn8q/binding 201 Created in 15 milliseconds
+I1220 19:36:18.964631       1 round_trippers.go:449] Response Headers:
+I1220 19:36:18.964641       1 round_trippers.go:452]     Content-Length: 48
+I1220 19:36:18.964647       1 round_trippers.go:452]     Date: Mon, 20 Dec 2021 19:36:18 GMT
+I1220 19:36:18.964652       1 round_trippers.go:452]     Cache-Control: no-cache, private
+I1220 19:36:18.964658       1 round_trippers.go:452]     Content-Type: application/vnd.kubernetes.protobuf
+I1220 19:36:18.964662       1 round_trippers.go:452]     X-Kubernetes-Pf-Flowschema-Uid: 9fb2dc3c-3c29-42f2-bb88-3d0896e45310
+I1220 19:36:18.964667       1 round_trippers.go:452]     X-Kubernetes-Pf-Prioritylevel-Uid: 0d11ff8b-ca59-4914-b971-4d6f623f711b
+I1220 19:36:18.964691       1 request.go:966] Response Body:
+00000000  6b 38 73 00 0a 0c 0a 02  76 31 12 06 53 74 61 74  |k8s.....v1..Stat|
+00000010  75 73 12 18 0a 06 0a 00  12 00 1a 00 12 07 53 75  |us............Su|
+00000020  63 63 65 73 73 1a 00 22  00 30 c9 01 1a 00 22 00  |ccess..".0....".|
+I1220 19:36:18.964728       1 cache.go:305] Finished binding for pod 5312d8be-8dc2-4474-95ea-997ebfbc8995. Can be expired.
+I1220 19:36:18.964814       1 event_recorder.go:54] Could not construct reference to: '<nil>' due to: 'can't reference a nil object'.
+I1220 19:36:18.964845       1 scheduler.go:667] pod default/green-k8s-test-65bb774986-fnn8q is bound successfully on node "ip-172-20-49-41.ec2.internal", 5 nodes evaluated, 4 nodes were found feasible. Bound node resource: "Capacity: CPU<1>|Memory<2022868Ki>|Pods<110>|StorageEphemeral<130045936Ki>; Allocatable: CPU<1>|Memory<1920468Ki>|Pods<110>|StorageEphemeral<119850334420>.".
+I1220 19:36:18.964929       1 request.go:966] Request Body:
+00000000  6b 38 73 00 0a 1e 0a 15  65 76 65 6e 74 73 2e 6b  |k8s.....events.k|
+00000010  38 73 2e 69 6f 2f 76 31  62 65 74 61 31 12 05 45  |8s.io/v1beta1..E|
+00000020  76 65 6e 74 12 a7 03 0a  49 0a 30 67 72 65 65 6e  |vent....I.0green|
+00000030  2d 6b 38 73 2d 74 65 73  74 2d 36 35 62 62 37 37  |-k8s-test-65bb77|
+00000040  34 39 38 36 2d 66 6e 6e  38 71 2e 31 36 63 32 38  |4986-fnn8q.16c28|
+00000050  64 61 61 63 38 38 62 37  30 65 32 12 00 1a 07 64  |daac88b70e2....d|
+00000060  65 66 61 75 6c 74 22 00  2a 00 32 00 38 00 42 00  |efault".*.2.8.B.|
+00000070  7a 00 12 0c 08 b2 b6 83  8e 06 10 a3 ef 86 cc 03  |z...............|
+00000080  22 13 67 72 65 65 6e 2d  6b 38 73 2d 73 63 68 65  |".green-k8s-sche|
+00000090  64 75 6c 65 72 2a 37 67  72 65 65 6e 2d 6b 38 73  |duler*7green-k8s|
+000000a0  2d 73 63 68 65 64 75 6c  65 72 2d 67 72 65 65 6e  |-scheduler-green|
+000000b0  2d 6b 38 73 2d 73 63 68  65 64 75 6c 65 72 2d 38  |-k8s-scheduler-8|
+000000c0  63 62 37 66 37 37 37 39  2d 76 68 39 6c 77 32 07  |cb7f7779-vh9lw2.|
+000000d0  42 69 6e 64 69 6e 67 3a  09 53 63 68 65 64 75 6c  |Binding:.Schedul|
+000000e0  65 64 42 64 0a 03 50 6f  64 12 07 64 65 66 61 75  |edBd..Pod..defau|
+000000f0  6c 74 1a 1f 67 72 65 65  6e 2d 6b 38 73 2d 74 65  |lt..green-k8s-te|
+00000100  73 74 2d 36 35 62 62 37  37 34 39 38 36 2d 66 6e  |st-65bb774986-fn|
+00000110  6e 38 71 22 24 35 33 31  32 64 38 62 65 2d 38 64  |n8q"$5312d8be-8d|
+00000120  63 32 2d 34 34 37 34 2d  39 35 65 61 2d 39 39 37  |c2-4474-95ea-997|
+00000130  65 62 66 62 63 38 39 39  35 2a 02 76 31 32 07 31  |ebfbc8995*.v12.1|
+00000140  33 39 34 33 35 37 3a 00  52 5d 53 75 63 63 65 73  |394357:.R]Succes|
+00000150  73 66 75 6c 6c 79 20 61  73 73 69 67 6e 65 64 20  |sfully assigned |
+00000160  64 65 66 61 75 6c 74 2f  67 72 65 65 6e 2d 6b 38  |default/green-k8|
+00000170  73 2d 74 65 73 74 2d 36  35 62 62 37 37 34 39 38  |s-test-65bb77498|
+00000180  36 2d 66 6e 6e 38 71 20  74 6f 20 69 70 2d 31 37  |6-fnn8q to ip-17|
+00000190  32 2d 32 30 2d 34 39 2d  34 31 2e 65 63 32 2e 69  |2-20-49-41.ec2.i|
+000001a0  6e 74 65 72 6e 61 6c 5a  06 4e 6f 72 6d 61 6c 62  |nternalZ.Normalb|
+000001b0  17 0a 13 67 72 65 65 6e  2d 6b 38 73 2d 73 63 68  |...green-k8s-sch|
+000001c0  65 64 75 6c 65 72 12 00  6a 00 72 00 78 00 1a 00  |eduler..j.r.x...|
+000001d0  22 00                                             |".|
+I1220 19:36:18.965019       1 round_trippers.go:423] curl -k -v -XPOST  -H "User-Agent: kube-scheduler/v1.16.3 (linux/amd64) kubernetes/b3cbbae/scheduler" -H "Accept: application/vnd.kubernetes.protobuf, */*" -H "Content-Type: application/vnd.kubernetes.protobuf" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkI2d0Zpc0Q2S2pFdmhUX3hsRG5GZFdLemMtRkhWWmxiQmszcGVmc3RsdjQifQ.eyJhdWQiOlsia3ViZXJuZXRlcy5zdmMuZGVmYXVsdCJdLCJleHAiOjE2NzE1NjM0ODksImlhdCI6MTY0MDAyNzQ4OSwiaXNzIjoiaHR0cHM6Ly9hcGkuaW50ZXJuYWwuaGEuZ3JlZW5rOHMuY29tIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInBvZCI6eyJuYW1lIjoiZ3JlZW4tazhzLXNjaGVkdWxlci04Y2I3Zjc3Nzktdmg5bHciLCJ1aWQiOiJkZTEyN2Q0Yy1iYjY0LTQxMDktOWQ3ZC1mNWJjN2RkOWRlM2UifSwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImdyZWVuLWs4cy1zY2hlZHVsZXIiLCJ1aWQiOiI2NzgyMTEwNC01NGFiLTQ2YzctYTQ3NC00YjhlODI3M2UyZWYifSwid2FybmFmdGVyIjoxNjQwMDMxMDk2fSwibmJmIjoxNjQwMDI3NDg5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06Z3JlZW4tazhzLXNjaGVkdWxlciJ9.PCHj0VsyJ_6F1kiw2KtMJhp43t05m6phkjymLWPohHbxVSKc48rnPoNVik3odvK28ts9f3WKq0JlzZQPg_xq9ot31ffQqlBvKgBvCFonPN_TWNiCgoP_PZEsbj3L0IWFKAPQd-18KSx2-_rdm621jRpOKICVz9cj7KlnAQfkdOeHG5dnRA1ci2vMgN4wZaVDwrhjq0WMBgLRjr_pTr-j0QBrNVt8FYBh4KQDhyBjKyoLizg_MltKxwIlWiyHFH5kEJxeOvE4tnWtT9eTGa4qPTbTqjTSq1fF_6ukQpEpRmYnqYywvGAJ2vgSn4AvXxtVgnoZq2tpUm6_XnUFXclHqg" 'https://100.64.0.1:443/apis/events.k8s.io/v1beta1/namespaces/default/events'
+I1220 19:36:18.954985       1 request.go:966] Response Body:
+00000000  6b 38 73 00 0a 1e 0a 15  65 76 65 6e 74 73 2e 6b  |k8s.....events.k|
+00000010  38 73 2e 69 6f 2f 76 31  62 65 74 61 31 12 05 45  |8s.io/v1beta1..E|
+00000020  76 65 6e 74 12 b5 06 0a  d5 03 0a 30 67 72 65 65  |vent.......0gree|
+00000030  6e 2d 6b 38 73 2d 74 65  73 74 2d 36 35 62 62 37  |n-k8s-test-65bb7|
+00000040  37 34 39 38 36 2d 64 6c  34 32 64 2e 31 36 63 32  |74986-dl42d.16c2|
+00000050  38 64 61 61 63 35 64 61  37 32 66 38 12 00 1a 07  |8daac5da72f8....|
+00000060  64 65 66 61 75 6c 74 22  00 2a 24 66 34 63 37 65  |default".*$f4c7e|
+00000070  34 65 35 2d 65 35 61 61  2d 34 35 37 64 2d 39 34  |4e5-e5aa-457d-94|
+00000080  63 39 2d 38 37 32 33 30  35 62 39 66 39 36 30 32  |c9-872305b9f9602|
+00000090  04 32 35 33 36 38 00 42  08 08 b2 b6 83 8e 06 10  |.25368.B........|
+000000a0  00 7a 00 8a 01 d8 02 0a  0e 6b 75 62 65 2d 73 63  |.z.......kube-sc|
+000000b0  68 65 64 75 6c 65 72 12  06 55 70 64 61 74 65 1a  |heduler..Update.|
+000000c0  15 65 76 65 6e 74 73 2e  6b 38 73 2e 69 6f 2f 76  |.events.k8s.io/v|
+000000d0  31 62 65 74 61 31 22 08  08 b2 b6 83 8e 06 10 00  |1beta1".........|
+000000e0  32 08 46 69 65 6c 64 73  56 31 3a 92 02 0a 8f 02  |2.FieldsV1:.....|
+000000f0  7b 22 66 3a 61 63 74 69  6f 6e 22 3a 7b 7d 2c 22  |{"f:action":{},"|
+00000100  66 3a 64 65 70 72 65 63  61 74 65 64 53 6f 75 72  |f:deprecatedSour|
+00000110  63 65 22 3a 7b 22 66 3a  63 6f 6d 70 6f 6e 65 6e  |ce":{"f:componen|
+00000120  74 22 3a 7b 7d 7d 2c 22  66 3a 65 76 65 6e 74 54  |t":{}},"f:eventT|
+00000130  69 6d 65 22 3a 7b 7d 2c  22 66 3a 6e 6f 74 65 22  |ime":{},"f:note"|
+00000140  3a 7b 7d 2c 22 66 3a 72  65 61 73 6f 6e 22 3a 7b  |:{},"f:reason":{|
+00000150  7d 2c 22 66 3a 72 65 67  61 72 64 69 6e 67 22 3a  |},"f:regarding":|
+00000160  7b 22 66 3a 61 70 69 56  65 72 73 69 6f 6e 22 3a  |{"f:apiVersion":|
+00000170  7b 7d 2c 22 66 3a 6b 69  6e 64 22 3a 7b 7d 2c 22  |{},"f:kind":{},"|
+00000180  66 3a 6e 61 6d 65 22 3a  7b 7d 2c 22 66 3a 6e 61  |f:name":{},"f:na|
+00000190  6d 65 73 70 61 63 65 22  3a 7b 7d 2c 22 66 3a 72  |mespace":{},"f:r|
+000001a0  65 73 6f 75 72 63 65 56  65 72 73 69 6f 6e 22 3a  |esourceVersion":|
+000001b0  7b 7d 2c 22 66 3a 75 69  64 22 3a 7b 7d 7d 2c 22  |{},"f:uid":{}},"|
+000001c0  66 3a 72 65 70 6f 72 74  69 6e 67 43 6f 6e 74 72  |f:reportingContr|
+000001d0  6f 6c 6c 65 72 22 3a 7b  7d 2c 22 66 3a 72 65 70  |oller":{},"f:rep|
+000001e0  6f 72 74 69 6e 67 49 6e  73 74 61 6e 63 65 22 3a  |ortingInstance":|
+000001f0  7b 7d 2c 22 66 3a 74 79  70 65 22 3a 7b 7d 7d 12  |{},"f:type":{}}.|
+00000200  0c 08 b2 b6 83 8e 06 10  a1 a2 c2 b6 03 22 13 67  |.............".g|
+00000210  72 65 65 6e 2d 6b 38 73  2d 73 63 68 65 64 75 6c  |reen-k8s-schedul|
+00000220  65 72 2a 37 67 72 65 65  6e 2d 6b 38 73 2d 73 63  |er*7green-k8s-sc|
+00000230  68 65 64 75 6c 65 72 2d  67 72 65 65 6e 2d 6b 38  |heduler-green-k8|
+00000240  73 2d 73 63 68 65 64 75  6c 65 72 2d 38 63 62 37  |s-scheduler-8cb7|
+00000250  66 37 37 37 39 2d 76 68  39 6c 77 32 07 42 69 6e  |f7779-vh9lw2.Bin|
+00000260  64 69 6e 67 3a 09 53 63  68 65 64 75 6c 65 64 42  |ding:.ScheduledB|
+00000270  64 0a 03 50 6f 64 12 07  64 65 66 61 75 6c 74 1a  |d..Pod..default.|
+00000280  1f 67 72 65 65 6e 2d 6b  38 73 2d 74 65 73 74 2d  |.green-k8s-test-|
+00000290  36 35 62 62 37 37 34 39  38 36 2d 64 6c 34 32 64  |65bb774986-dl42d|
+000002a0  22 24 33 35 30 32 65 33  61 63 2d 63 65 31 34 2d  |"$3502e3ac-ce14-|
+000002b0  34 38 30 62 2d 38 64 36  62 2d 37 66 32 36 32 39  |480b-8d6b-7f2629|
+000002c0  65 38 36 33 34 35 2a 02  76 31 32 07 31 33 39 34  |e86345*.v12.1394|
+000002d0  33 35 34 3a 00 52 5e 53  75 63 63 65 73 73 66 75  |354:.R^Successfu|
+000002e0  6c 6c 79 20 61 73 73 69  67 6e 65 64 20 64 65 66  |lly assigned def|
+000002f0  61 75 6c 74 2f 67 72 65  65 6e 2d 6b 38 73 2d 74  |ault/green-k8s-t|
+00000300  65 73 74 2d 36 35 62 62  37 37 34 39 38 36 2d 64  |est-65bb774986-d|
+00000310  6c 34 32 64 20 74 6f 20  69 70 2d 31 37 32 2d 32  |l42d to ip-172-2|
+00000320  30 2d 36 31 2d 31 37 38  2e 65 63 32 2e 69 6e 74  |0-61-178.ec2.int|
+00000330  65 72 6e 61 6c 5a 06 4e  6f 72 6d 61 6c 62 17 0a  |ernalZ.Normalb..|
+00000340  13 67 72 65 65 6e 2d 6b  38 73 2d 73 63 68 65 64  |.green-k8s-sched|
+00000350  75 6c 65 72 12 00 6a 00  72 00 78 00 1a 00 22 00  |uler..j.r.x...".|
+I1220 19:36:18.955000       1 request.go:966] Response Body:
+00000000  6b 38 73 00 0a 0c 0a 02  76 31 12 06 53 74 61 74  |k8s.....v1..Stat|
+00000010  75 73 12 18 0a 06 0a 00  12 00 1a 00 12 07 53 75  |us............Su|
+00000020  63 63 65 73 73 1a 00 22  00 30 c9 01 1a 00 22 00  |ccess..".0....".|
+I1220 19:36:18.967782       1 cache.go:305] Finished binding for pod 56cd312f-037d-4d32-9fea-d2269bf77f15. Can be expired.
+I1220 19:36:18.967812       1 event_recorder.go:54] Could not construct reference to: '<nil>' due to: 'can't reference a nil object'.
+I1220 19:36:18.967846       1 scheduler.go:667] pod default/green-k8s-test-65bb774986-cpgh5 is bound successfully on node "ip-172-20-45-201.ec2.internal", 5 nodes evaluated, 4 nodes were found feasible. Bound node resource: "Capacity: CPU<1>|Memory<2022868Ki>|Pods<110>|StorageEphemeral<130045936Ki>; Allocatable: CPU<1>|Memory<1920468Ki>|Pods<110>|StorageEphemeral<119850334420>.".
+I1220 19:36:18.967912       1 request.go:966] Request Body:
+00000000  6b 38 73 00 0a 1e 0a 15  65 76 65 6e 74 73 2e 6b  |k8s.....events.k|
+00000010  38 73 2e 69 6f 2f 76 31  62 65 74 61 31 12 05 45  |8s.io/v1beta1..E|
+00000020  76 65 6e 74 12 a8 03 0a  49 0a 30 67 72 65 65 6e  |vent....I.0green|
+00000030  2d 6b 38 73 2d 74 65 73  74 2d 36 35 62 62 37 37  |-k8s-test-65bb77|
+00000040  34 39 38 36 2d 63 70 67  68 35 2e 31 36 63 32 38  |4986-cpgh5.16c28|
+00000050  64 61 61 63 38 62 39 33  39 65 63 12 00 1a 07 64  |daac8b939ec....d|
+00000060  65 66 61 75 6c 74 22 00  2a 00 32 00 38 00 42 00  |efault".*.2.8.B.|
+00000070  7a 00 12 0c 08 b2 b6 83  8e 06 10 ee 8b be cd 03  |z...............|
+00000080  22 13 67 72 65 65 6e 2d  6b 38 73 2d 73 63 68 65  |".green-k8s-sche|
+00000090  64 75 6c 65 72 2a 37 67  72 65 65 6e 2d 6b 38 73  |duler*7green-k8s|
+000000a0  2d 73 63 68 65 64 75 6c  65 72 2d 67 72 65 65 6e  |-scheduler-green|
+000000b0  2d 6b 38 73 2d 73 63 68  65 64 75 6c 65 72 2d 38  |-k8s-scheduler-8|
+000000c0  63 62 37 66 37 37 37 39  2d 76 68 39 6c 77 32 07  |cb7f7779-vh9lw2.|
+000000d0  42 69 6e 64 69 6e 67 3a  09 53 63 68 65 64 75 6c  |Binding:.Schedul|
+000000e0  65 64 42 64 0a 03 50 6f  64 12 07 64 65 66 61 75  |edBd..Pod..defau|
+000000f0  6c 74 1a 1f 67 72 65 65  6e 2d 6b 38 73 2d 74 65  |lt..green-k8s-te|
+00000100  73 74 2d 36 35 62 62 37  37 34 39 38 36 2d 63 70  |st-65bb774986-cp|
+00000110  67 68 35 22 24 35 36 63  64 33 31 32 66 2d 30 33  |gh5"$56cd312f-03|
+00000120  37 64 2d 34 64 33 32 2d  39 66 65 61 2d 64 32 32  |7d-4d32-9fea-d22|
+00000130  36 39 62 66 37 37 66 31  35 2a 02 76 31 32 07 31  |69bf77f15*.v12.1|
+00000140  33 39 34 33 35 35 3a 00  52 5e 53 75 63 63 65 73  |394355:.R^Succes|
+00000150  73 66 75 6c 6c 79 20 61  73 73 69 67 6e 65 64 20  |sfully assigned |
+00000160  64 65 66 61 75 6c 74 2f  67 72 65 65 6e 2d 6b 38  |default/green-k8|
+00000170  73 2d 74 65 73 74 2d 36  35 62 62 37 37 34 39 38  |s-test-65bb77498|
+00000180  36 2d 63 70 67 68 35 20  74 6f 20 69 70 2d 31 37  |6-cpgh5 to ip-17|
+00000190  32 2d 32 30 2d 34 35 2d  32 30 31 2e 65 63 32 2e  |2-20-45-201.ec2.|
+000001a0  69 6e 74 65 72 6e 61 6c  5a 06 4e 6f 72 6d 61 6c  |internalZ.Normal|
+000001b0  62 17 0a 13 67 72 65 65  6e 2d 6b 38 73 2d 73 63  |b...green-k8s-sc|
+000001c0  68 65 64 75 6c 65 72 12  00 6a 00 72 00 78 00 1a  |heduler..j.r.x..|
+000001d0  00 22 00                                          |.".|
+I1220 19:36:18.967982       1 round_trippers.go:423] curl -k -v -XPOST  -H "Accept: application/vnd.kubernetes.protobuf, */*" -H "Content-Type: application/vnd.kubernetes.protobuf" -H "User-Agent: kube-scheduler/v1.16.3 (linux/amd64) kubernetes/b3cbbae/scheduler" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkI2d0Zpc0Q2S2pFdmhUX3hsRG5GZFdLemMtRkhWWmxiQmszcGVmc3RsdjQifQ.eyJhdWQiOlsia3ViZXJuZXRlcy5zdmMuZGVmYXVsdCJdLCJleHAiOjE2NzE1NjM0ODksImlhdCI6MTY0MDAyNzQ4OSwiaXNzIjoiaHR0cHM6Ly9hcGkuaW50ZXJuYWwuaGEuZ3JlZW5rOHMuY29tIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInBvZCI6eyJuYW1lIjoiZ3JlZW4tazhzLXNjaGVkdWxlci04Y2I3Zjc3Nzktdmg5bHciLCJ1aWQiOiJkZTEyN2Q0Yy1iYjY0LTQxMDktOWQ3ZC1mNWJjN2RkOWRlM2UifSwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImdyZWVuLWs4cy1zY2hlZHVsZXIiLCJ1aWQiOiI2NzgyMTEwNC01NGFiLTQ2YzctYTQ3NC00YjhlODI3M2UyZWYifSwid2FybmFmdGVyIjoxNjQwMDMxMDk2fSwibmJmIjoxNjQwMDI3NDg5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06Z3JlZW4tazhzLXNjaGVkdWxlciJ9.PCHj0VsyJ_6F1kiw2KtMJhp43t05m6phkjymLWPohHbxVSKc48rnPoNVik3odvK28ts9f3WKq0JlzZQPg_xq9ot31ffQqlBvKgBvCFonPN_TWNiCgoP_PZEsbj3L0IWFKAPQd-18KSx2-_rdm621jRpOKICVz9cj7KlnAQfkdOeHG5dnRA1ci2vMgN4wZaVDwrhjq0WMBgLRjr_pTr-j0QBrNVt8FYBh4KQDhyBjKyoLizg_MltKxwIlWiyHFH5kEJxeOvE4tnWtT9eTGa4qPTbTqjTSq1fF_6ukQpEpRmYnqYywvGAJ2vgSn4AvXxtVgnoZq2tpUm6_XnUFXclHqg" 'https://100.64.0.1:443/apis/events.k8s.io/v1beta1/namespaces/default/events'
+I1220 19:36:18.957867       1 round_trippers.go:443] POST https://100.64.0.1:443/apis/events.k8s.io/v1beta1/namespaces/default/events 201 Created in 11 milliseconds
+I1220 19:36:18.968621       1 round_trippers.go:449] Response Headers:
+I1220 19:36:18.968629       1 round_trippers.go:452]     Content-Type: application/vnd.kubernetes.protobuf
+I1220 19:36:18.968635       1 round_trippers.go:452]     X-Kubernetes-Pf-Flowschema-Uid: 9fb2dc3c-3c29-42f2-bb88-3d0896e45310
+I1220 19:36:18.968640       1 round_trippers.go:452]     X-Kubernetes-Pf-Prioritylevel-Uid: 0d11ff8b-ca59-4914-b971-4d6f623f711b
+I1220 19:36:18.968645       1 round_trippers.go:452]     Content-Length: 864
+I1220 19:36:18.968651       1 round_trippers.go:452]     Date: Mon, 20 Dec 2021 19:36:18 GMT
+I1220 19:36:18.968676       1 round_trippers.go:452]     Cache-Control: no-cache, private
+I1220 19:36:18.968731       1 request.go:966] Response Body:
+00000000  6b 38 73 00 0a 1e 0a 15  65 76 65 6e 74 73 2e 6b  |k8s.....events.k|
+00000010  38 73 2e 69 6f 2f 76 31  62 65 74 61 31 12 05 45  |8s.io/v1beta1..E|
+00000020  76 65 6e 74 12 b5 06 0a  d5 03 0a 30 67 72 65 65  |vent.......0gree|
+00000030  6e 2d 6b 38 73 2d 74 65  73 74 2d 36 35 62 62 37  |n-k8s-test-65bb7|
+00000040  37 34 39 38 36 2d 6e 62  71 76 32 2e 31 36 63 32  |74986-nbqv2.16c2|
+00000050  38 64 61 61 63 37 36 34  37 38 33 33 12 00 1a 07  |8daac7647833....|
+00000060  64 65 66 61 75 6c 74 22  00 2a 24 36 35 38 38 35  |default".*$65885|
+00000070  33 64 39 2d 61 38 37 66  2d 34 34 65 39 2d 38 36  |3d9-a87f-44e9-86|
+00000080  61 61 2d 33 63 36 32 34  30 61 38 34 37 36 33 32  |aa-3c6240a847632|
+00000090  04 32 35 33 37 38 00 42  08 08 b2 b6 83 8e 06 10  |.25378.B........|
+000000a0  00 7a 00 8a 01 d8 02 0a  0e 6b 75 62 65 2d 73 63  |.z.......kube-sc|
+000000b0  68 65 64 75 6c 65 72 12  06 55 70 64 61 74 65 1a  |heduler..Update.|
+000000c0  15 65 76 65 6e 74 73 2e  6b 38 73 2e 69 6f 2f 76  |.events.k8s.io/v|
+000000d0  31 62 65 74 61 31 22 08  08 b2 b6 83 8e 06 10 00  |1beta1".........|
+000000e0  32 08 46 69 65 6c 64 73  56 31 3a 92 02 0a 8f 02  |2.FieldsV1:.....|
+000000f0  7b 22 66 3a 61 63 74 69  6f 6e 22 3a 7b 7d 2c 22  |{"f:action":{},"|
+00000100  66 3a 64 65 70 72 65 63  61 74 65 64 53 6f 75 72  |f:deprecatedSour|
+00000110  63 65 22 3a 7b 22 66 3a  63 6f 6d 70 6f 6e 65 6e  |ce":{"f:componen|
+00000120  74 22 3a 7b 7d 7d 2c 22  66 3a 65 76 65 6e 74 54  |t":{}},"f:eventT|
+00000130  69 6d 65 22 3a 7b 7d 2c  22 66 3a 6e 6f 74 65 22  |ime":{},"f:note"|
+00000140  3a 7b 7d 2c 22 66 3a 72  65 61 73 6f 6e 22 3a 7b  |:{},"f:reason":{|
+00000150  7d 2c 22 66 3a 72 65 67  61 72 64 69 6e 67 22 3a  |},"f:regarding":|
+00000160  7b 22 66 3a 61 70 69 56  65 72 73 69 6f 6e 22 3a  |{"f:apiVersion":|
+00000170  7b 7d 2c 22 66 3a 6b 69  6e 64 22 3a 7b 7d 2c 22  |{},"f:kind":{},"|
+00000180  66 3a 6e 61 6d 65 22 3a  7b 7d 2c 22 66 3a 6e 61  |f:name":{},"f:na|
+00000190  6d 65 73 70 61 63 65 22  3a 7b 7d 2c 22 66 3a 72  |mespace":{},"f:r|
+000001a0  65 73 6f 75 72 63 65 56  65 72 73 69 6f 6e 22 3a  |esourceVersion":|
+000001b0  7b 7d 2c 22 66 3a 75 69  64 22 3a 7b 7d 7d 2c 22  |{},"f:uid":{}},"|
+000001c0  66 3a 72 65 70 6f 72 74  69 6e 67 43 6f 6e 74 72  |f:reportingContr|
+000001d0  6f 6c 6c 65 72 22 3a 7b  7d 2c 22 66 3a 72 65 70  |oller":{},"f:rep|
+000001e0  6f 72 74 69 6e 67 49 6e  73 74 61 6e 63 65 22 3a  |ortingInstance":|
+000001f0  7b 7d 2c 22 66 3a 74 79  70 65 22 3a 7b 7d 7d 12  |{},"f:type":{}}.|
+00000200  0c 08 b2 b6 83 8e 06 10  d7 c9 ea c2 03 22 13 67  |.............".g|
+00000210  72 65 65 6e 2d 6b 38 73  2d 73 63 68 65 64 75 6c  |reen-k8s-schedul|
+00000220  65 72 2a 37 67 72 65 65  6e 2d 6b 38 73 2d 73 63  |er*7green-k8s-sc|
+00000230  68 65 64 75 6c 65 72 2d  67 72 65 65 6e 2d 6b 38  |heduler-green-k8|
+00000240  73 2d 73 63 68 65 64 75  6c 65 72 2d 38 63 62 37  |s-scheduler-8cb7|
+00000250  66 37 37 37 39 2d 76 68  39 6c 77 32 07 42 69 6e  |f7779-vh9lw2.Bin|
+00000260  64 69 6e 67 3a 09 53 63  68 65 64 75 6c 65 64 42  |ding:.ScheduledB|
+00000270  64 0a 03 50 6f 64 12 07  64 65 66 61 75 6c 74 1a  |d..Pod..default.|
+00000280  1f 67 72 65 65 6e 2d 6b  38 73 2d 74 65 73 74 2d  |.green-k8s-test-|
+00000290  36 35 62 62 37 37 34 39  38 36 2d 6e 62 71 76 32  |65bb774986-nbqv2|
+000002a0  22 24 30 35 30 35 62 36  66 64 2d 61 39 37 65 2d  |"$0505b6fd-a97e-|
+000002b0  34 64 33 34 2d 62 63 37  36 2d 61 35 38 65 36 37  |4d34-bc76-a58e67|
+000002c0  33 34 30 64 39 66 2a 02  76 31 32 07 31 33 39 34  |340d9f*.v12.1394|
+000002d0  33 35 38 3a 00 52 5e 53  75 63 63 65 73 73 66 75  |358:.R^Successfu|
+000002e0  6c 6c 79 20 61 73 73 69  67 6e 65 64 20 64 65 66  |lly assigned def|
+000002f0  61 75 6c 74 2f 67 72 65  65 6e 2d 6b 38 73 2d 74  |ault/green-k8s-t|
+00000300  65 73 74 2d 36 35 62 62  37 37 34 39 38 36 2d 6e  |est-65bb774986-n|
+00000310  62 71 76 32 20 74 6f 20  69 70 2d 31 37 32 2d 32  |bqv2 to ip-172-2|
+00000320  30 2d 34 35 2d 32 30 31  2e 65 63 32 2e 69 6e 74  |0-45-201.ec2.int|
+00000330  65 72 6e 61 6c 5a 06 4e  6f 72 6d 61 6c 62 17 0a  |ernalZ.Normalb..|
+00000340  13 67 72 65 65 6e 2d 6b  38 73 2d 73 63 68 65 64  |.green-k8s-sched|
+00000350  75 6c 65 72 12 00 6a 00  72 00 78 00 1a 00 22 00  |uler..j.r.x...".|
+I1220 19:36:18.968876       1 round_trippers.go:443] POST https://100.64.0.1:443/apis/events.k8s.io/v1beta1/namespaces/default/events 201 Created in 3 milliseconds
+I1220 19:36:18.968889       1 round_trippers.go:449] Response Headers:
+I1220 19:36:18.968894       1 round_trippers.go:452]     Content-Type: application/vnd.kubernetes.protobuf
+I1220 19:36:18.968899       1 round_trippers.go:452]     X-Kubernetes-Pf-Flowschema-Uid: 9fb2dc3c-3c29-42f2-bb88-3d0896e45310
+I1220 19:36:18.968903       1 round_trippers.go:452]     X-Kubernetes-Pf-Prioritylevel-Uid: 0d11ff8b-ca59-4914-b971-4d6f623f711b
+I1220 19:36:18.968908       1 round_trippers.go:452]     Content-Length: 863
+I1220 19:36:18.968912       1 round_trippers.go:452]     Date: Mon, 20 Dec 2021 19:36:18 GMT
+I1220 19:36:18.968921       1 round_trippers.go:452]     Cache-Control: no-cache, private
+I1220 19:36:18.968955       1 request.go:966] Response Body:
+00000000  6b 38 73 00 0a 1e 0a 15  65 76 65 6e 74 73 2e 6b  |k8s.....events.k|
+00000010  38 73 2e 69 6f 2f 76 31  62 65 74 61 31 12 05 45  |8s.io/v1beta1..E|
+00000020  76 65 6e 74 12 b4 06 0a  d5 03 0a 30 67 72 65 65  |vent.......0gree|
+00000030  6e 2d 6b 38 73 2d 74 65  73 74 2d 36 35 62 62 37  |n-k8s-test-65bb7|
+00000040  37 34 39 38 36 2d 66 6e  6e 38 71 2e 31 36 63 32  |74986-fnn8q.16c2|
+00000050  38 64 61 61 63 38 38 62  37 30 65 32 12 00 1a 07  |8daac88b70e2....|
+00000060  64 65 66 61 75 6c 74 22  00 2a 24 34 61 31 36 34  |default".*$4a164|
+00000070  34 65 35 2d 37 61 39 31  2d 34 37 32 32 2d 61 63  |4e5-7a91-4722-ac|
+00000080  37 36 2d 30 66 61 32 62  31 34 38 61 34 38 36 32  |76-0fa2b148a4862|
+00000090  04 32 35 33 39 38 00 42  08 08 b2 b6 83 8e 06 10  |.25398.B........|
+000000a0  00 7a 00 8a 01 d8 02 0a  0e 6b 75 62 65 2d 73 63  |.z.......kube-sc|
+000000b0  68 65 64 75 6c 65 72 12  06 55 70 64 61 74 65 1a  |heduler..Update.|
+000000c0  15 65 76 65 6e 74 73 2e  6b 38 73 2e 69 6f 2f 76  |.events.k8s.io/v|
+000000d0  31 62 65 74 61 31 22 08  08 b2 b6 83 8e 06 10 00  |1beta1".........|
+000000e0  32 08 46 69 65 6c 64 73  56 31 3a 92 02 0a 8f 02  |2.FieldsV1:.....|
+000000f0  7b 22 66 3a 61 63 74 69  6f 6e 22 3a 7b 7d 2c 22  |{"f:action":{},"|
+00000100  66 3a 64 65 70 72 65 63  61 74 65 64 53 6f 75 72  |f:deprecatedSour|
+00000110  63 65 22 3a 7b 22 66 3a  63 6f 6d 70 6f 6e 65 6e  |ce":{"f:componen|
+00000120  74 22 3a 7b 7d 7d 2c 22  66 3a 65 76 65 6e 74 54  |t":{}},"f:eventT|
+00000130  69 6d 65 22 3a 7b 7d 2c  22 66 3a 6e 6f 74 65 22  |ime":{},"f:note"|
+00000140  3a 7b 7d 2c 22 66 3a 72  65 61 73 6f 6e 22 3a 7b  |:{},"f:reason":{|
+00000150  7d 2c 22 66 3a 72 65 67  61 72 64 69 6e 67 22 3a  |},"f:regarding":|
+00000160  7b 22 66 3a 61 70 69 56  65 72 73 69 6f 6e 22 3a  |{"f:apiVersion":|
+00000170  7b 7d 2c 22 66 3a 6b 69  6e 64 22 3a 7b 7d 2c 22  |{},"f:kind":{},"|
+00000180  66 3a 6e 61 6d 65 22 3a  7b 7d 2c 22 66 3a 6e 61  |f:name":{},"f:na|
+00000190  6d 65 73 70 61 63 65 22  3a 7b 7d 2c 22 66 3a 72  |mespace":{},"f:r|
+000001a0  65 73 6f 75 72 63 65 56  65 72 73 69 6f 6e 22 3a  |esourceVersion":|
+000001b0  7b 7d 2c 22 66 3a 75 69  64 22 3a 7b 7d 7d 2c 22  |{},"f:uid":{}},"|
+000001c0  66 3a 72 65 70 6f 72 74  69 6e 67 43 6f 6e 74 72  |f:reportingContr|
+000001d0  6f 6c 6c 65 72 22 3a 7b  7d 2c 22 66 3a 72 65 70  |oller":{},"f:rep|
+000001e0  6f 72 74 69 6e 67 49 6e  73 74 61 6e 63 65 22 3a  |ortingInstance":|
+000001f0  7b 7d 2c 22 66 3a 74 79  70 65 22 3a 7b 7d 7d 12  |{},"f:type":{}}.|
+00000200  0c 08 b2 b6 83 8e 06 10  a3 ef 86 cc 03 22 13 67  |.............".g|
+00000210  72 65 65 6e 2d 6b 38 73  2d 73 63 68 65 64 75 6c  |reen-k8s-schedul|
+00000220  65 72 2a 37 67 72 65 65  6e 2d 6b 38 73 2d 73 63  |er*7green-k8s-sc|
+00000230  68 65 64 75 6c 65 72 2d  67 72 65 65 6e 2d 6b 38  |heduler-green-k8|
+00000240  73 2d 73 63 68 65 64 75  6c 65 72 2d 38 63 62 37  |s-scheduler-8cb7|
+00000250  66 37 37 37 39 2d 76 68  39 6c 77 32 07 42 69 6e  |f7779-vh9lw2.Bin|
+00000260  64 69 6e 67 3a 09 53 63  68 65 64 75 6c 65 64 42  |ding:.ScheduledB|
+00000270  64 0a 03 50 6f 64 12 07  64 65 66 61 75 6c 74 1a  |d..Pod..default.|
+00000280  1f 67 72 65 65 6e 2d 6b  38 73 2d 74 65 73 74 2d  |.green-k8s-test-|
+00000290  36 35 62 62 37 37 34 39  38 36 2d 66 6e 6e 38 71  |65bb774986-fnn8q|
+000002a0  22 24 35 33 31 32 64 38  62 65 2d 38 64 63 32 2d  |"$5312d8be-8dc2-|
+000002b0  34 34 37 34 2d 39 35 65  61 2d 39 39 37 65 62 66  |4474-95ea-997ebf|
+000002c0  62 63 38 39 39 35 2a 02  76 31 32 07 31 33 39 34  |bc8995*.v12.1394|
+000002d0  33 35 37 3a 00 52 5d 53  75 63 63 65 73 73 66 75  |357:.R]Successfu|
+000002e0  6c 6c 79 20 61 73 73 69  67 6e 65 64 20 64 65 66  |lly assigned def|
+000002f0  61 75 6c 74 2f 67 72 65  65 6e 2d 6b 38 73 2d 74  |ault/green-k8s-t|
+00000300  65 73 74 2d 36 35 62 62  37 37 34 39 38 36 2d 66  |est-65bb774986-f|
+00000310  6e 6e 38 71 20 74 6f 20  69 70 2d 31 37 32 2d 32  |nn8q to ip-172-2|
+00000320  30 2d 34 39 2d 34 31 2e  65 63 32 2e 69 6e 74 65  |0-49-41.ec2.inte|
+00000330  72 6e 61 6c 5a 06 4e 6f  72 6d 61 6c 62 17 0a 13  |rnalZ.Normalb...|
+00000340  67 72 65 65 6e 2d 6b 38  73 2d 73 63 68 65 64 75  |green-k8s-schedu|
+00000350  6c 65 72 12 00 6a 00 72  00 78 00 1a 00 22 00     |ler..j.r.x...".|
+I1220 19:36:18.968998       1 round_trippers.go:443] POST https://100.64.0.1:443/apis/events.k8s.io/v1beta1/namespaces/default/events 201 Created in 10 milliseconds
+I1220 19:36:18.969009       1 round_trippers.go:449] Response Headers:
+I1220 19:36:18.969014       1 round_trippers.go:452]     Cache-Control: no-cache, private
+I1220 19:36:18.969019       1 round_trippers.go:452]     Content-Type: application/vnd.kubernetes.protobuf
+I1220 19:36:18.969023       1 round_trippers.go:452]     X-Kubernetes-Pf-Flowschema-Uid: 9fb2dc3c-3c29-42f2-bb88-3d0896e45310
+I1220 19:36:18.969028       1 round_trippers.go:452]     X-Kubernetes-Pf-Prioritylevel-Uid: 0d11ff8b-ca59-4914-b971-4d6f623f711b
+I1220 19:36:18.969033       1 round_trippers.go:452]     Content-Length: 864
+I1220 19:36:18.969037       1 round_trippers.go:452]     Date: Mon, 20 Dec 2021 19:36:18 GMT
+I1220 19:36:18.969095       1 request.go:966] Response Body:
+00000000  6b 38 73 00 0a 1e 0a 15  65 76 65 6e 74 73 2e 6b  |k8s.....events.k|
+00000010  38 73 2e 69 6f 2f 76 31  62 65 74 61 31 12 05 45  |8s.io/v1beta1..E|
+00000020  76 65 6e 74 12 b5 06 0a  d5 03 0a 30 67 72 65 65  |vent.......0gree|
+00000030  6e 2d 6b 38 73 2d 74 65  73 74 2d 36 35 62 62 37  |n-k8s-test-65bb7|
+00000040  37 34 39 38 36 2d 36 6b  67 36 76 2e 31 36 63 32  |74986-6kg6v.16c2|
+00000050  38 64 61 61 63 38 32 35  33 35 30 33 12 00 1a 07  |8daac8253503....|
+00000060  64 65 66 61 75 6c 74 22  00 2a 24 35 34 62 64 32  |default".*$54bd2|
+00000070  37 30 66 2d 35 37 61 66  2d 34 61 35 65 2d 61 33  |70f-57af-4a5e-a3|
+00000080  63 33 2d 66 31 38 61 63  64 65 64 37 37 37 66 32  |c3-f18acded777f2|
+00000090  04 32 35 33 38 38 00 42  08 08 b2 b6 83 8e 06 10  |.25388.B........|
+000000a0  00 7a 00 8a 01 d8 02 0a  0e 6b 75 62 65 2d 73 63  |.z.......kube-sc|
+000000b0  68 65 64 75 6c 65 72 12  06 55 70 64 61 74 65 1a  |heduler..Update.|
+000000c0  15 65 76 65 6e 74 73 2e  6b 38 73 2e 69 6f 2f 76  |.events.k8s.io/v|
+000000d0  31 62 65 74 61 31 22 08  08 b2 b6 83 8e 06 10 00  |1beta1".........|
+000000e0  32 08 46 69 65 6c 64 73  56 31 3a 92 02 0a 8f 02  |2.FieldsV1:.....|
+000000f0  7b 22 66 3a 61 63 74 69  6f 6e 22 3a 7b 7d 2c 22  |{"f:action":{},"|
+00000100  66 3a 64 65 70 72 65 63  61 74 65 64 53 6f 75 72  |f:deprecatedSour|
+00000110  63 65 22 3a 7b 22 66 3a  63 6f 6d 70 6f 6e 65 6e  |ce":{"f:componen|
+00000120  74 22 3a 7b 7d 7d 2c 22  66 3a 65 76 65 6e 74 54  |t":{}},"f:eventT|
+00000130  69 6d 65 22 3a 7b 7d 2c  22 66 3a 6e 6f 74 65 22  |ime":{},"f:note"|
+00000140  3a 7b 7d 2c 22 66 3a 72  65 61 73 6f 6e 22 3a 7b  |:{},"f:reason":{|
+00000150  7d 2c 22 66 3a 72 65 67  61 72 64 69 6e 67 22 3a  |},"f:regarding":|
+00000160  7b 22 66 3a 61 70 69 56  65 72 73 69 6f 6e 22 3a  |{"f:apiVersion":|
+00000170  7b 7d 2c 22 66 3a 6b 69  6e 64 22 3a 7b 7d 2c 22  |{},"f:kind":{},"|
+00000180  66 3a 6e 61 6d 65 22 3a  7b 7d 2c 22 66 3a 6e 61  |f:name":{},"f:na|
+00000190  6d 65 73 70 61 63 65 22  3a 7b 7d 2c 22 66 3a 72  |mespace":{},"f:r|
+000001a0  65 73 6f 75 72 63 65 56  65 72 73 69 6f 6e 22 3a  |esourceVersion":|
+000001b0  7b 7d 2c 22 66 3a 75 69  64 22 3a 7b 7d 7d 2c 22  |{},"f:uid":{}},"|
+000001c0  66 3a 72 65 70 6f 72 74  69 6e 67 43 6f 6e 74 72  |f:reportingContr|
+000001d0  6f 6c 6c 65 72 22 3a 7b  7d 2c 22 66 3a 72 65 70  |oller":{},"f:rep|
+000001e0  6f 72 74 69 6e 67 49 6e  73 74 61 6e 63 65 22 3a  |ortingInstance":|
+000001f0  7b 7d 2c 22 66 3a 74 79  70 65 22 3a 7b 7d 7d 12  |{},"f:type":{}}.|
+00000200  0c 08 b2 b6 83 8e 06 10  c7 f5 eb c8 03 22 13 67  |.............".g|
+00000210  72 65 65 6e 2d 6b 38 73  2d 73 63 68 65 64 75 6c  |reen-k8s-schedul|
+00000220  65 72 2a 37 67 72 65 65  6e 2d 6b 38 73 2d 73 63  |er*7green-k8s-sc|
+00000230  68 65 64 75 6c 65 72 2d  67 72 65 65 6e 2d 6b 38  |heduler-green-k8|
+00000240  73 2d 73 63 68 65 64 75  6c 65 72 2d 38 63 62 37  |s-scheduler-8cb7|
+00000250  66 37 37 37 39 2d 76 68  39 6c 77 32 07 42 69 6e  |f7779-vh9lw2.Bin|
+00000260  64 69 6e 67 3a 09 53 63  68 65 64 75 6c 65 64 42  |ding:.ScheduledB|
+00000270  64 0a 03 50 6f 64 12 07  64 65 66 61 75 6c 74 1a  |d..Pod..default.|
+00000280  1f 67 72 65 65 6e 2d 6b  38 73 2d 74 65 73 74 2d  |.green-k8s-test-|
+00000290  36 35 62 62 37 37 34 39  38 36 2d 36 6b 67 36 76  |65bb774986-6kg6v|
+000002a0  22 24 61 30 36 31 66 36  30 30 2d 64 35 37 33 2d  |"$a061f600-d573-|
+000002b0  34 62 37 31 2d 61 39 30  64 2d 39 61 38 66 38 31  |4b71-a90d-9a8f81|
+000002c0  38 30 65 33 61 61 2a 02  76 31 32 07 31 33 39 34  |80e3aa*.v12.1394|
+000002d0  33 35 36 3a 00 52 5e 53  75 63 63 65 73 73 66 75  |356:.R^Successfu|
+000002e0  6c 6c 79 20 61 73 73 69  67 6e 65 64 20 64 65 66  |lly assigned def|
+000002f0  61 75 6c 74 2f 67 72 65  65 6e 2d 6b 38 73 2d 74  |ault/green-k8s-t|
+00000300  65 73 74 2d 36 35 62 62  37 37 34 39 38 36 2d 36  |est-65bb774986-6|
+00000310  6b 67 36 76 20 74 6f 20  69 70 2d 31 37 32 2d 32  |kg6v to ip-172-2|
+00000320  30 2d 35 38 2d 31 33 34  2e 65 63 32 2e 69 6e 74  |0-58-134.ec2.int|
+00000330  65 72 6e 61 6c 5a 06 4e  6f 72 6d 61 6c 62 17 0a  |ernalZ.Normalb..|
+00000340  13 67 72 65 65 6e 2d 6b  38 73 2d 73 63 68 65 64  |.green-k8s-sched|
+00000350  75 6c 65 72 12 00 6a 00  72 00 78 00 1a 00 22 00  |uler..j.r.x...".|
+I1220 19:36:18.969140       1 round_trippers.go:443] POST https://100.64.0.1:443/api/v1/namespaces/default/pods/green-k8s-test-65bb774986-d9rm6/binding 201 Created in 5 milliseconds
+I1220 19:36:18.969149       1 round_trippers.go:449] Response Headers:
+I1220 19:36:18.969154       1 round_trippers.go:452]     Cache-Control: no-cache, private
+I1220 19:36:18.969159       1 round_trippers.go:452]     Content-Type: application/vnd.kubernetes.protobuf
+I1220 19:36:18.969164       1 round_trippers.go:452]     X-Kubernetes-Pf-Flowschema-Uid: 9fb2dc3c-3c29-42f2-bb88-3d0896e45310
+I1220 19:36:18.969169       1 round_trippers.go:452]     X-Kubernetes-Pf-Prioritylevel-Uid: 0d11ff8b-ca59-4914-b971-4d6f623f711b
+I1220 19:36:18.969173       1 round_trippers.go:452]     Content-Length: 48
+I1220 19:36:18.969178       1 round_trippers.go:452]     Date: Mon, 20 Dec 2021 19:36:18 GMT
+I1220 19:36:18.969191       1 request.go:966] Response Body:
+00000000  6b 38 73 00 0a 0c 0a 02  76 31 12 06 53 74 61 74  |k8s.....v1..Stat|
+00000010  75 73 12 18 0a 06 0a 00  12 00 1a 00 12 07 53 75  |us............Su|
+00000020  63 63 65 73 73 1a 00 22  00 30 c9 01 1a 00 22 00  |ccess..".0....".|
+I1220 19:36:18.969215       1 cache.go:305] Finished binding for pod 71935315-729a-4ecf-8efd-9a69074a1963. Can be expired.
+I1220 19:36:18.969236       1 event_recorder.go:54] Could not construct reference to: '<nil>' due to: 'can't reference a nil object'.
+I1220 19:36:18.969260       1 scheduler.go:667] pod default/green-k8s-test-65bb774986-d9rm6 is bound successfully on node "ip-172-20-61-178.ec2.internal", 5 nodes evaluated, 4 nodes were found feasible. Bound node resource: "Capacity: CPU<1>|Memory<2022868Ki>|Pods<110>|StorageEphemeral<130045936Ki>; Allocatable: CPU<1>|Memory<1920468Ki>|Pods<110>|StorageEphemeral<119850334420>.".
+I1220 19:36:18.969321       1 request.go:966] Request Body:
+00000000  6b 38 73 00 0a 1e 0a 15  65 76 65 6e 74 73 2e 6b  |k8s.....events.k|
+00000010  38 73 2e 69 6f 2f 76 31  62 65 74 61 31 12 05 45  |8s.io/v1beta1..E|
+00000020  76 65 6e 74 12 a8 03 0a  49 0a 30 67 72 65 65 6e  |vent....I.0green|
+00000030  2d 6b 38 73 2d 74 65 73  74 2d 36 35 62 62 37 37  |-k8s-test-65bb77|
+00000040  34 39 38 36 2d 64 39 72  6d 36 2e 31 36 63 32 38  |4986-d9rm6.16c28|
+00000050  64 61 61 63 38 63 65 65  36 66 35 12 00 1a 07 64  |daac8cee6f5....d|
+00000060  65 66 61 75 6c 74 22 00  2a 00 32 00 38 00 42 00  |efault".*.2.8.B.|
+00000070  7a 00 12 0c 08 b2 b6 83  8e 06 10 b3 8f 95 ce 03  |z...............|
+00000080  22 13 67 72 65 65 6e 2d  6b 38 73 2d 73 63 68 65  |".green-k8s-sche|
+00000090  64 75 6c 65 72 2a 37 67  72 65 65 6e 2d 6b 38 73  |duler*7green-k8s|
+000000a0  2d 73 63 68 65 64 75 6c  65 72 2d 67 72 65 65 6e  |-scheduler-green|
+000000b0  2d 6b 38 73 2d 73 63 68  65 64 75 6c 65 72 2d 38  |-k8s-scheduler-8|
+000000c0  63 62 37 66 37 37 37 39  2d 76 68 39 6c 77 32 07  |cb7f7779-vh9lw2.|
+000000d0  42 69 6e 64 69 6e 67 3a  09 53 63 68 65 64 75 6c  |Binding:.Schedul|
+000000e0  65 64 42 64 0a 03 50 6f  64 12 07 64 65 66 61 75  |edBd..Pod..defau|
+000000f0  6c 74 1a 1f 67 72 65 65  6e 2d 6b 38 73 2d 74 65  |lt..green-k8s-te|
+00000100  73 74 2d 36 35 62 62 37  37 34 39 38 36 2d 64 39  |st-65bb774986-d9|
+00000110  72 6d 36 22 24 37 31 39  33 35 33 31 35 2d 37 32  |rm6"$71935315-72|
+00000120  39 61 2d 34 65 63 66 2d  38 65 66 64 2d 39 61 36  |9a-4ecf-8efd-9a6|
+00000130  39 30 37 34 61 31 39 36  33 2a 02 76 31 32 07 31  |9074a1963*.v12.1|
+00000140  33 39 34 33 35 39 3a 00  52 5e 53 75 63 63 65 73  |394359:.R^Succes|
+00000150  73 66 75 6c 6c 79 20 61  73 73 69 67 6e 65 64 20  |sfully assigned |
+00000160  64 65 66 61 75 6c 74 2f  67 72 65 65 6e 2d 6b 38  |default/green-k8|
+00000170  73 2d 74 65 73 74 2d 36  35 62 62 37 37 34 39 38  |s-test-65bb77498|
+00000180  36 2d 64 39 72 6d 36 20  74 6f 20 69 70 2d 31 37  |6-d9rm6 to ip-17|
+00000190  32 2d 32 30 2d 36 31 2d  31 37 38 2e 65 63 32 2e  |2-20-61-178.ec2.|
+000001a0  69 6e 74 65 72 6e 61 6c  5a 06 4e 6f 72 6d 61 6c  |internalZ.Normal|
+000001b0  62 17 0a 13 67 72 65 65  6e 2d 6b 38 73 2d 73 63  |b...green-k8s-sc|
+000001c0  68 65 64 75 6c 65 72 12  00 6a 00 72 00 78 00 1a  |heduler..j.r.x..|
+000001d0  00 22 00                                          |.".|
+I1220 19:36:18.969389       1 round_trippers.go:423] curl -k -v -XPOST  -H "Accept: application/vnd.kubernetes.protobuf, */*" -H "Content-Type: application/vnd.kubernetes.protobuf" -H "User-Agent: kube-scheduler/v1.16.3 (linux/amd64) kubernetes/b3cbbae/scheduler" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkI2d0Zpc0Q2S2pFdmhUX3hsRG5GZFdLemMtRkhWWmxiQmszcGVmc3RsdjQifQ.eyJhdWQiOlsia3ViZXJuZXRlcy5zdmMuZGVmYXVsdCJdLCJleHAiOjE2NzE1NjM0ODksImlhdCI6MTY0MDAyNzQ4OSwiaXNzIjoiaHR0cHM6Ly9hcGkuaW50ZXJuYWwuaGEuZ3JlZW5rOHMuY29tIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInBvZCI6eyJuYW1lIjoiZ3JlZW4tazhzLXNjaGVkdWxlci04Y2I3Zjc3Nzktdmg5bHciLCJ1aWQiOiJkZTEyN2Q0Yy1iYjY0LTQxMDktOWQ3ZC1mNWJjN2RkOWRlM2UifSwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImdyZWVuLWs4cy1zY2hlZHVsZXIiLCJ1aWQiOiI2NzgyMTEwNC01NGFiLTQ2YzctYTQ3NC00YjhlODI3M2UyZWYifSwid2FybmFmdGVyIjoxNjQwMDMxMDk2fSwibmJmIjoxNjQwMDI3NDg5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06Z3JlZW4tazhzLXNjaGVkdWxlciJ9.PCHj0VsyJ_6F1kiw2KtMJhp43t05m6phkjymLWPohHbxVSKc48rnPoNVik3odvK28ts9f3WKq0JlzZQPg_xq9ot31ffQqlBvKgBvCFonPN_TWNiCgoP_PZEsbj3L0IWFKAPQd-18KSx2-_rdm621jRpOKICVz9cj7KlnAQfkdOeHG5dnRA1ci2vMgN4wZaVDwrhjq0WMBgLRjr_pTr-j0QBrNVt8FYBh4KQDhyBjKyoLizg_MltKxwIlWiyHFH5kEJxeOvE4tnWtT9eTGa4qPTbTqjTSq1fF_6ukQpEpRmYnqYywvGAJ2vgSn4AvXxtVgnoZq2tpUm6_XnUFXclHqg" 'https://100.64.0.1:443/apis/events.k8s.io/v1beta1/namespaces/default/events'
+I1220 19:36:18.973616       1 round_trippers.go:443] POST https://100.64.0.1:443/apis/events.k8s.io/v1beta1/namespaces/default/events 201 Created in 5 milliseconds
+I1220 19:36:18.973638       1 round_trippers.go:449] Response Headers:
+I1220 19:36:18.973644       1 round_trippers.go:452]     Cache-Control: no-cache, private
+I1220 19:36:18.973650       1 round_trippers.go:452]     Content-Type: application/vnd.kubernetes.protobuf
+I1220 19:36:18.973654       1 round_trippers.go:452]     X-Kubernetes-Pf-Flowschema-Uid: 9fb2dc3c-3c29-42f2-bb88-3d0896e45310
+I1220 19:36:18.973659       1 round_trippers.go:452]     X-Kubernetes-Pf-Prioritylevel-Uid: 0d11ff8b-ca59-4914-b971-4d6f623f711b
+I1220 19:36:18.973664       1 round_trippers.go:452]     Content-Length: 864
+I1220 19:36:18.973670       1 round_trippers.go:452]     Date: Mon, 20 Dec 2021 19:36:18 GMT
+I1220 19:36:18.973710       1 request.go:966] Response Body:
+00000000  6b 38 73 00 0a 1e 0a 15  65 76 65 6e 74 73 2e 6b  |k8s.....events.k|
+00000010  38 73 2e 69 6f 2f 76 31  62 65 74 61 31 12 05 45  |8s.io/v1beta1..E|
+00000020  76 65 6e 74 12 b5 06 0a  d5 03 0a 30 67 72 65 65  |vent.......0gree|
+00000030  6e 2d 6b 38 73 2d 74 65  73 74 2d 36 35 62 62 37  |n-k8s-test-65bb7|
+00000040  37 34 39 38 36 2d 63 70  67 68 35 2e 31 36 63 32  |74986-cpgh5.16c2|
+00000050  38 64 61 61 63 38 62 39  33 39 65 63 12 00 1a 07  |8daac8b939ec....|
+00000060  64 65 66 61 75 6c 74 22  00 2a 24 63 39 65 30 39  |default".*$c9e09|
+00000070  39 35 63 2d 35 62 66 63  2d 34 35 33 66 2d 39 65  |95c-5bfc-453f-9e|
+00000080  30 65 2d 66 31 61 65 38  37 63 33 62 35 35 36 32  |0e-f1ae87c3b5562|
+00000090  04 32 35 34 30 38 00 42  08 08 b2 b6 83 8e 06 10  |.25408.B........|
+000000a0  00 7a 00 8a 01 d8 02 0a  0e 6b 75 62 65 2d 73 63  |.z.......kube-sc|
+000000b0  68 65 64 75 6c 65 72 12  06 55 70 64 61 74 65 1a  |heduler..Update.|
+000000c0  15 65 76 65 6e 74 73 2e  6b 38 73 2e 69 6f 2f 76  |.events.k8s.io/v|
+000000d0  31 62 65 74 61 31 22 08  08 b2 b6 83 8e 06 10 00  |1beta1".........|
+000000e0  32 08 46 69 65 6c 64 73  56 31 3a 92 02 0a 8f 02  |2.FieldsV1:.....|
+000000f0  7b 22 66 3a 61 63 74 69  6f 6e 22 3a 7b 7d 2c 22  |{"f:action":{},"|
+00000100  66 3a 64 65 70 72 65 63  61 74 65 64 53 6f 75 72  |f:deprecatedSour|
+00000110  63 65 22 3a 7b 22 66 3a  63 6f 6d 70 6f 6e 65 6e  |ce":{"f:componen|
+00000120  74 22 3a 7b 7d 7d 2c 22  66 3a 65 76 65 6e 74 54  |t":{}},"f:eventT|
+00000130  69 6d 65 22 3a 7b 7d 2c  22 66 3a 6e 6f 74 65 22  |ime":{},"f:note"|
+00000140  3a 7b 7d 2c 22 66 3a 72  65 61 73 6f 6e 22 3a 7b  |:{},"f:reason":{|
+00000150  7d 2c 22 66 3a 72 65 67  61 72 64 69 6e 67 22 3a  |},"f:regarding":|
+00000160  7b 22 66 3a 61 70 69 56  65 72 73 69 6f 6e 22 3a  |{"f:apiVersion":|
+00000170  7b 7d 2c 22 66 3a 6b 69  6e 64 22 3a 7b 7d 2c 22  |{},"f:kind":{},"|
+00000180  66 3a 6e 61 6d 65 22 3a  7b 7d 2c 22 66 3a 6e 61  |f:name":{},"f:na|
+00000190  6d 65 73 70 61 63 65 22  3a 7b 7d 2c 22 66 3a 72  |mespace":{},"f:r|
+000001a0  65 73 6f 75 72 63 65 56  65 72 73 69 6f 6e 22 3a  |esourceVersion":|
+000001b0  7b 7d 2c 22 66 3a 75 69  64 22 3a 7b 7d 7d 2c 22  |{},"f:uid":{}},"|
+000001c0  66 3a 72 65 70 6f 72 74  69 6e 67 43 6f 6e 74 72  |f:reportingContr|
+000001d0  6f 6c 6c 65 72 22 3a 7b  7d 2c 22 66 3a 72 65 70  |oller":{},"f:rep|
+000001e0  6f 72 74 69 6e 67 49 6e  73 74 61 6e 63 65 22 3a  |ortingInstance":|
+000001f0  7b 7d 2c 22 66 3a 74 79  70 65 22 3a 7b 7d 7d 12  |{},"f:type":{}}.|
+00000200  0c 08 b2 b6 83 8e 06 10  ee 8b be cd 03 22 13 67  |.............".g|
+00000210  72 65 65 6e 2d 6b 38 73  2d 73 63 68 65 64 75 6c  |reen-k8s-schedul|
+00000220  65 72 2a 37 67 72 65 65  6e 2d 6b 38 73 2d 73 63  |er*7green-k8s-sc|
+00000230  68 65 64 75 6c 65 72 2d  67 72 65 65 6e 2d 6b 38  |heduler-green-k8|
+00000240  73 2d 73 63 68 65 64 75  6c 65 72 2d 38 63 62 37  |s-scheduler-8cb7|
+00000250  66 37 37 37 39 2d 76 68  39 6c 77 32 07 42 69 6e  |f7779-vh9lw2.Bin|
+00000260  64 69 6e 67 3a 09 53 63  68 65 64 75 6c 65 64 42  |ding:.ScheduledB|
+00000270  64 0a 03 50 6f 64 12 07  64 65 66 61 75 6c 74 1a  |d..Pod..default.|
+00000280  1f 67 72 65 65 6e 2d 6b  38 73 2d 74 65 73 74 2d  |.green-k8s-test-|
+00000290  36 35 62 62 37 37 34 39  38 36 2d 63 70 67 68 35  |65bb774986-cpgh5|
+000002a0  22 24 35 36 63 64 33 31  32 66 2d 30 33 37 64 2d  |"$56cd312f-037d-|
+000002b0  34 64 33 32 2d 39 66 65  61 2d 64 32 32 36 39 62  |4d32-9fea-d2269b|
+000002c0  66 37 37 66 31 35 2a 02  76 31 32 07 31 33 39 34  |f77f15*.v12.1394|
+000002d0  33 35 35 3a 00 52 5e 53  75 63 63 65 73 73 66 75  |355:.R^Successfu|
+000002e0  6c 6c 79 20 61 73 73 69  67 6e 65 64 20 64 65 66  |lly assigned def|
+000002f0  61 75 6c 74 2f 67 72 65  65 6e 2d 6b 38 73 2d 74  |ault/green-k8s-t|
+00000300  65 73 74 2d 36 35 62 62  37 37 34 39 38 36 2d 63  |est-65bb774986-c|
+00000310  70 67 68 35 20 74 6f 20  69 70 2d 31 37 32 2d 32  |pgh5 to ip-172-2|
+00000320  30 2d 34 35 2d 32 30 31  2e 65 63 32 2e 69 6e 74  |0-45-201.ec2.int|
+00000330  65 72 6e 61 6c 5a 06 4e  6f 72 6d 61 6c 62 17 0a  |ernalZ.Normalb..|
+00000340  13 67 72 65 65 6e 2d 6b  38 73 2d 73 63 68 65 64  |.green-k8s-sched|
+00000350  75 6c 65 72 12 00 6a 00  72 00 78 00 1a 00 22 00  |uler..j.r.x...".|
+I1220 19:36:18.973767       1 round_trippers.go:443] POST https://100.64.0.1:443/apis/events.k8s.io/v1beta1/namespaces/default/events 201 Created in 4 milliseconds
+I1220 19:36:18.973776       1 round_trippers.go:449] Response Headers:
+I1220 19:36:18.973781       1 round_trippers.go:452]     X-Kubernetes-Pf-Prioritylevel-Uid: 0d11ff8b-ca59-4914-b971-4d6f623f711b
+I1220 19:36:18.973791       1 round_trippers.go:452]     Content-Length: 864
+I1220 19:36:18.973805       1 round_trippers.go:452]     Date: Mon, 20 Dec 2021 19:36:18 GMT
+I1220 19:36:18.973810       1 round_trippers.go:452]     Cache-Control: no-cache, private
+I1220 19:36:18.973814       1 round_trippers.go:452]     Content-Type: application/vnd.kubernetes.protobuf
+I1220 19:36:18.973819       1 round_trippers.go:452]     X-Kubernetes-Pf-Flowschema-Uid: 9fb2dc3c-3c29-42f2-bb88-3d0896e45310
+I1220 19:36:18.973853       1 request.go:966] Response Body:
+00000000  6b 38 73 00 0a 1e 0a 15  65 76 65 6e 74 73 2e 6b  |k8s.....events.k|
+00000010  38 73 2e 69 6f 2f 76 31  62 65 74 61 31 12 05 45  |8s.io/v1beta1..E|
+00000020  76 65 6e 74 12 b5 06 0a  d5 03 0a 30 67 72 65 65  |vent.......0gree|
+00000030  6e 2d 6b 38 73 2d 74 65  73 74 2d 36 35 62 62 37  |n-k8s-test-65bb7|
+00000040  37 34 39 38 36 2d 64 39  72 6d 36 2e 31 36 63 32  |74986-d9rm6.16c2|
+00000050  38 64 61 61 63 38 63 65  65 36 66 35 12 00 1a 07  |8daac8cee6f5....|
+00000060  64 65 66 61 75 6c 74 22  00 2a 24 32 39 37 31 61  |default".*$2971a|
+00000070  31 33 32 2d 64 31 36 31  2d 34 64 65 61 2d 39 62  |132-d161-4dea-9b|
+00000080  65 66 2d 64 30 65 37 34  34 37 62 38 33 32 34 32  |ef-d0e7447b83242|
+00000090  04 32 35 34 31 38 00 42  08 08 b2 b6 83 8e 06 10  |.25418.B........|
+000000a0  00 7a 00 8a 01 d8 02 0a  0e 6b 75 62 65 2d 73 63  |.z.......kube-sc|
+000000b0  68 65 64 75 6c 65 72 12  06 55 70 64 61 74 65 1a  |heduler..Update.|
+000000c0  15 65 76 65 6e 74 73 2e  6b 38 73 2e 69 6f 2f 76  |.events.k8s.io/v|
+000000d0  31 62 65 74 61 31 22 08  08 b2 b6 83 8e 06 10 00  |1beta1".........|
+000000e0  32 08 46 69 65 6c 64 73  56 31 3a 92 02 0a 8f 02  |2.FieldsV1:.....|
+000000f0  7b 22 66 3a 61 63 74 69  6f 6e 22 3a 7b 7d 2c 22  |{"f:action":{},"|
+00000100  66 3a 64 65 70 72 65 63  61 74 65 64 53 6f 75 72  |f:deprecatedSour|
+00000110  63 65 22 3a 7b 22 66 3a  63 6f 6d 70 6f 6e 65 6e  |ce":{"f:componen|
+00000120  74 22 3a 7b 7d 7d 2c 22  66 3a 65 76 65 6e 74 54  |t":{}},"f:eventT|
+00000130  69 6d 65 22 3a 7b 7d 2c  22 66 3a 6e 6f 74 65 22  |ime":{},"f:note"|
+00000140  3a 7b 7d 2c 22 66 3a 72  65 61 73 6f 6e 22 3a 7b  |:{},"f:reason":{|
+00000150  7d 2c 22 66 3a 72 65 67  61 72 64 69 6e 67 22 3a  |},"f:regarding":|
+00000160  7b 22 66 3a 61 70 69 56  65 72 73 69 6f 6e 22 3a  |{"f:apiVersion":|
+00000170  7b 7d 2c 22 66 3a 6b 69  6e 64 22 3a 7b 7d 2c 22  |{},"f:kind":{},"|
+00000180  66 3a 6e 61 6d 65 22 3a  7b 7d 2c 22 66 3a 6e 61  |f:name":{},"f:na|
+00000190  6d 65 73 70 61 63 65 22  3a 7b 7d 2c 22 66 3a 72  |mespace":{},"f:r|
+000001a0  65 73 6f 75 72 63 65 56  65 72 73 69 6f 6e 22 3a  |esourceVersion":|
+000001b0  7b 7d 2c 22 66 3a 75 69  64 22 3a 7b 7d 7d 2c 22  |{},"f:uid":{}},"|
+000001c0  66 3a 72 65 70 6f 72 74  69 6e 67 43 6f 6e 74 72  |f:reportingContr|
+000001d0  6f 6c 6c 65 72 22 3a 7b  7d 2c 22 66 3a 72 65 70  |oller":{},"f:rep|
+000001e0  6f 72 74 69 6e 67 49 6e  73 74 61 6e 63 65 22 3a  |ortingInstance":|
+000001f0  7b 7d 2c 22 66 3a 74 79  70 65 22 3a 7b 7d 7d 12  |{},"f:type":{}}.|
+00000200  0c 08 b2 b6 83 8e 06 10  b3 8f 95 ce 03 22 13 67  |.............".g|
+00000210  72 65 65 6e 2d 6b 38 73  2d 73 63 68 65 64 75 6c  |reen-k8s-schedul|
+00000220  65 72 2a 37 67 72 65 65  6e 2d 6b 38 73 2d 73 63  |er*7green-k8s-sc|
+00000230  68 65 64 75 6c 65 72 2d  67 72 65 65 6e 2d 6b 38  |heduler-green-k8|
+00000240  73 2d 73 63 68 65 64 75  6c 65 72 2d 38 63 62 37  |s-scheduler-8cb7|
+00000250  66 37 37 37 39 2d 76 68  39 6c 77 32 07 42 69 6e  |f7779-vh9lw2.Bin|
+00000260  64 69 6e 67 3a 09 53 63  68 65 64 75 6c 65 64 42  |ding:.ScheduledB|
+00000270  64 0a 03 50 6f 64 12 07  64 65 66 61 75 6c 74 1a  |d..Pod..default.|
+00000280  1f 67 72 65 65 6e 2d 6b  38 73 2d 74 65 73 74 2d  |.green-k8s-test-|
+00000290  36 35 62 62 37 37 34 39  38 36 2d 64 39 72 6d 36  |65bb774986-d9rm6|
+000002a0  22 24 37 31 39 33 35 33  31 35 2d 37 32 39 61 2d  |"$71935315-729a-|
+000002b0  34 65 63 66 2d 38 65 66  64 2d 39 61 36 39 30 37  |4ecf-8efd-9a6907|
+000002c0  34 61 31 39 36 33 2a 02  76 31 32 07 31 33 39 34  |4a1963*.v12.1394|
+000002d0  33 35 39 3a 00 52 5e 53  75 63 63 65 73 73 66 75  |359:.R^Successfu|
+000002e0  6c 6c 79 20 61 73 73 69  67 6e 65 64 20 64 65 66  |lly assigned def|
+000002f0  61 75 6c 74 2f 67 72 65  65 6e 2d 6b 38 73 2d 74  |ault/green-k8s-t|
+00000300  65 73 74 2d 36 35 62 62  37 37 34 39 38 36 2d 64  |est-65bb774986-d|
+00000310  39 72 6d 36 20 74 6f 20  69 70 2d 31 37 32 2d 32  |9rm6 to ip-172-2|
+00000320  30 2d 36 31 2d 31 37 38  2e 65 63 32 2e 69 6e 74  |0-61-178.ec2.int|
+00000330  65 72 6e 61 6c 5a 06 4e  6f 72 6d 61 6c 62 17 0a  |ernalZ.Normalb..|
+00000340  13 67 72 65 65 6e 2d 6b  38 73 2d 73 63 68 65 64  |.green-k8s-sched|
+00000350  75 6c 65 72 12 00 6a 00  72 00 78 00 1a 00 22 00  |uler..j.r.x...".|
+I1220 19:36:18.973983       1 scheduling_queue.go:830] About to try and schedule pod default/green-k8s-test-65bb774986-r9hdx
+I1220 19:36:18.974002       1 scheduler.go:530] Attempting to schedule pod: default/green-k8s-test-65bb774986-r9hdx
+I1220 19:36:18.974075       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-r9hdx on Node ip-172-20-40-148.ec2.internal is allowed, Node is running only 9 out of 110 Pods.
+I1220 19:36:18.974105       1 generic_scheduler.go:667] since alwaysCheckAllPredicates has not been set, the predicate evaluation is short circuited and there are chances of other predicates failing as well.
+I1220 19:36:18.974123       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-r9hdx on Node ip-172-20-58-134.ec2.internal is allowed, Node is running only 3 out of 110 Pods.
+I1220 19:36:18.974142       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-r9hdx on Node ip-172-20-45-201.ec2.internal is allowed, Node is running only 4 out of 110 Pods.
+I1220 19:36:18.974154       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-r9hdx on Node ip-172-20-49-41.ec2.internal is allowed, Node is running only 3 out of 110 Pods.
+I1220 19:36:18.974170       1 predicates.go:908] Schedule Pod default/green-k8s-test-65bb774986-r9hdx on Node ip-172-20-61-178.ec2.internal is allowed, Node is running only 5 out of 110 Pods.
+I1220 19:36:18.974268       1 resource_allocation.go:84] green-k8s-test-65bb774986-r9hdx -> ip-172-20-58-134.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:500 memory:702545920] ,score 8,
+I1220 19:36:18.974320       1 resource_allocation.go:84] green-k8s-test-65bb774986-r9hdx -> ip-172-20-58-134.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:500 memory:702545920] ,score 5,
+I1220 19:36:18.974345       1 resource_allocation.go:84] green-k8s-test-65bb774986-r9hdx -> ip-172-20-45-201.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:650 memory:912261120] ,score 8,
+I1220 19:36:18.974359       1 resource_allocation.go:84] green-k8s-test-65bb774986-r9hdx -> ip-172-20-45-201.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:650 memory:912261120] ,score 4,
+I1220 19:36:18.974379       1 resource_allocation.go:84] green-k8s-test-65bb774986-r9hdx -> ip-172-20-49-41.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:550 memory:838860800] ,score 8,
+I1220 19:36:18.974392       1 resource_allocation.go:84] green-k8s-test-65bb774986-r9hdx -> ip-172-20-49-41.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:550 memory:838860800] ,score 4,
+I1220 19:36:18.974411       1 resource_allocation.go:84] green-k8s-test-65bb774986-r9hdx -> ip-172-20-61-178.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:670 memory:1059061760] ,score 8,
+I1220 19:36:18.974423       1 resource_allocation.go:84] green-k8s-test-65bb774986-r9hdx -> ip-172-20-61-178.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:670 memory:1059061760] ,score 3,
+I1220 19:36:18.974458       1 selector_spreading.go:146] green-k8s-test-65bb774986-r9hdx -> ip-172-20-58-134.ec2.internal: SelectorSpreadPriority, Score: (1)
+I1220 19:36:18.974473       1 selector_spreading.go:146] green-k8s-test-65bb774986-r9hdx -> ip-172-20-45-201.ec2.internal: SelectorSpreadPriority, Score: (0)
+I1220 19:36:18.974479       1 selector_spreading.go:146] green-k8s-test-65bb774986-r9hdx -> ip-172-20-49-41.ec2.internal: SelectorSpreadPriority, Score: (0)
+I1220 19:36:18.974485       1 selector_spreading.go:146] green-k8s-test-65bb774986-r9hdx -> ip-172-20-61-178.ec2.internal: SelectorSpreadPriority, Score: (0)
+I1220 19:36:18.974491       1 generic_scheduler.go:773] green-k8s-test-65bb774986-r9hdx_default -> ip-172-20-58-134.ec2.internal: ServiceSpreadingPriority, Score: (1)
+I1220 19:36:18.974497       1 generic_scheduler.go:773] green-k8s-test-65bb774986-r9hdx_default -> ip-172-20-45-201.ec2.internal: ServiceSpreadingPriority, Score: (0)
+I1220 19:36:18.974502       1 generic_scheduler.go:773] green-k8s-test-65bb774986-r9hdx_default -> ip-172-20-49-41.ec2.internal: ServiceSpreadingPriority, Score: (0)
+I1220 19:36:18.974507       1 generic_scheduler.go:773] green-k8s-test-65bb774986-r9hdx_default -> ip-172-20-61-178.ec2.internal: ServiceSpreadingPriority, Score: (0)
+I1220 19:36:18.974525       1 generic_scheduler.go:838] Host ip-172-20-58-134.ec2.internal => Score 15
+I1220 19:36:18.974537       1 generic_scheduler.go:838] Host ip-172-20-45-201.ec2.internal => Score 13
+I1220 19:36:18.974543       1 generic_scheduler.go:838] Host ip-172-20-49-41.ec2.internal => Score 13
+I1220 19:36:18.974548       1 generic_scheduler.go:838] Host ip-172-20-61-178.ec2.internal => Score 12
+I1220 19:36:18.974585       1 scheduler_binder.go:256] AssumePodVolumes for pod "default/green-k8s-test-65bb774986-r9hdx", node "ip-172-20-58-134.ec2.internal"
+I1220 19:36:18.974601       1 scheduler_binder.go:266] AssumePodVolumes for pod "default/green-k8s-test-65bb774986-r9hdx", node "ip-172-20-58-134.ec2.internal": all PVCs bound and nothing to do
+I1220 19:36:18.974630       1 factory.go:610] Attempting to bind green-k8s-test-65bb774986-r9hdx to ip-172-20-58-134.ec2.internal
+I1220 19:36:18.974668       1 request.go:966] Request Body:
+00000000  6b 38 73 00 0a 0d 0a 02  76 31 12 07 42 69 6e 64  |k8s.....v1..Bind|
+00000010  69 6e 67 12 8f 01 0a 5c  0a 1f 67 72 65 65 6e 2d  |ing....\..green-|
+00000020  6b 38 73 2d 74 65 73 74  2d 36 35 62 62 37 37 34  |k8s-test-65bb774|
+00000030  39 38 36 2d 72 39 68 64  78 12 00 1a 07 64 65 66  |986-r9hdx....def|
+00000040  61 75 6c 74 22 00 2a 24  61 35 61 64 38 64 39 61  |ault".*$a5ad8d9a|
+00000050  2d 30 63 64 64 2d 34 66  66 33 2d 62 32 62 36 2d  |-0cdd-4ff3-b2b6-|
+00000060  65 31 37 65 32 65 39 36  39 32 35 36 32 00 38 00  |e17e2e9692562.8.|
+00000070  42 00 7a 00 12 2f 0a 04  4e 6f 64 65 12 00 1a 1d  |B.z../..Node....|
+00000080  69 70 2d 31 37 32 2d 32  30 2d 35 38 2d 31 33 34  |ip-172-20-58-134|
+00000090  2e 65 63 32 2e 69 6e 74  65 72 6e 61 6c 22 00 2a  |.ec2.internal".*|
+000000a0  00 32 00 3a 00 1a 00 22  00                       |.2.:...".|
+I1220 19:36:18.974785       1 round_trippers.go:423] curl -k -v -XPOST  -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkI2d0Zpc0Q2S2pFdmhUX3hsRG5GZFdLemMtRkhWWmxiQmszcGVmc3RsdjQifQ.eyJhdWQiOlsia3ViZXJuZXRlcy5zdmMuZGVmYXVsdCJdLCJleHAiOjE2NzE1NjM0ODksImlhdCI6MTY0MDAyNzQ4OSwiaXNzIjoiaHR0cHM6Ly9hcGkuaW50ZXJuYWwuaGEuZ3JlZW5rOHMuY29tIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInBvZCI6eyJuYW1lIjoiZ3JlZW4tazhzLXNjaGVkdWxlci04Y2I3Zjc3Nzktdmg5bHciLCJ1aWQiOiJkZTEyN2Q0Yy1iYjY0LTQxMDktOWQ3ZC1mNWJjN2RkOWRlM2UifSwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImdyZWVuLWs4cy1zY2hlZHVsZXIiLCJ1aWQiOiI2NzgyMTEwNC01NGFiLTQ2YzctYTQ3NC00YjhlODI3M2UyZWYifSwid2FybmFmdGVyIjoxNjQwMDMxMDk2fSwibmJmIjoxNjQwMDI3NDg5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06Z3JlZW4tazhzLXNjaGVkdWxlciJ9.PCHj0VsyJ_6F1kiw2KtMJhp43t05m6phkjymLWPohHbxVSKc48rnPoNVik3odvK28ts9f3WKq0JlzZQPg_xq9ot31ffQqlBvKgBvCFonPN_TWNiCgoP_PZEsbj3L0IWFKAPQd-18KSx2-_rdm621jRpOKICVz9cj7KlnAQfkdOeHG5dnRA1ci2vMgN4wZaVDwrhjq0WMBgLRjr_pTr-j0QBrNVt8FYBh4KQDhyBjKyoLizg_MltKxwIlWiyHFH5kEJxeOvE4tnWtT9eTGa4qPTbTqjTSq1fF_6ukQpEpRmYnqYywvGAJ2vgSn4AvXxtVgnoZq2tpUm6_XnUFXclHqg" -H "Accept: application/vnd.kubernetes.protobuf, */*" -H "Content-Type: application/vnd.kubernetes.protobuf" -H "User-Agent: kube-scheduler/v1.16.3 (linux/amd64) kubernetes/b3cbbae/scheduler" 'https://100.64.0.1:443/api/v1/namespaces/default/pods/green-k8s-test-65bb774986-r9hdx/binding'
+I1220 19:36:18.981893       1 round_trippers.go:443] POST https://100.64.0.1:443/api/v1/namespaces/default/pods/green-k8s-test-65bb774986-r9hdx/binding 201 Created in 7 milliseconds
+I1220 19:36:18.982094       1 round_trippers.go:449] Response Headers:
+I1220 19:36:18.982258       1 round_trippers.go:452]     Date: Mon, 20 Dec 2021 19:36:18 GMT
+I1220 19:36:18.982376       1 round_trippers.go:452]     Cache-Control: no-cache, private
+I1220 19:36:18.982513       1 round_trippers.go:452]     Content-Type: application/vnd.kubernetes.protobuf
+I1220 19:36:18.982610       1 round_trippers.go:452]     X-Kubernetes-Pf-Flowschema-Uid: 9fb2dc3c-3c29-42f2-bb88-3d0896e45310
+I1220 19:36:18.982746       1 round_trippers.go:452]     X-Kubernetes-Pf-Prioritylevel-Uid: 0d11ff8b-ca59-4914-b971-4d6f623f711b
+I1220 19:36:18.982893       1 round_trippers.go:452]     Content-Length: 48
+I1220 19:36:18.983086       1 request.go:966] Response Body:
+00000000  6b 38 73 00 0a 0c 0a 02  76 31 12 06 53 74 61 74  |k8s.....v1..Stat|
+00000010  75 73 12 18 0a 06 0a 00  12 00 1a 00 12 07 53 75  |us............Su|
+00000020  63 63 65 73 73 1a 00 22  00 30 c9 01 1a 00 22 00  |ccess..".0....".|
+I1220 19:36:18.983329       1 cache.go:305] Finished binding for pod a5ad8d9a-0cdd-4ff3-b2b6-e17e2e969256. Can be expired.
+I1220 19:36:18.983369       1 event_recorder.go:54] Could not construct reference to: '<nil>' due to: 'can't reference a nil object'.
+I1220 19:36:18.983398       1 scheduler.go:667] pod default/green-k8s-test-65bb774986-r9hdx is bound successfully on node "ip-172-20-58-134.ec2.internal", 5 nodes evaluated, 4 nodes were found feasible. Bound node resource: "Capacity: CPU<1>|Memory<2022868Ki>|Pods<110>|StorageEphemeral<130045936Ki>; Allocatable: CPU<1>|Memory<1920468Ki>|Pods<110>|StorageEphemeral<119850334420>.".
+I1220 19:36:18.983490       1 request.go:966] Request Body:
+00000000  6b 38 73 00 0a 1e 0a 15  65 76 65 6e 74 73 2e 6b  |k8s.....events.k|
+00000010  38 73 2e 69 6f 2f 76 31  62 65 74 61 31 12 05 45  |8s.io/v1beta1..E|
+00000020  76 65 6e 74 12 a8 03 0a  49 0a 30 67 72 65 65 6e  |vent....I.0green|
+00000030  2d 6b 38 73 2d 74 65 73  74 2d 36 35 62 62 37 37  |-k8s-test-65bb77|
+00000040  34 39 38 36 2d 72 39 68  64 78 2e 31 36 63 32 38  |4986-r9hdx.16c28|
+00000050  64 61 61 63 39 61 36 39  33 61 31 12 00 1a 07 64  |daac9a693a1....d|
+00000060  65 66 61 75 6c 74 22 00  2a 00 32 00 38 00 42 00  |efault".*.2.8.B.|
+00000070  7a 00 12 0c 08 b2 b6 83  8e 06 10 ed c6 f3 d4 03  |z...............|
+00000080  22 13 67 72 65 65 6e 2d  6b 38 73 2d 73 63 68 65  |".green-k8s-sche|
+00000090  64 75 6c 65 72 2a 37 67  72 65 65 6e 2d 6b 38 73  |duler*7green-k8s|
+000000a0  2d 73 63 68 65 64 75 6c  65 72 2d 67 72 65 65 6e  |-scheduler-green|
+000000b0  2d 6b 38 73 2d 73 63 68  65 64 75 6c 65 72 2d 38  |-k8s-scheduler-8|
+000000c0  63 62 37 66 37 37 37 39  2d 76 68 39 6c 77 32 07  |cb7f7779-vh9lw2.|
+000000d0  42 69 6e 64 69 6e 67 3a  09 53 63 68 65 64 75 6c  |Binding:.Schedul|
+000000e0  65 64 42 64 0a 03 50 6f  64 12 07 64 65 66 61 75  |edBd..Pod..defau|
+000000f0  6c 74 1a 1f 67 72 65 65  6e 2d 6b 38 73 2d 74 65  |lt..green-k8s-te|
+00000100  73 74 2d 36 35 62 62 37  37 34 39 38 36 2d 72 39  |st-65bb774986-r9|
+00000110  68 64 78 22 24 61 35 61  64 38 64 39 61 2d 30 63  |hdx"$a5ad8d9a-0c|
+00000120  64 64 2d 34 66 66 33 2d  62 32 62 36 2d 65 31 37  |dd-4ff3-b2b6-e17|
+00000130  65 32 65 39 36 39 32 35  36 2a 02 76 31 32 07 31  |e2e969256*.v12.1|
+00000140  33 39 34 33 36 31 3a 00  52 5e 53 75 63 63 65 73  |394361:.R^Succes|
+00000150  73 66 75 6c 6c 79 20 61  73 73 69 67 6e 65 64 20  |sfully assigned |
+00000160  64 65 66 61 75 6c 74 2f  67 72 65 65 6e 2d 6b 38  |default/green-k8|
+00000170  73 2d 74 65 73 74 2d 36  35 62 62 37 37 34 39 38  |s-test-65bb77498|
+00000180  36 2d 72 39 68 64 78 20  74 6f 20 69 70 2d 31 37  |6-r9hdx to ip-17|
+00000190  32 2d 32 30 2d 35 38 2d  31 33 34 2e 65 63 32 2e  |2-20-58-134.ec2.|
+000001a0  69 6e 74 65 72 6e 61 6c  5a 06 4e 6f 72 6d 61 6c  |internalZ.Normal|
+000001b0  62 17 0a 13 67 72 65 65  6e 2d 6b 38 73 2d 73 63  |b...green-k8s-sc|
+000001c0  68 65 64 75 6c 65 72 12  00 6a 00 72 00 78 00 1a  |heduler..j.r.x..|
+000001d0  00 22 00                                          |.".|
+I1220 19:36:18.983567       1 round_trippers.go:423] curl -k -v -XPOST  -H "Accept: application/vnd.kubernetes.protobuf, */*" -H "User-Agent: kube-scheduler/v1.16.3 (linux/amd64) kubernetes/b3cbbae/scheduler" -H "Content-Type: application/vnd.kubernetes.protobuf" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkI2d0Zpc0Q2S2pFdmhUX3hsRG5GZFdLemMtRkhWWmxiQmszcGVmc3RsdjQifQ.eyJhdWQiOlsia3ViZXJuZXRlcy5zdmMuZGVmYXVsdCJdLCJleHAiOjE2NzE1NjM0ODksImlhdCI6MTY0MDAyNzQ4OSwiaXNzIjoiaHR0cHM6Ly9hcGkuaW50ZXJuYWwuaGEuZ3JlZW5rOHMuY29tIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInBvZCI6eyJuYW1lIjoiZ3JlZW4tazhzLXNjaGVkdWxlci04Y2I3Zjc3Nzktdmg5bHciLCJ1aWQiOiJkZTEyN2Q0Yy1iYjY0LTQxMDktOWQ3ZC1mNWJjN2RkOWRlM2UifSwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImdyZWVuLWs4cy1zY2hlZHVsZXIiLCJ1aWQiOiI2NzgyMTEwNC01NGFiLTQ2YzctYTQ3NC00YjhlODI3M2UyZWYifSwid2FybmFmdGVyIjoxNjQwMDMxMDk2fSwibmJmIjoxNjQwMDI3NDg5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06Z3JlZW4tazhzLXNjaGVkdWxlciJ9.PCHj0VsyJ_6F1kiw2KtMJhp43t05m6phkjymLWPohHbxVSKc48rnPoNVik3odvK28ts9f3WKq0JlzZQPg_xq9ot31ffQqlBvKgBvCFonPN_TWNiCgoP_PZEsbj3L0IWFKAPQd-18KSx2-_rdm621jRpOKICVz9cj7KlnAQfkdOeHG5dnRA1ci2vMgN4wZaVDwrhjq0WMBgLRjr_pTr-j0QBrNVt8FYBh4KQDhyBjKyoLizg_MltKxwIlWiyHFH5kEJxeOvE4tnWtT9eTGa4qPTbTqjTSq1fF_6ukQpEpRmYnqYywvGAJ2vgSn4AvXxtVgnoZq2tpUm6_XnUFXclHqg" 'https://100.64.0.1:443/apis/events.k8s.io/v1beta1/namespaces/default/events'
+I1220 19:36:18.986026       1 round_trippers.go:443] POST https://100.64.0.1:443/apis/events.k8s.io/v1beta1/namespaces/default/events 201 Created in 2 milliseconds
+I1220 19:36:18.986048       1 round_trippers.go:449] Response Headers:
+I1220 19:36:18.986055       1 round_trippers.go:452]     X-Kubernetes-Pf-Prioritylevel-Uid: 0d11ff8b-ca59-4914-b971-4d6f623f711b
+I1220 19:36:18.986060       1 round_trippers.go:452]     Content-Length: 864
+I1220 19:36:18.986065       1 round_trippers.go:452]     Date: Mon, 20 Dec 2021 19:36:18 GMT
+I1220 19:36:18.986070       1 round_trippers.go:452]     Cache-Control: no-cache, private
+I1220 19:36:18.986075       1 round_trippers.go:452]     Content-Type: application/vnd.kubernetes.protobuf
+I1220 19:36:18.986080       1 round_trippers.go:452]     X-Kubernetes-Pf-Flowschema-Uid: 9fb2dc3c-3c29-42f2-bb88-3d0896e45310
+I1220 19:36:18.986127       1 request.go:966] Response Body:
+00000000  6b 38 73 00 0a 1e 0a 15  65 76 65 6e 74 73 2e 6b  |k8s.....events.k|
+00000010  38 73 2e 69 6f 2f 76 31  62 65 74 61 31 12 05 45  |8s.io/v1beta1..E|
+00000020  76 65 6e 74 12 b5 06 0a  d5 03 0a 30 67 72 65 65  |vent.......0gree|
+00000030  6e 2d 6b 38 73 2d 74 65  73 74 2d 36 35 62 62 37  |n-k8s-test-65bb7|
+00000040  37 34 39 38 36 2d 72 39  68 64 78 2e 31 36 63 32  |74986-r9hdx.16c2|
+00000050  38 64 61 61 63 39 61 36  39 33 61 31 12 00 1a 07  |8daac9a693a1....|
+00000060  64 65 66 61 75 6c 74 22  00 2a 24 35 36 62 31 30  |default".*$56b10|
+00000070  39 38 63 2d 32 62 37 62  2d 34 61 62 31 2d 62 37  |98c-2b7b-4ab1-b7|
+00000080  30 33 2d 61 65 35 30 66  66 30 66 35 64 65 66 32  |03-ae50ff0f5def2|
+00000090  04 32 35 34 32 38 00 42  08 08 b2 b6 83 8e 06 10  |.25428.B........|
+000000a0  00 7a 00 8a 01 d8 02 0a  0e 6b 75 62 65 2d 73 63  |.z.......kube-sc|
+000000b0  68 65 64 75 6c 65 72 12  06 55 70 64 61 74 65 1a  |heduler..Update.|
+000000c0  15 65 76 65 6e 74 73 2e  6b 38 73 2e 69 6f 2f 76  |.events.k8s.io/v|
+000000d0  31 62 65 74 61 31 22 08  08 b2 b6 83 8e 06 10 00  |1beta1".........|
+000000e0  32 08 46 69 65 6c 64 73  56 31 3a 92 02 0a 8f 02  |2.FieldsV1:.....|
+000000f0  7b 22 66 3a 61 63 74 69  6f 6e 22 3a 7b 7d 2c 22  |{"f:action":{},"|
+00000100  66 3a 64 65 70 72 65 63  61 74 65 64 53 6f 75 72  |f:deprecatedSour|
+00000110  63 65 22 3a 7b 22 66 3a  63 6f 6d 70 6f 6e 65 6e  |ce":{"f:componen|
+00000120  74 22 3a 7b 7d 7d 2c 22  66 3a 65 76 65 6e 74 54  |t":{}},"f:eventT|
+00000130  69 6d 65 22 3a 7b 7d 2c  22 66 3a 6e 6f 74 65 22  |ime":{},"f:note"|
+00000140  3a 7b 7d 2c 22 66 3a 72  65 61 73 6f 6e 22 3a 7b  |:{},"f:reason":{|
+00000150  7d 2c 22 66 3a 72 65 67  61 72 64 69 6e 67 22 3a  |},"f:regarding":|
+00000160  7b 22 66 3a 61 70 69 56  65 72 73 69 6f 6e 22 3a  |{"f:apiVersion":|
+00000170  7b 7d 2c 22 66 3a 6b 69  6e 64 22 3a 7b 7d 2c 22  |{},"f:kind":{},"|
+00000180  66 3a 6e 61 6d 65 22 3a  7b 7d 2c 22 66 3a 6e 61  |f:name":{},"f:na|
+00000190  6d 65 73 70 61 63 65 22  3a 7b 7d 2c 22 66 3a 72  |mespace":{},"f:r|
+000001a0  65 73 6f 75 72 63 65 56  65 72 73 69 6f 6e 22 3a  |esourceVersion":|
+000001b0  7b 7d 2c 22 66 3a 75 69  64 22 3a 7b 7d 7d 2c 22  |{},"f:uid":{}},"|
+000001c0  66 3a 72 65 70 6f 72 74  69 6e 67 43 6f 6e 74 72  |f:reportingContr|
+000001d0  6f 6c 6c 65 72 22 3a 7b  7d 2c 22 66 3a 72 65 70  |oller":{},"f:rep|
+000001e0  6f 72 74 69 6e 67 49 6e  73 74 61 6e 63 65 22 3a  |ortingInstance":|
+000001f0  7b 7d 2c 22 66 3a 74 79  70 65 22 3a 7b 7d 7d 12  |{},"f:type":{}}.|
+00000200  0c 08 b2 b6 83 8e 06 10  ed c6 f3 d4 03 22 13 67  |.............".g|
+00000210  72 65 65 6e 2d 6b 38 73  2d 73 63 68 65 64 75 6c  |reen-k8s-schedul|
+00000220  65 72 2a 37 67 72 65 65  6e 2d 6b 38 73 2d 73 63  |er*7green-k8s-sc|
+00000230  68 65 64 75 6c 65 72 2d  67 72 65 65 6e 2d 6b 38  |heduler-green-k8|
+00000240  73 2d 73 63 68 65 64 75  6c 65 72 2d 38 63 62 37  |s-scheduler-8cb7|
+00000250  66 37 37 37 39 2d 76 68  39 6c 77 32 07 42 69 6e  |f7779-vh9lw2.Bin|
+00000260  64 69 6e 67 3a 09 53 63  68 65 64 75 6c 65 64 42  |ding:.ScheduledB|
+00000270  64 0a 03 50 6f 64 12 07  64 65 66 61 75 6c 74 1a  |d..Pod..default.|
+00000280  1f 67 72 65 65 6e 2d 6b  38 73 2d 74 65 73 74 2d  |.green-k8s-test-|
+00000290  36 35 62 62 37 37 34 39  38 36 2d 72 39 68 64 78  |65bb774986-r9hdx|
+000002a0  22 24 61 35 61 64 38 64  39 61 2d 30 63 64 64 2d  |"$a5ad8d9a-0cdd-|
+000002b0  34 66 66 33 2d 62 32 62  36 2d 65 31 37 65 32 65  |4ff3-b2b6-e17e2e|
+000002c0  39 36 39 32 35 36 2a 02  76 31 32 07 31 33 39 34  |969256*.v12.1394|
+000002d0  33 36 31 3a 00 52 5e 53  75 63 63 65 73 73 66 75  |361:.R^Successfu|
+000002e0  6c 6c 79 20 61 73 73 69  67 6e 65 64 20 64 65 66  |lly assigned def|
+000002f0  61 75 6c 74 2f 67 72 65  65 6e 2d 6b 38 73 2d 74  |ault/green-k8s-t|
+00000300  65 73 74 2d 36 35 62 62  37 37 34 39 38 36 2d 72  |est-65bb774986-r|
+00000310  39 68 64 78 20 74 6f 20  69 70 2d 31 37 32 2d 32  |9hdx to ip-172-2|
+00000320  30 2d 35 38 2d 31 33 34  2e 65 63 32 2e 69 6e 74  |0-58-134.ec2.int|
+00000330  65 72 6e 61 6c 5a 06 4e  6f 72 6d 61 6c 62 17 0a  |ernalZ.Normalb..|
+00000340  13 67 72 65 65 6e 2d 6b  38 73 2d 73 63 68 65 64  |.green-k8s-sched|
+00000350  75 6c 65 72 12 00 6a 00  72 00 78 00 1a 00 22 00  |uler..j.r.x...".|
+I1220 19:36:19.420229       1 round_trippers.go:423] curl -k -v -XGET  -H "Accept: application/vnd.kubernetes.protobuf, */*" -H "User-Agent: kube-scheduler/v1.16.3 (linux/amd64) kubernetes/b3cbbae/leader-election" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkI2d0Zpc0Q2S2pFdmhUX3hsRG5GZFdLemMtRkhWWmxiQmszcGVmc3RsdjQifQ.eyJhdWQiOlsia3ViZXJuZXRlcy5zdmMuZGVmYXVsdCJdLCJleHAiOjE2NzE1NjM0ODksImlhdCI6MTY0MDAyNzQ4OSwiaXNzIjoiaHR0cHM6Ly9hcGkuaW50ZXJuYWwuaGEuZ3JlZW5rOHMuY29tIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInBvZCI6eyJuYW1lIjoiZ3JlZW4tazhzLXNjaGVkdWxlci04Y2I3Zjc3Nzktdmg5bHciLCJ1aWQiOiJkZTEyN2Q0Yy1iYjY0LTQxMDktOWQ3ZC1mNWJjN2RkOWRlM2UifSwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImdyZWVuLWs4cy1zY2hlZHVsZXIiLCJ1aWQiOiI2NzgyMTEwNC01NGFiLTQ2YzctYTQ3NC00YjhlODI3M2UyZWYifSwid2FybmFmdGVyIjoxNjQwMDMxMDk2fSwibmJmIjoxNjQwMDI3NDg5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06Z3JlZW4tazhzLXNjaGVkdWxlciJ9.PCHj0VsyJ_6F1kiw2KtMJhp43t05m6phkjymLWPohHbxVSKc48rnPoNVik3odvK28ts9f3WKq0JlzZQPg_xq9ot31ffQqlBvKgBvCFonPN_TWNiCgoP_PZEsbj3L0IWFKAPQd-18KSx2-_rdm621jRpOKICVz9cj7KlnAQfkdOeHG5dnRA1ci2vMgN4wZaVDwrhjq0WMBgLRjr_pTr-j0QBrNVt8FYBh4KQDhyBjKyoLizg_MltKxwIlWiyHFH5kEJxeOvE4tnWtT9eTGa4qPTbTqjTSq1fF_6ukQpEpRmYnqYywvGAJ2vgSn4AvXxtVgnoZq2tpUm6_XnUFXclHqg" 'https://100.64.0.1:443/api/v1/namespaces/kube-system/endpoints/green-k8s-scheduler?timeout=10s'
+I1220 19:36:19.423331       1 round_trippers.go:443] GET https://100.64.0.1:443/api/v1/namespaces/kube-system/endpoints/green-k8s-scheduler?timeout=10s 200 OK in 3 milliseconds
+I1220 19:36:19.423354       1 round_trippers.go:449] Response Headers:
+I1220 19:36:19.423361       1 round_trippers.go:452]     X-Kubernetes-Pf-Prioritylevel-Uid: eb0c7428-5f75-4b1e-bf1b-429aca9f7061
+I1220 19:36:19.423367       1 round_trippers.go:452]     Content-Length: 537
+I1220 19:36:19.423371       1 round_trippers.go:452]     Date: Mon, 20 Dec 2021 19:36:19 GMT
+I1220 19:36:19.423376       1 round_trippers.go:452]     Cache-Control: no-cache, private
+I1220 19:36:19.423381       1 round_trippers.go:452]     Content-Type: application/vnd.kubernetes.protobuf
+I1220 19:36:19.423386       1 round_trippers.go:452]     X-Kubernetes-Pf-Flowschema-Uid: 02c34a55-f357-42a4-a831-be5462675f33
+I1220 19:36:19.423683       1 request.go:966] Response Body:
+00000000  6b 38 73 00 0a 0f 0a 02  76 31 12 09 45 6e 64 70  |k8s.....v1..Endp|
+00000010  6f 69 6e 74 73 12 fd 03  0a fa 03 0a 13 67 72 65  |oints........gre|
+00000020  65 6e 2d 6b 38 73 2d 73  63 68 65 64 75 6c 65 72  |en-k8s-scheduler|
+00000030  12 00 1a 0b 6b 75 62 65  2d 73 79 73 74 65 6d 22  |....kube-system"|
+00000040  00 2a 24 36 38 31 39 36  33 30 61 2d 62 37 34 30  |.*$6819630a-b740|
+00000050  2d 34 30 35 30 2d 62 65  61 30 2d 37 38 64 39 37  |-4050-bea0-78d97|
+00000060  66 35 64 66 64 65 66 32  07 31 33 39 34 33 34 36  |f5dfdef2.1394346|
+00000070  38 00 42 08 08 df 88 e8  8d 06 10 00 62 83 02 0a  |8.B.........b...|
+00000080  28 63 6f 6e 74 72 6f 6c  2d 70 6c 61 6e 65 2e 61  |(control-plane.a|
+00000090  6c 70 68 61 2e 6b 75 62  65 72 6e 65 74 65 73 2e  |lpha.kubernetes.|
+000000a0  69 6f 2f 6c 65 61 64 65  72 12 d6 01 7b 22 68 6f  |io/leader...{"ho|
+000000b0  6c 64 65 72 49 64 65 6e  74 69 74 79 22 3a 22 67  |lderIdentity":"g|
+000000c0  72 65 65 6e 2d 6b 38 73  2d 73 63 68 65 64 75 6c  |reen-k8s-schedul|
+000000d0  65 72 2d 38 63 62 37 66  37 37 37 39 2d 76 68 39  |er-8cb7f7779-vh9|
+000000e0  6c 77 5f 62 30 34 34 31  61 33 63 2d 37 66 39 66  |lw_b0441a3c-7f9f|
+000000f0  2d 34 35 35 31 2d 61 30  31 61 2d 62 61 39 33 36  |-4551-a01a-ba936|
+00000100  34 64 38 65 37 61 63 22  2c 22 6c 65 61 73 65 44  |4d8e7ac","leaseD|
+00000110  75 72 61 74 69 6f 6e 53  65 63 6f 6e 64 73 22 3a  |urationSeconds":|
+00000120  31 35 2c 22 61 63 71 75  69 72 65 54 69 6d 65 22  |15,"acquireTime"|
+00000130  3a 22 32 30 32 31 2d 31  32 2d 31 39 54 31 35 3a  |:"2021-12-19T15:|
+00000140  33 34 3a 34 35 5a 22 2c  22 72 65 6e 65 77 54 69  |34:45Z","renewTi|
+00000150  6d 65 22 3a 22 32 30 32  31 2d 31 32 2d 32 30 54  |me":"2021-12-20T|
+00000160  31 39 3a 33 36 3a 31 37  5a 22 2c 22 6c 65 61 64  |19:36:17Z","lead|
+00000170  65 72 54 72 61 6e 73 69  74 69 6f 6e 73 22 3a 31  |erTransitions":1|
+00000180  32 7d 7a 00 8a 01 8d 01  0a 0e 6b 75 62 65 2d 73  |2}z.......kube-s|
+00000190  63 68 65 64 75 6c 65 72  12 06 55 70 64 61 74 65  |cheduler..Update|
+000001a0  1a 02 76 31 22 08 08 df  88 e8 8d 06 10 00 32 08  |..v1".........2.|
+000001b0  46 69 65 6c 64 73 56 31  3a 5b 0a 59 7b 22 66 3a  |FieldsV1:[.Y{"f:|
+000001c0  6d 65 74 61 64 61 74 61  22 3a 7b 22 66 3a 61 6e  |metadata":{"f:an|
+000001d0  6e 6f 74 61 74 69 6f 6e  73 22 3a 7b 22 2e 22 3a  |notations":{".":|
+000001e0  7b 7d 2c 22 66 3a 63 6f  6e 74 72 6f 6c 2d 70 6c  |{},"f:control-pl|
+000001f0  61 6e 65 2e 61 6c 70 68  61 2e 6b 75 62 65 72 6e  |ane.alpha.kubern|
+00000200  65 74 65 73 2e 69 6f 2f  6c 65 61 64 65 72 22 3a  |etes.io/leader":|
+00000210  7b 7d 7d 7d 7d 1a 00 22  00                       |{}}}}..".|
+I1220 19:36:19.424087       1 request.go:966] Request Body:
+00000000  6b 38 73 00 0a 0f 0a 02  76 31 12 09 45 6e 64 70  |k8s.....v1..Endp|
+00000010  6f 69 6e 74 73 12 fd 03  0a fa 03 0a 13 67 72 65  |oints........gre|
+00000020  65 6e 2d 6b 38 73 2d 73  63 68 65 64 75 6c 65 72  |en-k8s-scheduler|
+00000030  12 00 1a 0b 6b 75 62 65  2d 73 79 73 74 65 6d 22  |....kube-system"|
+00000040  00 2a 24 36 38 31 39 36  33 30 61 2d 62 37 34 30  |.*$6819630a-b740|
+00000050  2d 34 30 35 30 2d 62 65  61 30 2d 37 38 64 39 37  |-4050-bea0-78d97|
+00000060  66 35 64 66 64 65 66 32  07 31 33 39 34 33 34 36  |f5dfdef2.1394346|
+00000070  38 00 42 08 08 df 88 e8  8d 06 10 00 62 83 02 0a  |8.B.........b...|
+00000080  28 63 6f 6e 74 72 6f 6c  2d 70 6c 61 6e 65 2e 61  |(control-plane.a|
+00000090  6c 70 68 61 2e 6b 75 62  65 72 6e 65 74 65 73 2e  |lpha.kubernetes.|
+000000a0  69 6f 2f 6c 65 61 64 65  72 12 d6 01 7b 22 68 6f  |io/leader...{"ho|
+000000b0  6c 64 65 72 49 64 65 6e  74 69 74 79 22 3a 22 67  |lderIdentity":"g|
+000000c0  72 65 65 6e 2d 6b 38 73  2d 73 63 68 65 64 75 6c  |reen-k8s-schedul|
+000000d0  65 72 2d 38 63 62 37 66  37 37 37 39 2d 76 68 39  |er-8cb7f7779-vh9|
+000000e0  6c 77 5f 62 30 34 34 31  61 33 63 2d 37 66 39 66  |lw_b0441a3c-7f9f|
+000000f0  2d 34 35 35 31 2d 61 30  31 61 2d 62 61 39 33 36  |-4551-a01a-ba936|
+00000100  34 64 38 65 37 61 63 22  2c 22 6c 65 61 73 65 44  |4d8e7ac","leaseD|
+00000110  75 72 61 74 69 6f 6e 53  65 63 6f 6e 64 73 22 3a  |urationSeconds":|
+00000120  31 35 2c 22 61 63 71 75  69 72 65 54 69 6d 65 22  |15,"acquireTime"|
+00000130  3a 22 32 30 32 31 2d 31  32 2d 31 39 54 31 35 3a  |:"2021-12-19T15:|
+00000140  33 34 3a 34 35 5a 22 2c  22 72 65 6e 65 77 54 69  |34:45Z","renewTi|
+00000150  6d 65 22 3a 22 32 30 32  31 2d 31 32 2d 32 30 54  |me":"2021-12-20T|
+00000160  31 39 3a 33 36 3a 31 39  5a 22 2c 22 6c 65 61 64  |19:36:19Z","lead|
+00000170  65 72 54 72 61 6e 73 69  74 69 6f 6e 73 22 3a 31  |erTransitions":1|
+00000180  32 7d 7a 00 8a 01 8d 01  0a 0e 6b 75 62 65 2d 73  |2}z.......kube-s|
+00000190  63 68 65 64 75 6c 65 72  12 06 55 70 64 61 74 65  |cheduler..Update|
+000001a0  1a 02 76 31 22 08 08 df  88 e8 8d 06 10 00 32 08  |..v1".........2.|
+000001b0  46 69 65 6c 64 73 56 31  3a 5b 0a 59 7b 22 66 3a  |FieldsV1:[.Y{"f:|
+000001c0  6d 65 74 61 64 61 74 61  22 3a 7b 22 66 3a 61 6e  |metadata":{"f:an|
+000001d0  6e 6f 74 61 74 69 6f 6e  73 22 3a 7b 22 2e 22 3a  |notations":{".":|
+000001e0  7b 7d 2c 22 66 3a 63 6f  6e 74 72 6f 6c 2d 70 6c  |{},"f:control-pl|
+000001f0  61 6e 65 2e 61 6c 70 68  61 2e 6b 75 62 65 72 6e  |ane.alpha.kubern|
+00000200  65 74 65 73 2e 69 6f 2f  6c 65 61 64 65 72 22 3a  |etes.io/leader":|
+00000210  7b 7d 7d 7d 7d 1a 00 22  00                       |{}}}}..".|
+I1220 19:36:19.424494       1 round_trippers.go:423] curl -k -v -XPUT  -H "Accept: application/vnd.kubernetes.protobuf, */*" -H "Content-Type: application/vnd.kubernetes.protobuf" -H "User-Agent: kube-scheduler/v1.16.3 (linux/amd64) kubernetes/b3cbbae/leader-election" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkI2d0Zpc0Q2S2pFdmhUX3hsRG5GZFdLemMtRkhWWmxiQmszcGVmc3RsdjQifQ.eyJhdWQiOlsia3ViZXJuZXRlcy5zdmMuZGVmYXVsdCJdLCJleHAiOjE2NzE1NjM0ODksImlhdCI6MTY0MDAyNzQ4OSwiaXNzIjoiaHR0cHM6Ly9hcGkuaW50ZXJuYWwuaGEuZ3JlZW5rOHMuY29tIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInBvZCI6eyJuYW1lIjoiZ3JlZW4tazhzLXNjaGVkdWxlci04Y2I3Zjc3Nzktdmg5bHciLCJ1aWQiOiJkZTEyN2Q0Yy1iYjY0LTQxMDktOWQ3ZC1mNWJjN2RkOWRlM2UifSwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImdyZWVuLWs4cy1zY2hlZHVsZXIiLCJ1aWQiOiI2NzgyMTEwNC01NGFiLTQ2YzctYTQ3NC00YjhlODI3M2UyZWYifSwid2FybmFmdGVyIjoxNjQwMDMxMDk2fSwibmJmIjoxNjQwMDI3NDg5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06Z3JlZW4tazhzLXNjaGVkdWxlciJ9.PCHj0VsyJ_6F1kiw2KtMJhp43t05m6phkjymLWPohHbxVSKc48rnPoNVik3odvK28ts9f3WKq0JlzZQPg_xq9ot31ffQqlBvKgBvCFonPN_TWNiCgoP_PZEsbj3L0IWFKAPQd-18KSx2-_rdm621jRpOKICVz9cj7KlnAQfkdOeHG5dnRA1ci2vMgN4wZaVDwrhjq0WMBgLRjr_pTr-j0QBrNVt8FYBh4KQDhyBjKyoLizg_MltKxwIlWiyHFH5kEJxeOvE4tnWtT9eTGa4qPTbTqjTSq1fF_6ukQpEpRmYnqYywvGAJ2vgSn4AvXxtVgnoZq2tpUm6_XnUFXclHqg" 'https://100.64.0.1:443/api/v1/namespaces/kube-system/endpoints/green-k8s-scheduler?timeout=10s'
+I1220 19:36:19.428179       1 round_trippers.go:443] PUT https://100.64.0.1:443/api/v1/namespaces/kube-system/endpoints/green-k8s-scheduler?timeout=10s 200 OK in 3 milliseconds
+I1220 19:36:19.428309       1 round_trippers.go:449] Response Headers:
+I1220 19:36:19.428350       1 round_trippers.go:452]     Date: Mon, 20 Dec 2021 19:36:19 GMT
+I1220 19:36:19.428372       1 round_trippers.go:452]     Cache-Control: no-cache, private
+I1220 19:36:19.428390       1 round_trippers.go:452]     Content-Type: application/vnd.kubernetes.protobuf
+I1220 19:36:19.428473       1 round_trippers.go:452]     X-Kubernetes-Pf-Flowschema-Uid: 02c34a55-f357-42a4-a831-be5462675f33
+I1220 19:36:19.428575       1 round_trippers.go:452]     X-Kubernetes-Pf-Prioritylevel-Uid: eb0c7428-5f75-4b1e-bf1b-429aca9f7061
+I1220 19:36:19.428697       1 round_trippers.go:452]     Content-Length: 537
+I1220 19:36:19.428913       1 request.go:966] Response Body:
+00000000  6b 38 73 00 0a 0f 0a 02  76 31 12 09 45 6e 64 70  |k8s.....v1..Endp|
+00000010  6f 69 6e 74 73 12 fd 03  0a fa 03 0a 13 67 72 65  |oints........gre|
+00000020  65 6e 2d 6b 38 73 2d 73  63 68 65 64 75 6c 65 72  |en-k8s-scheduler|
+00000030  12 00 1a 0b 6b 75 62 65  2d 73 79 73 74 65 6d 22  |....kube-system"|
+00000040  00 2a 24 36 38 31 39 36  33 30 61 2d 62 37 34 30  |.*$6819630a-b740|
+00000050  2d 34 30 35 30 2d 62 65  61 30 2d 37 38 64 39 37  |-4050-bea0-78d97|
+00000060  66 35 64 66 64 65 66 32  07 31 33 39 34 33 38 34  |f5dfdef2.1394384|
+00000070  38 00 42 08 08 df 88 e8  8d 06 10 00 62 83 02 0a  |8.B.........b...|
+00000080  28 63 6f 6e 74 72 6f 6c  2d 70 6c 61 6e 65 2e 61  |(control-plane.a|
+00000090  6c 70 68 61 2e 6b 75 62  65 72 6e 65 74 65 73 2e  |lpha.kubernetes.|
+000000a0  69 6f 2f 6c 65 61 64 65  72 12 d6 01 7b 22 68 6f  |io/leader...{"ho|
+000000b0  6c 64 65 72 49 64 65 6e  74 69 74 79 22 3a 22 67  |lderIdentity":"g|
+000000c0  72 65 65 6e 2d 6b 38 73  2d 73 63 68 65 64 75 6c  |reen-k8s-schedul|
+000000d0  65 72 2d 38 63 62 37 66  37 37 37 39 2d 76 68 39  |er-8cb7f7779-vh9|
+000000e0  6c 77 5f 62 30 34 34 31  61 33 63 2d 37 66 39 66  |lw_b0441a3c-7f9f|
+000000f0  2d 34 35 35 31 2d 61 30  31 61 2d 62 61 39 33 36  |-4551-a01a-ba936|
+00000100  34 64 38 65 37 61 63 22  2c 22 6c 65 61 73 65 44  |4d8e7ac","leaseD|
+00000110  75 72 61 74 69 6f 6e 53  65 63 6f 6e 64 73 22 3a  |urationSeconds":|
+00000120  31 35 2c 22 61 63 71 75  69 72 65 54 69 6d 65 22  |15,"acquireTime"|
+00000130  3a 22 32 30 32 31 2d 31  32 2d 31 39 54 31 35 3a  |:"2021-12-19T15:|
+00000140  33 34 3a 34 35 5a 22 2c  22 72 65 6e 65 77 54 69  |34:45Z","renewTi|
+00000150  6d 65 22 3a 22 32 30 32  31 2d 31 32 2d 32 30 54  |me":"2021-12-20T|
+00000160  31 39 3a 33 36 3a 31 39  5a 22 2c 22 6c 65 61 64  |19:36:19Z","lead|
+00000170  65 72 54 72 61 6e 73 69  74 69 6f 6e 73 22 3a 31  |erTransitions":1|
+00000180  32 7d 7a 00 8a 01 8d 01  0a 0e 6b 75 62 65 2d 73  |2}z.......kube-s|
+00000190  63 68 65 64 75 6c 65 72  12 06 55 70 64 61 74 65  |cheduler..Update|
+000001a0  1a 02 76 31 22 08 08 df  88 e8 8d 06 10 00 32 08  |..v1".........2.|
+000001b0  46 69 65 6c 64 73 56 31  3a 5b 0a 59 7b 22 66 3a  |FieldsV1:[.Y{"f:|
+000001c0  6d 65 74 61 64 61 74 61  22 3a 7b 22 66 3a 61 6e  |metadata":{"f:an|
+000001d0  6e 6f 74 61 74 69 6f 6e  73 22 3a 7b 22 2e 22 3a  |notations":{".":|
+000001e0  7b 7d 2c 22 66 3a 63 6f  6e 74 72 6f 6c 2d 70 6c  |{},"f:control-pl|
+000001f0  61 6e 65 2e 61 6c 70 68  61 2e 6b 75 62 65 72 6e  |ane.alpha.kubern|
+00000200  65 74 65 73 2e 69 6f 2f  6c 65 61 64 65 72 22 3a  |etes.io/leader":|
+00000210  7b 7d 7d 7d 7d 1a 00 22  00                       |{}}}}..".|
+I1220 19:36:19.429062       1 leaderelection.go:282] successfully renewed lease kube-system/green-k8s-scheduler
+I1220 19:36:21.429530       1 round_trippers.go:423] curl -k -v -XGET  -H "Accept: application/vnd.kubernetes.protobuf, */*" -H "User-Agent: kube-scheduler/v1.16.3 (linux/amd64) kubernetes/b3cbbae/leader-election" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkI2d0Zpc0Q2S2pFdmhUX3hsRG5GZFdLemMtRkhWWmxiQmszcGVmc3RsdjQifQ.eyJhdWQiOlsia3ViZXJuZXRlcy5zdmMuZGVmYXVsdCJdLCJleHAiOjE2NzE1NjM0ODksImlhdCI6MTY0MDAyNzQ4OSwiaXNzIjoiaHR0cHM6Ly9hcGkuaW50ZXJuYWwuaGEuZ3JlZW5rOHMuY29tIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInBvZCI6eyJuYW1lIjoiZ3JlZW4tazhzLXNjaGVkdWxlci04Y2I3Zjc3Nzktdmg5bHciLCJ1aWQiOiJkZTEyN2Q0Yy1iYjY0LTQxMDktOWQ3ZC1mNWJjN2RkOWRlM2UifSwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImdyZWVuLWs4cy1zY2hlZHVsZXIiLCJ1aWQiOiI2NzgyMTEwNC01NGFiLTQ2YzctYTQ3NC00YjhlODI3M2UyZWYifSwid2FybmFmdGVyIjoxNjQwMDMxMDk2fSwibmJmIjoxNjQwMDI3NDg5LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06Z3JlZW4tazhzLXNjaGVkdWxlciJ9.PCHj0VsyJ_6F1kiw2KtMJhp43t05m6phkjymLWPohHbxVSKc48rnPoNVik3odvK28ts9f3WKq0JlzZQPg_xq9ot31ffQqlBvKgBvCFonPN_TWNiCgoP_PZEsbj3L0IWFKAPQd-18KSx2-_rdm621jRpOKICVz9cj7KlnAQfkdOeHG5dnRA1ci2vMgN4wZaVDwrhjq0WMBgLRjr_pTr-j0QBrNVt8FYBh4KQDhyBjKyoLizg_MltKxwIlWiyHFH5kEJxeOvE4tnWtT9eTGa4qPTbTqjTSq1fF_6ukQpEpRmYnqYywvGAJ2vgSn4AvXxtVgnoZq2tpUm6_XnUFXclHqg" 'https://100.64.0.1:443/api/v1/namespaces/kube-system/endpoints/green-k8s-scheduler?timeout=10s'
+I1220 19:36:21.432407       1 round_trippers.go:443] GET https://100.64.0.1:443/api/v1/namespaces/kube-system/endpoints/green-k8s-scheduler?timeout=10s 200 OK in 2 milliseconds
+I1220 19:36:21.432571       1 round_trippers.go:449] Response Headers:
+I1220 19:36:21.432589       1 round_trippers.go:452]     X-Kubernetes-Pf-Prioritylevel-Uid: eb0c7428-5f75-4b1e-bf1b-429aca9f7061
+I1220 19:36:21.432595       1 round_trippers.go:452]     Content-Length: 537
+I1220 19:36:21.432600       1 round_trippers.go:452]     Date: Mon, 20 Dec 2021 19:36:21 GMT
+I1220 19:36:21.432606       1 round_trippers.go:452]     Cache-Control: no-cache, private
+I1220 19:36:21.432611       1 round_trippers.go:452]     Content-Type: application/vnd.kubernetes.protobuf
+I1220 19:36:21.432615       1 round_trippers.go:452]     X-Kubernetes-Pf-Flowschema-Uid: 02c34a55-f357-42a4-a831-be5462675f33
+I1220 19:36:21.432726       1 request.go:966] Response Body:
+00000000  6b 38 73 00 0a 0f 0a 02  76 31 12 09 45 6e 64 70  |k8s.....v1..Endp|
+00000010  6f 69 6e 74 73 12 fd 03  0a fa 03 0a 13 67 72 65  |oints........gre|
+00000020  65 6e 2d 6b 38 73 2d 73  63 68 65 64 75 6c 65 72  |en-k8s-scheduler|
+00000030  12 00 1a 0b 6b 75 62 65  2d 73 79 73 74 65 6d 22  |....kube-system"|
+00000040  00 2a 24 36 38 31 39 36  33 30 61 2d 62 37 34 30  |.*$6819630a-b740|
+00000050  2d 34 30 35 30 2d 62 65  61 30 2d 37 38 64 39 37  |-4050-bea0-78d97|
+00000060  66 35 64 66 64 65 66 32  07 31 33 39 34 33 38 34  |f5dfdef2.1394384|
+00000070  38 00 42 08 08 df 88 e8  8d 06 10 00 62 83 02 0a  |8.B.........b...|
+00000080  28 63 6f 6e 74 72 6f 6c  2d 70 6c 61 6e 65 2e 61  |(control-plane.a|
+00000090  6c 70 68 61 2e 6b 75 62  65 72 6e 65 74 65 73 2e  |lpha.kubernetes.|
+000000a0  69 6f 2f 6c 65 61 64 65  72 12 d6 01 7b 22 68 6f  |io/leader...{"ho|
+000000b0  6c 64 65 72 49 64 65 6e  74 69 74 79 22 3a 22 67  |lderIdentity":"g|
+000000c0  72 65 65 6e 2d 6b 38 73  2d 73 63 68 65 64 75 6c  |reen-k8s-schedul|
+000000d0  65 72 2d 38 63 62 37 66  37 37 37 39 2d 76 68 39  |er-8cb7f7779-vh9|
+000000e0  6c 77 5f 62 30 34 34 31  61 33 63 2d 37 66 39 66  |lw_b0441a3c-7f9f|
+000000f0  2d 34 35 35 31 2d 61 30  31 61 2d 62 61 39 33 36  |-4551-a01a-ba936|
+00000100  34 64 38 65 37 61 63 22  2c 22 6c 65 61 73 65 44  |4d8e7ac","leaseD|
+00000110  75 72 61 74 69 6f 6e 53  65 63 6f 6e 64 73 22 3a  |urationSeconds":|
+00000120  31 35 2c 22 61 63 71 75  69 72 65 54 69 6d 65 22  |15,"acquireTime"|
+00000130  3a 22 32 30 32 31 2d 31  32 2d 31 39 54 31 35 3a  |:"2021-12-19T15:|
+00000140  33 34 3a 34 35 5a 22 2c  22 72 65 6e 65 77 54 69  |34:45Z","renewTi|
+00000150  6d 65 22 3a 22 32 30 32  31 2d 31 32 2d 32 30 54  |me":"2021-12-20T|
+00000160  31 39 3a 33 36 3a 31 39  5a 22 2c 22 6c 65 61 64  |19:36:19Z","lead|
+00000170  65 72 54 72 61 6e 73 69  74 69 6f 6e 73 22 3a 31  |erTransitions":1|
+00000180  32 7d 7a 00 8a 01 8d 01  0a 0e 6b 75 62 65 2d 73  |2}z.......kube-s|
+00000190  63 68 65 64 75 6c 65 72  12 06 55 70 64 61 74 65  |cheduler..Update|
+000001a0  1a 02 76 31 22 08 08 df  88 e8 8d 06 10 00 32 08  |..v1".........2.|
+000001b0  46 69 65 6c 64 73 56 31  3a 5b 0a 59 7b 22 66 3a  |FieldsV1:[.Y{"f:|
+000001c0  6d 65 74 61 64 61 74 61  22 3a 7b 22 66 3a 61 6e  |metadata":{"f:an|
+000001d0  6e 6f 74 61 74 69 6f 6e  73 22 3a 7b 22 2e 22 3a  |notations":{".":|
+000001e0  7b 7d 2c 22 66 3a 63 6f  6e 74 72 6f 6c 2d 70 6c  |{},"f:control-pl|
+000001f0  61 6e 65 2e 61 6c 70 68  61 2e 6b 75 62 65 72 6e  |ane.alpha.kubern|
+00000200  65 74 65 73 2e 69 6f 2f  6c 65 61 64 65 72 22 3a  |etes.io/leader":|
+00000210  7b 7d 7d 7d 7d 1a 00 22  00                       |{}}}}..".|
+I1220 19:36:21.432947       1 request.go:966] Request Body:
+00000000  6b 38 73 00 0a 0f 0a 02  76 31 12 09 45 6e 64 70  |k8s.....v1..Endp|
+00000010  6f 69 6e 74 73 12 fd 03  0a fa 03 0a 13 67 72 65  |oints........gre|
+00000020  65 6e 2d 6b 38 73 2d 73  63 68 65 64 75 6c 65 72  |en-k8s-scheduler|
+00000030  12 00 1a 0b 6b 75 62 65  2d 73 79 73 74 65 6d 22  |....kube-system"|
+00000040  00 2a 24 36 38 31 39 36  33 30 61 2d 62 37 34 30  |.*$6819630a-b740|
+00000050  2d 34 30 35 30 2d 62 65  61 30 2d 37 38 64 39 37  |-4050-bea0-78d97|
+00000060  66 35 64 66 64 65 66 32  07 31 33 39 34 33 38 34  |f5dfdef2.1394384|
+00000070  38 00 42 08 08 df 88 e8  8d 06 10 00 62 83 02 0a  |8.B.........b...|
+00000080  28 63 6f 6e 74 72 6f 6c  2d 70 6c 61 6e 65 2e 61  |(control-plane.a|
+00000090  6c 70 68 61 2e 6b 75 62  65 72 6e 65 74 65 73 2e  |lpha.kubernetes.|
+000000a0  69 6f 2f 6c 65 61 64 65  72 12 d6 01 7b 22 68 6f  |io/leader...{"ho|
+000000b0  6c 64 65 72 49 64 65 6e  74 69 74 79 22 3a 22 67  |lderIdentity":"g|
+000000c0  72 65 65 6e 2d 6b 38 73  2d 73 63 68 65 64 75 6c  |reen-k8s-schedul|
+000000d0  65 72 2d 38 63 62 37 66  37 37 37 39 2d 76 68 39  |er-8cb7f7779-vh9|
+000000e0  6c 77 5f 62 30 34 34 31  61 33 63 2d 37 66 39 66  |lw_b0441a3c-7f9f|

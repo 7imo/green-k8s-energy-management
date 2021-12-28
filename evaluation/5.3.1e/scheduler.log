@@ -1,0 +1,71 @@
+I1218 18:04:05.645142       1 leaderelection.go:282] successfully renewed lease kube-system/green-k8s-scheduler
+I1218 18:04:05.920224       1 scheduling_queue.go:830] About to try and schedule pod default/green-k8s-test-688d6758c6-749kt
+I1218 18:04:05.920381       1 scheduler.go:530] Attempting to schedule pod: default/green-k8s-test-688d6758c6-749kt
+I1218 18:04:05.920663       1 predicates.go:908] Schedule Pod default/green-k8s-test-688d6758c6-749kt on Node ip-172-20-40-148.ec2.internal is allowed, Node is running only 9 out of 110 Pods.
+I1218 18:04:05.920847       1 generic_scheduler.go:667] since alwaysCheckAllPredicates has not been set, the predicate evaluation is short circuited and there are chances of other predicates failing as well.
+I1218 18:04:05.921474       1 predicates.go:908] Schedule Pod default/green-k8s-test-688d6758c6-749kt on Node ip-172-20-58-134.ec2.internal is allowed, Node is running only 2 out of 110 Pods.
+I1218 18:04:05.921607       1 predicates.go:908] Schedule Pod default/green-k8s-test-688d6758c6-749kt on Node ip-172-20-45-201.ec2.internal is allowed, Node is running only 2 out of 110 Pods.
+I1218 18:04:05.921722       1 predicates.go:908] Schedule Pod default/green-k8s-test-688d6758c6-749kt on Node ip-172-20-49-41.ec2.internal is allowed, Node is running only 1 out of 110 Pods.
+I1218 18:04:05.921818       1 predicates.go:908] Schedule Pod default/green-k8s-test-688d6758c6-749kt on Node ip-172-20-61-178.ec2.internal is allowed, Node is running only 3 out of 110 Pods.
+I1218 18:04:05.922911       1 resource_allocation.go:84] green-k8s-test-688d6758c6-749kt -> ip-172-20-58-134.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:300 memory:492830720] ,score 9,
+I1218 18:04:05.923060       1 resource_allocation.go:84] green-k8s-test-688d6758c6-749kt -> ip-172-20-58-134.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:300 memory:492830720] ,score 7,
+I1218 18:04:05.923199       1 resource_allocation.go:84] green-k8s-test-688d6758c6-749kt -> ip-172-20-45-201.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:300 memory:492830720] ,score 9,
+I1218 18:04:05.923318       1 resource_allocation.go:84] green-k8s-test-688d6758c6-749kt -> ip-172-20-45-201.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:300 memory:492830720] ,score 7,
+I1218 18:04:05.923448       1 resource_allocation.go:84] green-k8s-test-688d6758c6-749kt -> ip-172-20-49-41.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:200 memory:419430400] ,score 9,
+I1218 18:04:05.923576       1 resource_allocation.go:84] green-k8s-test-688d6758c6-749kt -> ip-172-20-49-41.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:200 memory:419430400] ,score 7,
+I1218 18:04:05.923678       1 resource_allocation.go:84] green-k8s-test-688d6758c6-749kt -> ip-172-20-61-178.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:320 memory:639631360] ,score 9,
+I1218 18:04:05.923799       1 resource_allocation.go:84] green-k8s-test-688d6758c6-749kt -> ip-172-20-61-178.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:320 memory:639631360] ,score 6,
+I1218 18:04:05.923922       1 selector_spreading.go:146] green-k8s-test-688d6758c6-749kt -> ip-172-20-58-134.ec2.internal: SelectorSpreadPriority, Score: (10)
+I1218 18:04:05.924036       1 selector_spreading.go:146] green-k8s-test-688d6758c6-749kt -> ip-172-20-45-201.ec2.internal: SelectorSpreadPriority, Score: (10)
+I1218 18:04:05.924126       1 selector_spreading.go:146] green-k8s-test-688d6758c6-749kt -> ip-172-20-49-41.ec2.internal: SelectorSpreadPriority, Score: (10)
+I1218 18:04:05.924203       1 selector_spreading.go:146] green-k8s-test-688d6758c6-749kt -> ip-172-20-61-178.ec2.internal: SelectorSpreadPriority, Score: (10)
+I1218 18:04:05.924308       1 generic_scheduler.go:773] green-k8s-test-688d6758c6-749kt_default -> ip-172-20-58-134.ec2.internal: ServiceSpreadingPriority, Score: (10)
+I1218 18:04:05.924405       1 generic_scheduler.go:773] green-k8s-test-688d6758c6-749kt_default -> ip-172-20-45-201.ec2.internal: ServiceSpreadingPriority, Score: (10)
+I1218 18:04:05.924508       1 generic_scheduler.go:773] green-k8s-test-688d6758c6-749kt_default -> ip-172-20-49-41.ec2.internal: ServiceSpreadingPriority, Score: (10)
+I1218 18:04:05.924576       1 generic_scheduler.go:773] green-k8s-test-688d6758c6-749kt_default -> ip-172-20-61-178.ec2.internal: ServiceSpreadingPriority, Score: (10)
+I1218 18:04:05.924692       1 generic_scheduler.go:838] Host ip-172-20-58-134.ec2.internal => Score 27
+I1218 18:04:05.924773       1 generic_scheduler.go:838] Host ip-172-20-45-201.ec2.internal => Score 27
+I1218 18:04:05.924886       1 generic_scheduler.go:838] Host ip-172-20-49-41.ec2.internal => Score 27
+I1218 18:04:05.924959       1 generic_scheduler.go:838] Host ip-172-20-61-178.ec2.internal => Score 26
+I1218 18:04:05.925168       1 scheduler_binder.go:256] AssumePodVolumes for pod "default/green-k8s-test-688d6758c6-749kt", node "ip-172-20-49-41.ec2.internal"
+I1218 18:04:05.925290       1 scheduler_binder.go:266] AssumePodVolumes for pod "default/green-k8s-test-688d6758c6-749kt", node "ip-172-20-49-41.ec2.internal": all PVCs bound and nothing to do
+I1218 18:04:05.925446       1 factory.go:610] Attempting to bind green-k8s-test-688d6758c6-749kt to ip-172-20-49-41.ec2.internal
+
+I1217 21:01:32.713599       1 leaderelection.go:282] successfully renewed lease kube-system/green-k8s-scheduler
+I1217 21:01:34.703104       1 scheduling_queue.go:830] About to try and schedule pod default/green-k8s-test-688d6758c6-8kch2
+I1217 21:01:34.703178       1 scheduler.go:530] Attempting to schedule pod: default/green-k8s-test-688d6758c6-8kch2
+I1217 21:01:34.703375       1 metadata.go:238] Precompute: PredicateWithExtendedResourceOptions
+I1217 21:01:34.703488       1 predicates.go:908] Schedule Pod default/green-k8s-test-688d6758c6-8kch2 on Node ip-172-20-49-41.ec2.internal is allowed, Node is running only 1 out of 110 Pods.
+I1217 21:01:34.703644       1 predicates.go:908] Schedule Pod default/green-k8s-test-688d6758c6-8kch2 on Node ip-172-20-61-178.ec2.internal is allowed, Node is running only 3 out of 110 Pods.
+I1217 21:01:34.703718       1 predicates.go:908] Schedule Pod default/green-k8s-test-688d6758c6-8kch2 on Node ip-172-20-40-148.ec2.internal is allowed, Node is running only 9 out of 110 Pods.
+I1217 21:01:34.703759       1 generic_scheduler.go:667] since alwaysCheckAllPredicates has not been set, the predicate evaluation is short circuited and there are chances of other predicates failing as well.
+I1217 21:01:34.703834       1 predicates.go:908] Schedule Pod default/green-k8s-test-688d6758c6-8kch2 on Node ip-172-20-58-134.ec2.internal is allowed, Node is running only 2 out of 110 Pods.
+I1217 21:01:34.703926       1 predicates.go:908] Schedule Pod default/green-k8s-test-688d6758c6-8kch2 on Node ip-172-20-45-201.ec2.internal is allowed, Node is running only 2 out of 110 Pods.
+I1217 21:01:34.704287       1 resource_allocation.go:84] green-k8s-test-688d6758c6-8kch2 -> ip-172-20-49-41.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:200 memory:419430400] ,score 9,
+I1217 21:01:34.704467       1 resource_allocation.go:84] green-k8s-test-688d6758c6-8kch2 -> ip-172-20-49-41.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:200 memory:419430400] ,score 7,
+I1217 21:01:34.704398       1 resource_allocation.go:84] green-k8s-test-688d6758c6-8kch2 -> ip-172-20-61-178.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:320 memory:639631360] ,score 9,
+I1217 21:01:34.704592       1 resource_allocation.go:84] green-k8s-test-688d6758c6-8kch2 -> ip-172-20-61-178.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:320 memory:639631360] ,score 6,
+I1217 21:01:34.704420       1 resource_allocation.go:84] green-k8s-test-688d6758c6-8kch2 -> ip-172-20-58-134.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:300 memory:492830720] ,score 9,
+I1217 21:01:34.704732       1 resource_allocation.go:84] green-k8s-test-688d6758c6-8kch2 -> ip-172-20-58-134.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:300 memory:492830720] ,score 7,
+I1217 21:01:34.704438       1 resource_allocation.go:84] green-k8s-test-688d6758c6-8kch2 -> ip-172-20-45-201.ec2.internal: BalancedResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:300 memory:492830720] ,score 9,
+I1217 21:01:34.704885       1 resource_allocation.go:84] green-k8s-test-688d6758c6-8kch2 -> ip-172-20-45-201.ec2.internal: LeastResourceAllocation, map of allocatable resources map[cpu:1000 memory:1966559232], map of requested resources map[cpu:300 memory:492830720] ,score 7,
+I1217 21:01:34.704963       1 selector_spreading.go:146] green-k8s-test-688d6758c6-8kch2 -> ip-172-20-49-41.ec2.internal: SelectorSpreadPriority, Score: (10)
+I1217 21:01:34.705004       1 selector_spreading.go:146] green-k8s-test-688d6758c6-8kch2 -> ip-172-20-61-178.ec2.internal: SelectorSpreadPriority, Score: (10)
+I1217 21:01:34.705074       1 selector_spreading.go:146] green-k8s-test-688d6758c6-8kch2 -> ip-172-20-58-134.ec2.internal: SelectorSpreadPriority, Score: (10)
+I1217 21:01:34.705181       1 selector_spreading.go:146] green-k8s-test-688d6758c6-8kch2 -> ip-172-20-45-201.ec2.internal: SelectorSpreadPriority, Score: (10)
+I1217 21:01:34.706233       1 generic_scheduler.go:773] green-k8s-test-688d6758c6-8kch2_default -> ip-172-20-49-41.ec2.internal: ServiceSpreadingPriority, Score: (10)
+I1217 21:01:34.707872       1 generic_scheduler.go:773] green-k8s-test-688d6758c6-8kch2_default -> ip-172-20-61-178.ec2.internal: ServiceSpreadingPriority, Score: (10)
+I1217 21:01:34.708013       1 generic_scheduler.go:773] green-k8s-test-688d6758c6-8kch2_default -> ip-172-20-58-134.ec2.internal: ServiceSpreadingPriority, Score: (10)
+I1217 21:01:34.708152       1 generic_scheduler.go:773] green-k8s-test-688d6758c6-8kch2_default -> ip-172-20-45-201.ec2.internal: ServiceSpreadingPriority, Score: (10)
+I1217 21:01:34.748016       1 generic_scheduler.go:822] green-k8s-test-688d6758c6-8kch2_default -> ip-172-20-49-41.ec2.internal: http://localhost:80, Score: (7)
+I1217 21:01:34.748044       1 generic_scheduler.go:822] green-k8s-test-688d6758c6-8kch2_default -> ip-172-20-61-178.ec2.internal: http://localhost:80, Score: (1)
+I1217 21:01:34.748050       1 generic_scheduler.go:822] green-k8s-test-688d6758c6-8kch2_default -> ip-172-20-58-134.ec2.internal: http://localhost:80, Score: (10)
+I1217 21:01:34.748055       1 generic_scheduler.go:822] green-k8s-test-688d6758c6-8kch2_default -> ip-172-20-45-201.ec2.internal: http://localhost:80, Score: (0)
+I1217 21:01:34.748079       1 generic_scheduler.go:838] Host ip-172-20-49-41.ec2.internal => Score 34
+I1217 21:01:34.748096       1 generic_scheduler.go:838] Host ip-172-20-61-178.ec2.internal => Score 27
+I1217 21:01:34.748101       1 generic_scheduler.go:838] Host ip-172-20-58-134.ec2.internal => Score 37
+I1217 21:01:34.748107       1 generic_scheduler.go:838] Host ip-172-20-45-201.ec2.internal => Score 27
+I1217 21:01:34.748300       1 scheduler_binder.go:256] AssumePodVolumes for pod "default/green-k8s-test-688d6758c6-8kch2", node "ip-172-20-58-134.ec2.internal"
+I1217 21:01:34.748319       1 scheduler_binder.go:266] AssumePodVolumes for pod "default/green-k8s-test-688d6758c6-8kch2", node "ip-172-20-58-134.ec2.internal": all PVCs bound and nothing to do
+I1217 21:01:34.748389       1 factory.go:610] Attempting to bind green-k8s-test-688d6758c6-8kch2 to ip-172-20-58-134.ec2.internal
+I1217 21:01:34.748463       1 request.go:966] Request Body:
