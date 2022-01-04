@@ -6,7 +6,7 @@ import pandas as pd
 from kubernetes import client, config
 from numpy.lib.function_base import select
 
-# constants 
+# config for simulation
 START_DATE = '2020-09-22 21:40:00'
 END_DATE = '2020-09-23 20:10:00'
 INTERVAL_SECONDS = 60
@@ -15,8 +15,7 @@ MIXED_SHARE_WIND = 0.6
 LOG_MSG = "%s - %s Updating %s with a consumption of %s and %s renewable data: %s"
 NOMINAL_POWER = 10000
 
-
-
+# load kube config
 try:
     config.load_incluster_config()
 except config.ConfigException:
@@ -31,7 +30,7 @@ k8s_api = client.CoreV1Api()
 def create_forecasts(df):
     cols = ['Watt_10min']
 
-    # Forecast
+    # Rolling Windows Forecasts from 1 - 24 Hours
     for i in range(1, 25):
         col = 'Watt_' + str(i) + 'h_ahead'
         df[col] = df['Watt_10min'].rolling(6*i).mean().shift(-6*i).fillna(0)
@@ -46,7 +45,7 @@ def filter_dates(df):
 
     df['MESS_DATUM'] = pd.to_datetime(df['MESS_DATUM'], format='%Y%m%d%H%M')
 
-    # Filter
+    # Filter data according to config
     mask = (df['MESS_DATUM'] >= START_DATE) & (df['MESS_DATUM'] < END_DATE)
     selected_dates = df.loc[mask]
 
@@ -56,7 +55,7 @@ def filter_dates(df):
 
 
 def create_renewables_string(selected_dates):
-
+    # Create annotation string
     return selected_dates.apply(lambda x :';'.join(x.astype(str)),1)
 
 
@@ -226,13 +225,12 @@ def main():
 
     # iterate over renewable energy timeseries
     for index, data in renewables_data.iterrows():
-        # print("Next annotation for timestamp %s: %s, %s, %s" % (index, data['renewables_solar'], data['renewables_wind'], data['renewables_mixed']))
         print("Next annotation for timestamp %s:" % (index))
         annotate_nodes(str(index), equipped_nodes, data)
         # wait for next interval
         time.sleep(INTERVAL_SECONDS - (time.time() % INTERVAL_SECONDS))
 
-    print("We are done here.")
+    print("Simulation done.")
 
 
 if __name__ == '__main__':
